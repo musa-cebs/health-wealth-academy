@@ -29,10 +29,16 @@ ${FACTS}
 
 Respond with ONLY valid JSON, no prose, in this exact shape:
 {"scores":{${names.map((n) => `"${n}":number`).join(",")}},"red_flags":[{"flag":"string","quote":"string"}],"strengths":["string"],"improve":["string"],"summary":"string"}
-Each score must be an integer between 0 and that step's maximum.`;
+Each score must be an integer between 0 and that step's maximum. Keep every string under 25 words, with at most 3 strengths and 3 improvements, and at most 3 red flags.`;
+  let raw = "";
   try {
-    const r = await ai.messages.create({ model: MODEL, max_tokens: 900, system, messages: [{ role: "user", content: `Customer persona: ${persona.name}. ${persona.blurb}\n\nTRANSCRIPT\n${transcript}` }] });
-    const raw = r.content.map((b) => (b.type === "text" ? b.text : "")).join("");
+    const r = await ai.messages.create({ model: MODEL, max_tokens: 2500, system, messages: [{ role: "user", content: `Customer persona: ${persona.name}. ${persona.blurb}\n\nTRANSCRIPT\n${transcript}` }] });
+    raw = r.content.map((b) => (b.type === "text" ? b.text : "")).join("");
+  } catch (e) {
+    console.error("score: model call failed", e instanceof Error ? e.message : e);
+    return NextResponse.json({ error: "Scoring failed. Please try again.", reason: "model_call" }, { status: 502 });
+  }
+  try {
     const json = JSON.parse(raw.slice(raw.indexOf("{"), raw.lastIndexOf("}") + 1));
     const rows = FRAMEWORK.rubric.map(([n, max]) => ({ name: n, max, score: Math.max(0, Math.min(max, Math.round(Number(json.scores?.[n] ?? 0)))) }));
     const total = rows.reduce((a, x) => a + x.score, 0);
@@ -41,7 +47,8 @@ Each score must be an integer between 0 and that step's maximum.`;
     const sql = db(), me = readSession(req.cookies.get(COOKIE)?.value);
     if (sql && me) { try { await sql`insert into roleplay_attempts (member_id, persona, total, pass, red_flags) values (${me.sub}, ${persona.id}, ${total}, ${pass}, ${JSON.stringify(redFlags)}::jsonb)`; } catch {} }
     return NextResponse.json({ rows, total, pass, redFlags, strengths: json.strengths ?? [], improve: json.improve ?? [], summary: json.summary ?? "" });
-  } catch {
-    return NextResponse.json({ error: "Scoring failed. Please try again." }, { status: 502 });
+  } catch (e) {
+    console.error("score: could not parse model output", e instanceof Error ? e.message : e, raw.slice(0, 300));
+    return NextResponse.json({ error: "Scoring failed. Please try again.", reason: "parse" }, { status: 502 });
   }
 }
