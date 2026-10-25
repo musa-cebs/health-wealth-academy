@@ -12,13 +12,13 @@ export default function Shell({ children }: { children: React.ReactNode }) {
     <>
       <header className="top">
         <div className="top-in">
-          <div className="brand">Health &amp; Wealth Academy<small>Distributor Training System</small></div>
+          <div className="brand">Wealth Journey<small>Distributor Training System</small></div>
           <div className="tabs">{tabs}</div>
         </div>
       </header>
       <div className="wrap">
         <main>{children}</main>
-        <footer style={{ textAlign: "center", padding: "40px 0 12px", color: "var(--muted)", fontSize: 13 }}>Health &amp; Wealth Academy · Caring for people, before and after the sale.</footer>
+        <footer style={{ textAlign: "center", padding: "40px 0 12px", color: "var(--muted)", fontSize: 13 }}>Wealth Journey · Distributor Training System · Caring for people, before and after the sale.</footer>
       </div>
       <nav className="bottom" aria-label="Main">{tabs}</nav>
     </>

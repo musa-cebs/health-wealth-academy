@@ -16,7 +16,7 @@ export default function Coach({ lessonId, onClose }: { lessonId?: string; onClos
   return (
     <div className="sheet" role="dialog" aria-label="Ask the coach"><div className="in">
       <div className="row"><h3>Ask the coach</h3><button className="btn ghost" style={{ marginLeft: "auto", padding: "6px 12px" }} onClick={onClose}>Close</button></div>
-      <p className="small muted">Answers come from approved Academy content. If the coach is unsure, it says so.</p>
+      <p className="small muted">Answers come from approved Wealth Journey content. If the coach is unsure, it says so.</p>
       <div className="input-row"><input type="text" value={q} onChange={(e) => setQ(e.target.value)} onKeyDown={(e) => e.key === "Enter" && ask()} placeholder="Try: Can a customer take more than one a day?" aria-label="Question" autoFocus />
         <button className="btn" onClick={ask} disabled={busy}>{busy ? "…" : "Ask"}</button></div>
       {a && <div className="chat"><div className="bub me">{a.q}</div>{a.err ? <div className="err">{a.text}</div> : <div className="bub them" style={{ whiteSpace: "pre-wrap" }}>{a.text}</div>}</div>}

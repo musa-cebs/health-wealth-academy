@@ -18,7 +18,7 @@ export default function IntroVideo() {
   const embed = SRC ? embedUrl(SRC) : null;
   return (
     <div className="iv" role="group" aria-label="Welcome video">
-      {open && SRC && embed && <iframe className="iv-media" src={embed} title="Welcome to Health & Wealth Academy" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen />}
+      {open && SRC && embed && <iframe className="iv-media" src={embed} title="Welcome to Wealth Journey" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen />}
       {open && SRC && !embed && <video className="iv-media" src={SRC} poster={POSTER || undefined} controls autoPlay playsInline />}
       {!(open && SRC) && (
         <>
@@ -37,7 +37,7 @@ export default function IntroVideo() {
           {open && !SRC && (
             <div className="iv-soon" role="status">
               <p className="iv-soon-t">Your welcome video is being recorded.</p>
-              <p>Sabelo, Lungile and Lerato will greet you here and explain how the Academy will grow your health and your business.</p>
+              <p>Sabelo, Lungile and Lerato will greet you here and explain how Wealth Journey will grow your health and your business.</p>
               <button className="lp-btn ghost" onClick={() => setOpen(false)}>Close</button>
             </div>
           )}
