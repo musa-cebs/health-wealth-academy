@@ -1,6 +1,6 @@
 # Health & Wealth Academy
 
-Wealth Journey Training System: Next.js (App Router, TypeScript), Claude via the Anthropic SDK.
+Wealth Journey Training Program: Next.js (App Router, TypeScript), Claude via the Anthropic SDK.
 
 ## Run locally
 

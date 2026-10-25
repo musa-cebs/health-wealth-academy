@@ -7,7 +7,7 @@ const serif = Cormorant_Garamond({ subsets: ["latin"], weight: ["500", "600", "7
 const body = Instrument_Sans({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 const display = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-display", display: "swap" });
 
-export const metadata: Metadata = { title: "Health & Wealth Academy · Wealth Journey Training System", description: "Health & Wealth Academy: the Wealth Journey Training System for distributors" };
+export const metadata: Metadata = { title: "Health & Wealth Academy · Wealth Journey Training Program", description: "Health & Wealth Academy: the Wealth Journey Training Program for distributors" };
 export const viewport: Viewport = { width: "device-width", initialScale: 1, viewportFit: "cover" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
