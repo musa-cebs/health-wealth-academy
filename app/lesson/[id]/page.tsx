@@ -43,8 +43,14 @@ export default function LessonPage() {
       <div className="steps">{steps.map(([k, n, d]) => <button key={k} className={`step ${d ? "done" : ""}`} aria-current={step === k} onClick={() => setStep(k)}>{n}</button>)}</div>
 
       {step === "watch" && <>
-        <div className="video"><div className="p">Presenter to be confirmed · {lesson.mins} min lesson</div><div className="t">L{lesson.id} {lesson.title}</div>
-          <button className="play" onClick={togglePlay} aria-label={playing ? "Pause" : "Play"}>{playing ? "❚❚" : "▶"}</button><div className="vbar"><i style={{ width: `${vp}%` }} /></div></div>
+        <div className="iv lesson" role="group" aria-label="Lesson video">
+          <div className="iv-art" aria-hidden="true"><i className="leaf l1" /><i className="leaf l2" /><i className="loz z1" /><i className="loz z2" /><i className="loz z3" /><i className="loz z4" /></div>
+          <div className="iv-cap"><span className="iv-kicker">Lesson {lesson.id} · {lesson.mins} min · Presenter to be confirmed</span><span className="iv-title">{lesson.title}</span></div>
+          <button className="iv-play" onClick={togglePlay} aria-label={playing ? "Pause" : "Play"}>{playing
+            ? <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor" /></svg>
+            : <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor" /></svg>}</button>
+          <div className="iv-bar"><i style={{ width: `${vp}%` }} /></div>
+        </div>
         <p className="small muted">Placeholder player. The recorded lecture video will stream here, with captions and a low-data mode.</p>
         <h3 style={{ marginTop: 12 }}>Chapters</h3>
         {lesson.video.map((v, i) => <button key={i} className="chap" onClick={() => setVp(Math.round(((i + 1) / lesson.video.length) * 100))}><span className="lid">{i + 1}</span><span>{v}</span></button>)}

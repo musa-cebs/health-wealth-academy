@@ -10,12 +10,15 @@ export default function Shell({ children }: { children: React.ReactNode }) {
   const tabs = TABS.map(([h, n]) => <Link key={h} href={h} className="tab" aria-current={active(h)}>{n}</Link>);
   return (
     <>
-      <div className="wrap">
-        <header className="top">
+      <header className="top">
+        <div className="top-in">
           <div className="brand">Health &amp; Wealth Academy<small>Distributor Training System</small></div>
           <div className="tabs">{tabs}</div>
-        </header>
+        </div>
+      </header>
+      <div className="wrap">
         <main>{children}</main>
+        <footer style={{ textAlign: "center", padding: "40px 0 12px", color: "var(--muted)", fontSize: 13 }}>Health &amp; Wealth Academy · Caring for people, before and after the sale.</footer>
       </div>
       <nav className="bottom" aria-label="Main">{tabs}</nav>
     </>
