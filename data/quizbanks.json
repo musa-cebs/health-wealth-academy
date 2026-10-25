@@ -1,0 +1,150 @@
+{
+ "1.1": [
+  {
+   "m": 1,
+   "q": "Complete the sentence: Health & Wealth is not a hit-and-run, but a ____.",
+   "o": [
+    "quick sale",
+    "health journey",
+    "one-time offer",
+    "price promotion"
+   ],
+   "a": 1,
+   "w": "Customers are cared for before, during and after the sale."
+  },
+  {
+   "m": 2,
+   "q": "A customer received her order last week. Which action best reflects the Health & Wealth way?",
+   "o": [
+    "Move on to the next sale; she has already bought.",
+    "Check in on how she is doing, answer her questions, and offer support even if it goes beyond products.",
+    "Wait until she contacts you.",
+    "Contact her only when it is time to reorder."
+   ],
+   "a": 1,
+   "w": "Not a hit-and-run: we care after the sale."
+  },
+  {
+   "m": 2,
+   "q": "Three months after buying, a customer mentions she feels lonely and struggling at home. What do you do?",
+   "o": [
+    "Ignore it; it is not about products.",
+    "Tell her the product will fix it.",
+    "Listen kindly, encourage her, and suggest professional support if she needs it.",
+    "Change the subject to a new product."
+   ],
+   "a": 2,
+   "w": "We love and care for people, including outside the scope of products."
+  },
+  {
+   "m": 2,
+   "q": "What does Sweety do for your customers?",
+   "o": [
+    "Replaces you completely.",
+    "Chats with customers on your behalf in several languages, and a real person can step in on request.",
+    "Only sends the price list.",
+    "Works only in English."
+   ],
+   "a": 1,
+   "w": "Sweety carries your name and serves customers in 8 languages."
+  },
+  {
+   "m": 1,
+   "q": "Which action is brand-ambassador behaviour?",
+   "o": [
+    "Posting exaggerated results to get attention.",
+    "Sharing accurate, caring content with consent.",
+    "Copying other brands' ads.",
+    "Arguing with critics online."
+   ],
+   "a": 1,
+   "w": "Every conversation grows the Health & Wealth name."
+  },
+  {
+   "m": 2,
+   "q": "Which statement about income is safe in your first week?",
+   "o": [
+    "Many people earn in their first month.",
+    "Your results depend on your effort; we never quote guaranteed figures.",
+    "You will replace your salary in 90 days.",
+    "Everyone here is successful."
+   ],
+   "a": 1,
+   "w": "No guarantees and no income promises."
+  }
+ ],
+ "1.3": [
+  {
+   "m": 1,
+   "q": "Which wording is safest?",
+   "o": [
+    "Cures arthritis",
+    "Supports joint comfort",
+    "Treats joint pain",
+    "Reverses inflammation"
+   ],
+   "a": 1,
+   "w": "Use 'supports, maintains, helps'."
+  },
+  {
+   "m": 2,
+   "q": "A customer writes: 'I have arthritis, what should I take?' Best first reply?",
+   "o": [
+    "Take SLD, it helps with joints.",
+    "Acknowledge warmly, then ask them to describe what is going on in their own words.",
+    "Tell them to stop their tablets and try our products.",
+    "Send the full catalogue."
+   ],
+   "a": 1,
+   "w": "A disease name alone is never enough to recommend anything."
+  },
+  {
+   "m": 2,
+   "q": "Mr Dlamini wants to replace his diabetes tablets with NRM. What do you say?",
+   "o": [
+    "That is fine, NRM is stronger.",
+    "Keep taking your prescribed treatment exactly as your doctor says; NRM is a complement, and your doctor should know what you take.",
+    "Halve your dose first and see.",
+    "Only if your sugar is low."
+   ],
+   "a": 1,
+   "w": "Never suggest stopping, reducing or replacing medication."
+  },
+  {
+   "m": 2,
+   "q": "Which message breaks the rules?",
+   "o": [
+    "RLX supports calm and restful sleep.",
+    "HPY is a mood stabiliser that treats anxiety.",
+    "GTS supports stamina and vitality.",
+    "MLS supports digestion and gut health."
+   ],
+   "a": 1,
+   "w": "'Mood stabiliser' and 'treats anxiety' are medical claims."
+  },
+  {
+   "m": 1,
+   "q": "When should you suggest seeing a doctor?",
+   "o": [
+    "Only if the customer asks.",
+    "Never; we are not doctors.",
+    "When symptoms sound serious or have gone on long; say it plainly and warmly.",
+    "Only after they buy."
+   ],
+   "a": 2,
+   "w": "Care first: never let hesitation get in the way of wellbeing."
+  },
+  {
+   "m": 2,
+   "q": "Which opening question is best?",
+   "o": [
+    "What illness do you have?",
+    "What would you like help with today?",
+    "How much do you want to spend?",
+    "Are you sick?"
+   ],
+   "a": 1,
+   "w": "We ask about goals and symptoms, never diagnoses."
+  }
+ ]
+}

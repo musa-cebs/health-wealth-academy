@@ -1,0 +1,87 @@
+[
+ {
+  "id": 1,
+  "type": "Product sheet",
+  "title": "SLD (Slide)",
+  "tags": [
+   "joints",
+   "standard"
+  ],
+  "body": "Supports joint comfort, flexibility and the skeletal system. Turmeric and ginger ease stiffness; licorice calms muscle tension. Standard tier R860. Dissolve one lozenge in the mouth. Full benefit builds over 3 to 6 months."
+ },
+ {
+  "id": 2,
+  "type": "Product sheet",
+  "title": "RLX (Relax)",
+  "tags": [
+   "sleep",
+   "stress",
+   "standard"
+  ],
+  "body": "Supports calm, restful sleep and stress management. Chamomile and passionflower calm the nervous system; banana's magnesium supports muscle relaxation. Standard tier R860."
+ },
+ {
+  "id": 3,
+  "type": "Product sheet",
+  "title": "NRM (Normal)",
+  "tags": [
+   "blood sugar",
+   "standard"
+  ],
+  "body": "Supports the body's natural blood-sugar metabolism within a healthy range. Never a replacement for prescribed medication; doctor first. Standard tier R860."
+ },
+ {
+  "id": 4,
+  "type": "Script",
+  "title": "Objection: 'Will I feel results right away?'",
+  "tags": [
+   "objection",
+   "explain"
+  ],
+  "body": "Some people notice an early difference, especially with energy and focus products, but the full benefit builds over 3 to 6 months of consistent use, so don't judge it too early. Does that make sense?"
+ },
+ {
+  "id": 5,
+  "type": "Script",
+  "title": "Objection: 'Can this replace my medication?'",
+  "tags": [
+   "objection",
+   "compliance"
+  ],
+  "body": "No. It is a complementary tool alongside a healthy lifestyle and any treatment your doctor prescribes. Please keep taking what your doctor has given you exactly as instructed."
+ },
+ {
+  "id": 6,
+  "type": "Script",
+  "title": "Opening line: first conversation",
+  "tags": [
+   "clarify",
+   "opening"
+  ],
+  "body": "What would you like help with today? Tell me in your own words, and take your time."
+ },
+ {
+  "id": 7,
+  "type": "Testimonial (example format)",
+  "title": "Customer story · pending consent",
+  "tags": [
+   "energy",
+   "testimonial"
+  ],
+  "status": "Consent: not recorded",
+  "flag": null,
+  "body": "Example format only. A real testimonial appears here with the person's consent record, product, need and language, and a compliance status before it can be used."
+ },
+ {
+  "id": 8,
+  "type": "Testimonial (example format)",
+  "title": "Flagged by compliance check",
+  "tags": [
+   "joints",
+   "testimonial"
+  ],
+  "status": "Review needed",
+  "flag": "Contains the word 'cured', which is a disease claim. Suggested edit: 'My joints feel more comfortable since I started SLD.'",
+  "body": "Example: 'This product cured my arthritis.' The system flags this automatically and suggests a safe edit."
+ }
+]

@@ -1,0 +1,119 @@
+{
+ "1.1": [
+  {
+   "q": "A customer received her order last week. Which action best reflects the Health & Wealth way?",
+   "o": [
+    "Move on to the next sale; she has already bought.",
+    "Check in on how she is doing, answer her questions, and offer support even if it goes beyond products.",
+    "Wait until she contacts you.",
+    "Contact her only when it is time to reorder."
+   ],
+   "a": 1,
+   "w": "Not a hit-and-run but a health journey: customers are cared for after the sale."
+  }
+ ],
+ "1.3": [
+  {
+   "q": "A customer writes: 'I have arthritis, what should I take?' What is the best first reply?",
+   "o": [
+    "Take SLD, it helps with joints.",
+    "Acknowledge warmly, then ask them to describe what is going on in their own words.",
+    "Tell them to stop their current tablets and try our products.",
+    "Send the full catalogue."
+   ],
+   "a": 1,
+   "w": "A disease name alone is never enough to recommend anything. Discovery comes first."
+  }
+ ],
+ "1.4": [
+  {
+   "q": "Which sentence is NOT safe to use?",
+   "o": [
+    "Many people start earning in their first month.",
+    "Your results depend on your effort and activity.",
+    "The compensation plan includes retail profit and team commissions.",
+    "I can show you the official income disclosure."
+   ],
+   "a": 0,
+   "w": "It implies a typical outcome that cannot be supported."
+  }
+ ],
+ "2.2": [
+  {
+   "q": "HRT belongs to which price tier?",
+   "o": [
+    "Standard R860",
+    "Premium R1350",
+    "Elite R1850",
+    "Elite Special R1620"
+   ],
+   "a": 1,
+   "w": "HRT is in the Premium tier."
+  }
+ ],
+ "2.4": [
+  {
+   "q": "A customer asks: 'Is it scientifically proven?' Best reply?",
+   "o": [
+    "Yes, clinical studies prove it works.",
+    "There are no large-scale trials on the finished products, but several of the plant ingredients have published research of their own.",
+    "Nobody can prove supplements work.",
+    "I cannot discuss that."
+   ],
+   "a": 1,
+   "w": "Honest and specific, with no overclaiming."
+  }
+ ],
+ "3.3": [
+  {
+   "q": "Mr Dlamini says he wants to replace his diabetes tablets with NRM. What do you say?",
+   "o": [
+    "That is fine, NRM is stronger.",
+    "Keep taking your prescribed treatment exactly as your doctor says; NRM is a complement, and your doctor should know what you take.",
+    "Halve your dose first and see.",
+    "Only if your sugar is below a certain number."
+   ],
+   "a": 1,
+   "w": "Never suggest stopping, reducing or replacing medication."
+  }
+ ],
+ "4.3": [
+  {
+   "q": "Which is the required question during Overview?",
+   "o": [
+    "What is your monthly income?",
+    "Are you currently on any chronic or prescription medication?",
+    "Do you have medical aid?",
+    "How old are you?"
+   ],
+   "a": 1,
+   "w": "The answer changes what you say in the recommendation."
+  }
+ ],
+ "5.5": [
+  {
+   "q": "A customer in Polokwane orders one box for delivery. Which delivery fee applies?",
+   "o": [
+    "R0",
+    "R109.20",
+    "R119.70",
+    "R150"
+   ],
+   "a": 2,
+   "w": "Polokwane is not one of the six main cities, so R119.70 applies."
+  }
+ ],
+ "7.4": [
+  {
+   "q": "A prospect says 'I'm not good at selling.' Best response?",
+   "o": [
+    "Then this is not for you.",
+    "This is more about sharing something you believe in, and you will have training and a coach; shall we look at what you would be comfortable with?",
+    "Everyone says that at the start.",
+    "You will be a natural, I guarantee."
+   ],
+   "a": 1,
+   "w": "Honest, supportive, and ends with a question."
+  }
+ ]
+}

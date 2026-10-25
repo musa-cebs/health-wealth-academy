@@ -1,0 +1,158 @@
+{
+ "levels": [
+  [
+   "Level 1",
+   "Certified Associate",
+   "End of Week 3",
+   "Compliance gate and product exam passed. Allowed to represent the products."
+  ],
+  [
+   "Level 2",
+   "Certified Advisor",
+   "End of Week 5",
+   "Two full CLOSER simulations at 75 or more with no red flags. Recognised as ready to advise customers."
+  ],
+  [
+   "Level 3",
+   "Certified Builder",
+   "End of Week 8",
+   "Capstone passed. Shareable certificate and profile badge."
+  ],
+  [
+   "Add-on",
+   "Team Trainer",
+   "After Level 3",
+   "Leaders who coach a minimum number of team members through the program. Unlocks the leader dashboard tools."
+  ]
+ ],
+ "rubric": [
+  [
+   "Clarify",
+   15,
+   "Opens warmly, asks about severity and duration, one question at a time"
+  ],
+  [
+   "Label",
+   10,
+   "Names the problem back in one genuine sentence and checks it"
+  ],
+  [
+   "Overview",
+   15,
+   "Asks what has been tried and always asks about medication"
+  ],
+  [
+   "Sell the vacation",
+   15,
+   "Short bridge, outcome-led, honest recommendation of the right products"
+  ],
+  [
+   "Explain away concerns",
+   15,
+   "Answers objections honestly; never overclaims"
+  ],
+  [
+   "Reinforce",
+   10,
+   "One genuine reinforcing line, then receive method first"
+  ],
+  [
+   "Lead the close",
+   5,
+   "Steers every message to a next step without pressure"
+  ],
+  [
+   "Care, culture and compliance",
+   15,
+   "Safe language, doctor referral where needed, and treats the customer as a health journey, never a one-off sale"
+  ]
+ ],
+ "redflags": [
+  "Claims to cure, treat, prevent or reverse a disease",
+  "Diagnoses a customer or names a disease as their condition",
+  "Suggests stopping, pausing or replacing prescribed medication",
+  "Guarantees results or income",
+  "Says clinical studies prove the product works",
+  "Invents a testimonial, statistic or credential",
+  "Ignores a serious symptom and does not suggest seeing a doctor",
+  "Uses pressure or false urgency to close",
+  "Shares a customer's details or story without consent"
+ ],
+ "personas": [
+  [
+   "Thandi, 52",
+   "Stiff finger joints for three months, on blood-pressure tablets.",
+   "Tests the medication question, the SLD recommendation and the no-stopping-medication rule."
+  ],
+  [
+   "Sipho, 38",
+   "Tired all the time, tight budget.",
+   "Price objection and Standard versus Premium honesty."
+  ],
+  [
+   "Limakatso, 29",
+   "Wants to lose weight fast and asks for a promise.",
+   "Tests claim discipline around PFT."
+  ],
+  [
+   "Mr Dlamini, 60",
+   "Type 2 diabetes, asks if NRM can replace his tablets.",
+   "Hard compliance case; the correct answer is always doctor first."
+  ],
+  [
+   "Nomsa, 45",
+   "Sceptical: 'Is this proven?'",
+   "Honest science answer without overclaiming."
+  ],
+  [
+   "Mpho, 34",
+   "Replies in Sesotho.",
+   "Tests multilingual service and switching language mid-conversation."
+  ],
+  [
+   "Zanele, 33",
+   "Unemployed and hopeful about the business.",
+   "Tests income-claim discipline and honest framing."
+  ],
+  [
+   "Gogo Maria, 67",
+   "A customer three months in, who mentions she is lonely and struggling at home.",
+   "Tests after-sale care beyond products: listening, kindness and knowing when to refer."
+  ],
+  [
+   "Bongani, 41",
+   "'Isn't this a pyramid scheme?'",
+   "Business objection handling and ethical recruiting."
+  ]
+ ],
+ "library": [
+  [
+   "Testimonials",
+   "Video, audio and text stories, tagged by product, need, audience and language. Each item carries a consent record and a compliance status before it can be used."
+  ],
+  [
+   "Product one-pagers",
+   "One page per product: code, tier, key ingredients, how to use, who it suits, approved wording."
+  ],
+  [
+   "Approved claims list",
+   "Words and sentences safe to use, and words to avoid, searchable and used by the coach and the scorer."
+  ],
+  [
+   "Scripts and templates",
+   "Opening lines, objection replies, follow-up messages and social posts, ready to adapt."
+  ],
+  [
+   "Presentations",
+   "Business presentation decks, compensation plan explainers and income disclosure."
+  ],
+  [
+   "Event recordings",
+   "Boot camps, webinars and leadership sessions, searchable by topic."
+  ],
+  [
+   "Best roleplay clips",
+   "Top-scoring practice conversations, shared with the learner's permission."
+  ]
+ ]
+}

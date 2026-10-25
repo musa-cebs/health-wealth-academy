@@ -1,0 +1,737 @@
+[
+ {
+  "n": 1,
+  "title": "Foundations, Culture and Compliance",
+  "thread": "Not a hit-and-run: a health journey.",
+  "goal": "Understand who we are, how the business works, and how to speak safely. Nothing else unlocks until the compliance gate is passed.",
+  "badge": "Safe Hands",
+  "gate": "Compliance Gate: 20 questions, pass mark 90%, and zero red-flag answers. Unlocks every later week.",
+  "lab": "Spot and Fix: 6 real-world messages containing unsafe claims; rewrite each safely. AI-marked, 20 marks.",
+  "lessons": [
+   {
+    "id": "1.1",
+    "title": "Welcome to Health & Wealth: who we are and how we care",
+    "mins": 30,
+    "outcomes": [
+     "Tell the Health & Wealth story and explain what makes the company different",
+     "Explain our code and culture, including 'not a hit-and-run, but a health journey'",
+     "Describe how Sweety serves your customers on your behalf",
+     "Set a specific 90-day goal"
+    ],
+    "video": [
+     "Who we are: a young company with big ambitions, and why the Academy exists",
+     "Our code: we love and care for people",
+     "Not a hit-and-run but a health journey: customers are loved enough to receive after-sales care and support, even outside the scope of products",
+     "What that looks like in practice: check-ins, listening, encouragement, and referring people to a doctor when that is what they need",
+     "Your role as a brand ambassador: how every conversation grows the Health & Wealth name",
+     "Meet Sweety: customers chat with the assistant in 8 languages, and it carries your name",
+     "The 8-week map and your 90-day goal: what, how much, by when"
+    ],
+    "assess": "Orientation and culture quiz, 10 marks: single choice, 'which reply reflects the Health & Wealth way?' scenarios, and ordering.",
+    "practice": "Goal worksheet plus 'My Health & Wealth promise': in your own words, how you will care for your customers. The coach checks specificity and sincerity."
+   },
+   {
+    "id": "1.2",
+    "title": "How the business works",
+    "mins": 25,
+    "outcomes": [
+     "Trace a customer order from first message to delivery or collection",
+     "Name the ways a distributor earns without quoting figures",
+     "Explain your role at each step"
+    ],
+    "video": [
+     "The customer journey: referral link, Sweety conversation, recommendation, payment, delivery or collection",
+     "What happens automatically and what you do personally",
+     "Income streams in plain terms: retail, referrals, team building",
+     "Why we never quote income figures in conversation"
+    ],
+    "assess": "Order-the-steps question plus 4 single-choice. 10 marks.",
+    "practice": null
+   },
+   {
+    "id": "1.3",
+    "title": "Speaking responsibly about health",
+    "mins": 30,
+    "outcomes": [
+     "Use 'supports, maintains, helps' language and avoid 'cures, treats, prevents'",
+     "Never diagnose, and never suggest stopping or replacing medication",
+     "Recognise when a customer needs a doctor first"
+    ],
+    "video": [
+     "Why claims rules exist and who they protect",
+     "Words we use and words we never use",
+     "The medication rule: always keep taking what the doctor prescribed",
+     "When to say plainly and warmly: please see a doctor",
+     "Why we never ask a customer what 'illness' they have; we ask what they would like help with"
+    ],
+    "assess": "Rewrite-the-claim scenarios (2 x 2 marks), spot-the-violation (2), 4 single-choice. 10 marks.",
+    "practice": "Practice: 3 customer messages, reply safely. Marked against the red-flag list."
+   },
+   {
+    "id": "1.4",
+    "title": "Honest income talk and privacy",
+    "mins": 25,
+    "outcomes": [
+     "Talk about the opportunity without guarantees or inflated claims",
+     "Handle customer details and testimonials with consent",
+     "Use the follow-up opt-in correctly"
+    ],
+    "video": [
+     "Income claims: why 'many people start earning in their first month' is not safe wording",
+     "Honest alternatives that are still encouraging",
+     "Personal information: what you may keep, share and never share",
+     "Consent for messages, photos and testimonials (POPIA basics)"
+    ],
+    "assess": "Spot-the-violation (3 x 2 marks) plus 4 single-choice. 10 marks.",
+    "practice": null
+   }
+  ]
+ },
+ {
+  "n": 2,
+  "title": "Product Knowledge I: Technology, Range and Honest Science",
+  "thread": "Honesty builds trust that lasts.",
+  "goal": "Know the range, the price tiers and the honest answer to 'does it work?'.",
+  "badge": "Know the Range",
+  "gate": null,
+  "lab": "Product Fact Sprint: 15 timed questions on codes, tiers, usage and evidence answers. 20 marks.",
+  "lessons": [
+   {
+    "id": "2.1",
+    "title": "What makes APLGO different",
+    "mins": 25,
+    "outcomes": [
+     "Explain Acumullit SA technology in two plain sentences",
+     "Describe the lozenge format and why it matters to customers",
+     "Avoid over-claiming about absorption"
+    ],
+    "video": [
+     "Plant extracts, negative-ion infusion and the dissolvable lozenge",
+     "Why customers like it: nothing to swallow, no water needed",
+     "What we say and what we leave out (wording to be approved by compliance)",
+     "Using ONE benefit at a time instead of reciting every feature"
+    ],
+    "assess": "Single-choice, match-the-term, and 'which sentence is safe' scenarios. 10 marks.",
+    "practice": "Practice: explain the technology to a curious customer in 30 seconds (voice or text)."
+   },
+   {
+    "id": "2.2",
+    "title": "The range at a glance",
+    "mins": 30,
+    "outcomes": [
+     "Name all 19 products by code and by name",
+     "State each product's price tier",
+     "Group products by what they support"
+    ],
+    "video": [
+     "Standard R860: PWR Apricot, PWR Lemon, GTS, SLD, RLX, NRM, STP, GRW",
+     "Premium R1350: MLS, ALT, HRT, ICE, HPR, LFT",
+     "Elite R1850: BTY, BRN, HPY, AIR",
+     "Elite Special R1620: PFT",
+     "Memory aids and how the packaging colours help"
+    ],
+    "assess": "Matching (code to name to tier), 10 marks. Flash-card mode available for revision.",
+    "practice": null
+   },
+   {
+    "id": "2.3",
+    "title": "Using the products well",
+    "mins": 20,
+    "outcomes": [
+     "Give correct usage guidance",
+     "Explain the 3 to 6 month consistency message",
+     "Answer 'can I take more?' correctly"
+    ],
+    "video": [
+     "Dissolve in the mouth; the approved dosage statement (open item: usage wording differs between sources)",
+     "Consistency beats quantity: more is not better",
+     "Early effects versus full benefit over months",
+     "A supplement complements a healthy lifestyle and never replaces diet, exercise or prescribed treatment"
+    ],
+    "assess": "Scenario replies (3 x 2 marks) and 4 single-choice. 10 marks.",
+    "practice": "Practice: respond to 'I want to take four a day so it works faster.'"
+   },
+   {
+    "id": "2.4",
+    "title": "The honest answer on science and safety",
+    "mins": 30,
+    "outcomes": [
+     "Answer 'is it proven?' honestly",
+     "Explain what ingredient-level research does and does not show",
+     "Describe registration and quality statements only in approved wording"
+    ],
+    "video": [
+     "What exists: published research on individual ingredients such as ashwagandha and avocado",
+     "What does not exist: large-scale clinical trials on the finished products",
+     "Never say 'clinical studies prove this works'",
+     "Registration statements: use only the wording compliance approves",
+     "Myths and facts: the 10 workbook myths, corrected for accuracy"
+    ],
+    "assess": "Scenario replies (2 x 3 marks), 4 single-choice. 10 marks.",
+    "practice": "Practice: a sceptical customer asks for proof. Scored on honesty, warmth and a next step."
+   }
+  ]
+ },
+ {
+  "n": 3,
+  "title": "Product Knowledge II: Matching Products to Needs",
+  "thread": "Listen first, then recommend.",
+  "goal": "Learn the range by customer need, not by catalogue order.",
+  "badge": "Product Pro",
+  "gate": "Level 1 Certified Associate exam: 40 questions (product matching, claims, usage), pass mark 80%, plus the Compliance Gate on record.",
+  "lab": "Match-the-Need Lab: 10 customer cases, recommend the best fit and explain why in one mechanism. 30 marks.",
+  "lessons": [
+   {
+    "id": "3.1",
+    "title": "Energy, stamina and performance",
+    "mins": 25,
+    "outcomes": [
+     "Recommend between GTS, PWR Apricot, PWR Lemon, STP and BRN",
+     "Explain each in one benefit and two ingredients"
+    ],
+    "video": [
+     "GTS: strength, stamina and vitality (ginseng, ashwagandha, green tea)",
+     "PWR Apricot for women, PWR Lemon for men",
+     "STP: recovery after exertion",
+     "BRN: mental performance and focus",
+     "Choosing between them with one question"
+    ],
+    "assess": "Case matching (4 cases x 2 marks) and 2 single-choice. 10 marks.",
+    "practice": "Practice: two customer cases, recommend and explain."
+   },
+   {
+    "id": "3.2",
+    "title": "Stress, mood and sleep",
+    "mins": 25,
+    "outcomes": [
+     "Tell RLX, HPY and GTS apart",
+     "Use calm, non-clinical language for mood and anxiety topics"
+    ],
+    "video": [
+     "RLX: calm and restful sleep",
+     "HPY: mood, relaxation and stress management",
+     "Where GTS and BRN overlap on stress resilience",
+     "Language to avoid: 'treats anxiety', 'mood stabiliser' and similar"
+    ],
+    "assess": "Case matching (3 x 2) plus spot-the-claim (2) and 2 single-choice. 10 marks.",
+    "practice": "Practice: a stressed customer who sleeps badly."
+   },
+   {
+    "id": "3.3",
+    "title": "Weight, appetite and blood sugar",
+    "mins": 25,
+    "outcomes": [
+     "Explain PFT and NRM correctly",
+     "Handle blood-sugar conversations safely"
+    ],
+    "video": [
+     "PFT: appetite, metabolism and weight management with diet and exercise",
+     "NRM: supports blood-sugar metabolism within a healthy range",
+     "NRM never replaces diabetes medication; always the doctor first",
+     "Combining with GTS in programs"
+    ],
+    "assess": "Case matching (3 x 2), medication-safety scenario (2), 2 single-choice. 10 marks.",
+    "practice": "Practice: a customer on diabetes medication asks if NRM replaces it."
+   },
+   {
+    "id": "3.4",
+    "title": "Joints, digestion and liver",
+    "mins": 25,
+    "outcomes": [
+     "Recommend between SLD, STP, MLS, ICE and HPR",
+     "Explain the MLS and HPR pairing"
+    ],
+    "video": [
+     "SLD: joint comfort and flexibility (turmeric, ginger)",
+     "MLS: digestion and gut health; HPR: liver and pancreas, gentle detox",
+     "ICE: occasional heartburn, overeating and regularity",
+     "STP versus SLD: recovery versus ongoing joint comfort"
+    ],
+    "assess": "Case matching (4 x 2) and 2 single-choice. 10 marks.",
+    "practice": "Practice: stiff joints plus a sluggish stomach."
+   },
+   {
+    "id": "3.5",
+    "title": "Heart, immunity, breathing, skin and ageing",
+    "mins": 30,
+    "outcomes": [
+     "Recommend between HRT, GRW, ALT, AIR, BTY and LFT",
+     "Keep heart and ageing language compliant"
+    ],
+    "video": [
+     "HRT: normal circulatory function, alongside diet and exercise, never a substitute",
+     "GRW: immune system, hair, skin and nails",
+     "ALT and AIR: respiratory comfort and immune support",
+     "BTY: skin, scalp and hair vitality",
+     "LFT: cellular and antioxidant protection"
+    ],
+    "assess": "Case matching (4 x 2) and 2 single-choice. 10 marks.",
+    "practice": "Practice: a customer with several concerns; recommend a sensible combination and say why."
+   }
+  ]
+ },
+ {
+  "n": 4,
+  "title": "CLOSER Part 1: Discovery",
+  "thread": "We love and care for people.",
+  "goal": "Learn to listen first. Clarify, Label and Overview, in our care-first version of Alex Hormozi's CLOSER framework.",
+  "badge": "Great Listener",
+  "gate": null,
+  "lab": "Discovery Lab: three personas. Marked on Clarify, Label, Overview and compliance only. 40 marks.",
+  "lessons": [
+   {
+    "id": "4.1",
+    "title": "CLOSER and the care-first spirit",
+    "mins": 25,
+    "outcomes": [
+     "Name the six CLOSER steps",
+     "Explain why you lead the conversation",
+     "Explain why every message ends with something for the customer to answer"
+    ],
+    "video": [
+     "Origin of CLOSER (Hormozi) and why we use a caring, not pushy, version",
+     "Clarify, Label, Overview, Sell the vacation, Explain away concerns, Reinforce",
+     "You steer; the customer should never have to work out what happens next",
+     "Every reply ends with a question, invitation or clear next step"
+    ],
+    "assess": "Ordering and match questions, 10 marks.",
+    "practice": "Practice: watch two sample chats, find the CLOSER step in each message."
+   },
+   {
+    "id": "4.2",
+    "title": "Clarify",
+    "mins": 25,
+    "outcomes": [
+     "Open with one warm question",
+     "Ask one follow-up on duration and impact",
+     "Avoid interrogating"
+    ],
+    "video": [
+     "First question: what is going on, in their own words",
+     "The second question: how long, and how much is it affecting your day",
+     "One thing at a time, acknowledge before you ask",
+     "Language: describe symptoms and goals, never diagnoses"
+    ],
+    "assess": "Best-next-question scenarios (4 x 2) and 2 single-choice. 10 marks.",
+    "practice": "Practice: Clarify with a vague opening message ('hi, I'm tired all the time')."
+   },
+   {
+    "id": "4.3",
+    "title": "Label and Overview",
+    "mins": 30,
+    "outcomes": [
+     "Name the customer's problem back in one genuine sentence",
+     "Ask what they have already tried",
+     "Always ask about chronic or prescription medication",
+     "Ask permission for helpful tips, once"
+    ],
+    "video": [
+     "The Label: specific, warm, checked with them",
+     "Why Label is the step that makes the rest feel like care",
+     "Overview: what have you tried, what happened",
+     "The medication question, framed with care",
+     "Follow-up opt-in: ask once, respect the answer"
+    ],
+    "assess": "Write-the-Label (2 x 3 marks), medication scenario (2), 2 single-choice. 10 marks.",
+    "practice": "Practice: Label and Overview with a customer on blood-pressure medication."
+   },
+   {
+    "id": "4.4",
+    "title": "The recommendation gate and shortcuts",
+    "mins": 20,
+    "outcomes": [
+     "Know when you may recommend a product",
+     "Handle customers who name a product, ask for the catalogue or ask for a person"
+    ],
+    "video": [
+     "A symptom name on its own is never enough to recommend",
+     "Discovery complete means you move straight to the recommendation",
+     "Customer names a product: go straight to quantity",
+     "Catalogue request: show the range, skip discovery",
+     "Asking for a human or a nearby distributor: hand over at once"
+    ],
+    "assess": "Route-the-message scenarios (5 x 2 marks). 10 marks.",
+    "practice": null
+   }
+  ]
+ },
+ {
+  "n": 5,
+  "title": "CLOSER Part 2: Recommend, Overcome, Reinforce",
+  "thread": "The sale is the start of the relationship.",
+  "goal": "Turn understanding into a recommendation, handle concerns honestly, and complete the order with care.",
+  "badge": "Closer",
+  "gate": "Level 2 Certified Advisor: two full CLOSER simulations scoring 75 or more with no red flags, plus a 30-question knowledge exam at 80%.",
+  "lab": "Full CLOSER Simulation: complete conversation from greeting to confirmed order, marked on the 100-point scorecard.",
+  "lessons": [
+   {
+    "id": "5.1",
+    "title": "Sell the vacation",
+    "mins": 30,
+    "outcomes": [
+     "Bridge into a recommendation in one or two sentences",
+     "Recommend one to four products ethically",
+     "Write a product caption that sells the outcome"
+    ],
+    "video": [
+     "Selling the outcome in their life, not the ingredient list",
+     "The short bridge: name the products, no pitch yet",
+     "Recommending more than one product only when it genuinely helps",
+     "Standard versus Premium: mention honestly, never to pad the order",
+     "Anatomy of a caption: why this fits you, price, one or two ingredients, how to use and the 3 to 6 month note, one objection line, invitation to order"
+    ],
+    "assess": "Caption-critique (2 x 3 marks) and 4 single-choice. 10 marks.",
+    "practice": "Practice: write a caption under 900 characters for a given customer."
+   },
+   {
+    "id": "5.2",
+    "title": "Explain away concerns",
+    "mins": 30,
+    "outcomes": [
+     "Respond to the common concerns honestly",
+     "Acknowledge, answer, and ask",
+     "Never overclaim to win the sale"
+    ],
+    "video": [
+     "Will I feel results right away? Some do, full benefit builds over months",
+     "Is it safe and regulated? Approved wording only",
+     "Will more work faster? No, consistency matters",
+     "Can it replace my medication or diet? No",
+     "Price: value, tier choice, and not rushing",
+     "Optional enrichment: Hormozi's Acknowledge, Associate, Ask (content to be confirmed against source)"
+    ],
+    "assess": "Best-reply scenarios (4 x 2 marks) and 2 single-choice. 10 marks.",
+    "practice": "Practice: a price-sensitive customer and a sceptical customer."
+   },
+   {
+    "id": "5.3",
+    "title": "Asking for the order and Reinforce",
+    "mins": 25,
+    "outcomes": [
+     "Invite the order without pressure",
+     "Give a genuine reinforcement line",
+     "Ask how they would like to receive it before asking for details"
+    ],
+    "video": [
+     "Leading the close: 'how many boxes would you like?'",
+     "Reinforce: one short line confirming a good decision",
+     "Delivery or collection first, then only the details needed",
+     "Never use false urgency"
+    ],
+    "assess": "Scenario replies (3 x 2) and 4 single-choice. 10 marks.",
+    "practice": "Practice: close a confirmed customer."
+   },
+   {
+    "id": "5.4",
+    "title": "The Wellness Program consultation",
+    "mins": 30,
+    "outcomes": [
+     "Explain when to use the full consultation",
+     "Run the four-question intake",
+     "Describe the three-phase programs"
+    ],
+    "video": [
+     "Blood-sugar, joint and men's-wellness programs",
+     "Four quick questions: current state, impact, goal, readiness 1 to 10",
+     "The 12-week phases: starter pair, expansion, maintenance",
+     "Symptom-and-goal language only, never diseases"
+    ],
+    "assess": "Program matching (3 x 2) and 4 single-choice. 10 marks.",
+    "practice": "Practice: run the intake with a persona."
+   },
+   {
+    "id": "5.5",
+    "title": "Orders, delivery and after-sale",
+    "mins": 25,
+    "outcomes": [
+     "State delivery fees and collection options correctly",
+     "Answer payment-status questions honestly",
+     "Follow up well after the sale"
+    ],
+    "video": [
+     "Delivery is always charged: R109.20 for Johannesburg, Pretoria, Cape Town, Durban, Gqeberha, Bloemfontein; R119.70 elsewhere",
+     "Collection offices: Johannesburg, Durban, Empangeni, Pietermaritzburg; weekdays 9 to 5, Saturday 9 to 1",
+     "Never claim a payment has been verified unless you can see confirmation",
+     "Following up within 24 hours and at the 3-month mark",
+     "After-sale care: the health journey continues, including support that goes beyond products"
+    ],
+    "assess": "Calculation questions (4 x 1), scenario (2 x 2), 2 single-choice. 10 marks.",
+    "practice": null
+   }
+  ]
+ },
+ {
+  "n": 6,
+  "title": "Prospecting and Building a Customer Base",
+  "thread": "Every distributor is a brand ambassador.",
+  "goal": "Find people to help, communicate compliantly, and keep customers for the long term.",
+  "badge": "Connector",
+  "gate": null,
+  "lab": "Outreach Lab: write three outreach messages and hold one warm-contact roleplay. Marked on tone, compliance and call to action. 40 marks.",
+  "lessons": [
+   {
+    "id": "6.1",
+    "title": "Your story and the resource library",
+    "mins": 25,
+    "outcomes": [
+     "Tell a short personal story that is truthful",
+     "Find and use the right library item at the right moment"
+    ],
+    "video": [
+     "Structure of a story: before, turning point, now",
+     "Using the testimonial library: search by need, product and audience",
+     "Rules for sharing: consent on file, compliance-approved items only",
+     "Never invent or embellish a story"
+    ],
+    "assess": "Select-the-right-asset scenarios (4 x 2) and 2 single-choice. 10 marks.",
+    "practice": "Practice: draft your story; the coach flags unsafe claims."
+   },
+   {
+    "id": "6.2",
+    "title": "Your list and warm market",
+    "mins": 25,
+    "outcomes": [
+     "Build a list of 50 people",
+     "Approach with respect and consent"
+    ],
+    "video": [
+     "Who to include and how to categorise",
+     "The first message: curiosity, not a pitch",
+     "Respecting no",
+     "Privacy and consent when contacting people"
+    ],
+    "assess": "Scenario replies (3 x 2) and 4 single-choice. 10 marks.",
+    "practice": "Practice: first-message roleplay."
+   },
+   {
+    "id": "6.3",
+    "title": "Content and social media",
+    "mins": 30,
+    "outcomes": [
+     "Create compliant posts",
+     "Use your Sweety link to route customers to you"
+    ],
+    "video": [
+     "WhatsApp status, Facebook and TikTok basics",
+     "Library templates and how to adapt them safely",
+     "Calls to action that send people to your conversation",
+     "What never to post: cures, income promises, unconsented testimonials",
+     "Brand voice and brand assets: representing Health & Wealth consistently and with pride"
+    ],
+    "assess": "Spot-the-violation (3 x 2) and 4 single-choice. 10 marks.",
+    "practice": "Practice: write one post; compliance check."
+   },
+   {
+    "id": "6.4",
+    "title": "Follow-up, reorders and referrals",
+    "mins": 25,
+    "outcomes": [
+     "Plan follow-up around the 3 to 6 month cycle",
+     "Ask for referrals naturally"
+    ],
+    "video": [
+     "Check-ins: day 3, week 2, month 1, month 3",
+     "Using the tips opt-in properly",
+     "Reorders and loyalty offers",
+     "Referral asks that feel like service",
+     "Caring for customers outside the scope of products: a kind word, a check-in, a listening ear"
+    ],
+    "assess": "Scenario replies (3 x 2) and 4 single-choice. 10 marks.",
+    "practice": null
+   },
+   {
+    "id": "6.5",
+    "title": "Resilience and your daily routine",
+    "mins": 20,
+    "outcomes": [
+     "Handle rejection",
+     "Run a simple daily activity routine"
+    ],
+    "video": [
+     "Reframing a no",
+     "Daily method of operation: contacts, follow-ups, learning",
+     "Tracking activity in the Academy",
+     "Staying consistent when results are slow"
+    ],
+    "assess": "Reflection and 5 single-choice. 10 marks.",
+    "practice": "Practice: set your first weekly activity target."
+   }
+  ]
+ },
+ {
+  "n": 7,
+  "title": "Recruiting and Business Presentations",
+  "thread": "Opportunity with integrity.",
+  "goal": "Present the opportunity honestly and apply CLOSER to a business conversation.",
+  "badge": "Opportunity Ambassador",
+  "gate": null,
+  "lab": "Business Conversation Lab: roleplay with a business prospect, marked on the business version of the scorecard. 40 marks.",
+  "lessons": [
+   {
+    "id": "7.1",
+    "title": "Customers and business partners",
+    "mins": 20,
+    "outcomes": [
+     "Tell the two audiences apart",
+     "Make a natural invitation"
+    ],
+    "video": [
+     "A customer wants a health outcome; a partner wants income and purpose",
+     "Questions that reveal which is which",
+     "Invitation lines that respect a no",
+     "Never mix the two pitches in one message"
+    ],
+    "assess": "Scenario replies (3 x 2) and 4 single-choice. 10 marks.",
+    "practice": "Practice: decide which conversation to start."
+   },
+   {
+    "id": "7.2",
+    "title": "The business presentation",
+    "mins": 30,
+    "outcomes": [
+     "Deliver a short, honest presentation",
+     "Adapt for one-to-one, three-way and group settings"
+    ],
+    "video": [
+     "Structure: problem, opportunity, support, next step",
+     "What to show and what not to promise",
+     "Using a three-way call with your upline",
+     "Handling questions you cannot answer"
+    ],
+    "assess": "Presentation outline critique (3 x 2) and 4 single-choice. 10 marks.",
+    "practice": "Practice: 3-minute presentation, scored."
+   },
+   {
+    "id": "7.3",
+    "title": "Compensation plan mastery",
+    "mins": 30,
+    "outcomes": [
+     "Explain how the compensation plan works accurately",
+     "Explain ranks and bonuses without inflating"
+    ],
+    "video": [
+     "Retail profit, team commissions and bonuses (detail to come from the official plan document)",
+     "Rank requirements and how to explain them",
+     "Honest framing of what is typical",
+     "Using the official income disclosure only"
+    ],
+    "assess": "Calculation and scenario questions, 10 marks.",
+    "practice": "Practice: explain the plan to a sceptical prospect."
+   },
+   {
+    "id": "7.4",
+    "title": "CLOSER for the business conversation",
+    "mins": 30,
+    "outcomes": [
+     "Apply Clarify to Reinforce to a prospect's financial situation",
+     "Handle the common business objections"
+    ],
+    "video": [
+     "Clarify what they want from extra income",
+     "Label it and Overview what they have tried",
+     "Sell the vacation: the life they want, not the compensation plan",
+     "Explain away: 'I'm not good at selling', 'I don't have time', 'I don't know enough about supplements', 'Is this a pyramid scheme?'",
+     "Reinforce and welcome them into the Academy"
+    ],
+    "assess": "Best-reply scenarios (4 x 2) and 2 single-choice. 10 marks.",
+    "practice": "Practice: full business roleplay."
+   },
+   {
+    "id": "7.5",
+    "title": "Ethical recruiting",
+    "mins": 20,
+    "outcomes": [
+     "Recruit without pressure, guarantees or inventory loading",
+     "Know the legal and reputational risks"
+    ],
+    "video": [
+     "Why ethical recruiting protects your business",
+     "No guaranteed income, no pressure to buy stock",
+     "Fair treatment and honest disclosure",
+     "What to do when someone changes their mind"
+    ],
+    "assess": "Spot-the-violation (3 x 2) and 4 single-choice. 10 marks.",
+    "practice": null
+   }
+  ]
+ },
+ {
+  "n": 8,
+  "title": "Duplication, Leadership and Capstone",
+  "thread": "Lead with love; protect the culture.",
+  "goal": "Help others succeed, then prove everything together.",
+  "badge": "Certified Builder",
+  "gate": "Level 3 Certified Builder: capstone passed. Three simulations (customer, business, compliance rapid-fire), a 50-question final exam at 80%, and a submitted 90-day plan.",
+  "lab": "Capstone: three marked simulations plus plan review.",
+  "lessons": [
+   {
+    "id": "8.1",
+    "title": "The first 72 hours of a new distributor",
+    "mins": 25,
+    "outcomes": [
+     "Onboard a new distributor using the Academy",
+     "Set up their first week"
+    ],
+    "video": [
+     "Welcome, goals and their first lesson",
+     "Their first five conversations",
+     "Staying in touch with daily check-ins",
+     "Sending them to Week 1 first"
+    ],
+    "assess": "Scenario replies (3 x 2) and 4 single-choice. 10 marks.",
+    "practice": "Practice: onboarding call roleplay."
+   },
+   {
+    "id": "8.2",
+    "title": "Coaching your team",
+    "mins": 30,
+    "outcomes": [
+     "Use the leader dashboard",
+     "Hold a short coaching conversation"
+    ],
+    "video": [
+     "Who is stuck, who is active, who is ready",
+     "Coaching with questions, not instructions",
+     "Recognition that motivates",
+     "Using the best roleplay clips as examples"
+    ],
+    "assess": "Scenario replies (3 x 2) and 4 single-choice. 10 marks.",
+    "practice": "Practice: coach a stuck team member."
+   },
+   {
+    "id": "8.3",
+    "title": "Leadership, ranks and culture",
+    "mins": 25,
+    "outcomes": [
+     "Describe what good leadership looks like here",
+     "Plan to reach the next rank"
+    ],
+    "video": [
+     "Leading by example",
+     "Culture of compliance and care: protecting the Health & Wealth way as the company grows",
+     "Events, recognition and training",
+     "Rank path and the habits behind it"
+    ],
+    "assess": "Reflection and 5 single-choice. 10 marks.",
+    "practice": null
+   },
+   {
+    "id": "8.4",
+    "title": "Your 90-day business plan",
+    "mins": 30,
+    "outcomes": [
+     "Write a realistic 90-day plan",
+     "Set weekly activity targets"
+    ],
+    "video": [
+     "Goals from Lesson 1.1, revisited",
+     "Activity targets: conversations, follow-ups, learning",
+     "Review rhythm with your upline",
+     "Submitting the plan for coach review"
+    ],
+    "assess": "Plan submitted and marked against a checklist, 10 marks.",
+    "practice": "Practice: plan review with the coach."
+   }
+  ]
+ }
+]
