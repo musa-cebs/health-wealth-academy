@@ -7,6 +7,7 @@ import { useProgress } from "@/lib/progress";
 import Quiz from "@/components/Quiz";
 import Roleplay from "@/components/Roleplay";
 import Coach from "@/components/Coach";
+import Worksheet from "@/components/Worksheet";
 
 type Step = "watch" | "check" | "practice" | "prove";
 const ROLEPLAY: Record<string, string> = { "4.2": "thandi", "4.3": "thandi", "5.1": "thandi", "5.2": "sipho", "5.3": "thandi", "2.4": "nomsa", "3.3": "dlamini" };
@@ -64,9 +65,11 @@ export default function LessonPage() {
 
       {step === "practice" && (rpId
         ? <><Roleplay defaultPersona={rpId} onScored={() => setPracticed(true)} />{practiced && <div className="row" style={{ marginTop: 12 }}><button className="btn sec" onClick={() => setStep("prove")}>Continue</button></div>}</>
-        : <div className="card"><h3>Practice</h3><p>{lesson.practice ?? "No practice task for this lesson."}</p>
-            <p className="small muted">The AI roleplay is live for Lessons 2.4, 3.3, 4.2, 4.3 and 5.1 to 5.3.</p>
-            <div className="row"><button className="btn sec" onClick={() => { setPracticed(true); setStep("prove"); }}>Continue</button></div></div>)}
+        : lesson.id === "1.1"
+          ? <><Worksheet onReady={() => setPracticed(true)} />{practiced && <div className="row" style={{ marginTop: 12 }}><button className="btn sec" onClick={() => setStep("prove")}>Continue</button></div>}</>
+          : <div className="card"><h3>Practice</h3><p>{lesson.practice ?? "There is no practice task for this lesson."}</p>
+              <p className="small muted">Live AI practice is available in Lessons 2.4, 3.3, 4.2, 4.3 and 5.1 to 5.3. More lessons will gain their own practice soon.</p>
+              <div className="row"><button className="btn sec" onClick={() => { setPracticed(true); setStep("prove"); }}>Continue</button></div></div>)}
 
       {step === "prove" && (
         <div className="card"><h3>Prove it</h3>
