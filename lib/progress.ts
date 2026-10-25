@@ -9,13 +9,15 @@ const empty: Progress = { done: {}, drill: 0 };
 export function useProgress() {
   const [p, setP] = useState<Progress>(empty);
   const server = useRef(false);
+  const [ready, setReady] = useState(false);
   useEffect(() => {
     (async () => {
       try {
         const r = await fetch("/api/progress");
-        if (r.ok) { const j = await r.json(); server.current = true; setP({ done: j.done, drill: j.drill }); return; }
+        if (r.ok) { const j = await r.json(); server.current = true; setP({ done: j.done, drill: j.drill }); setReady(true); return; }
       } catch {}
       try { const r = localStorage.getItem(KEY); if (r) setP({ ...empty, ...JSON.parse(r) }); } catch {}
+      setReady(true);
     })();
   }, []);
   const update = useCallback((fn: (p: Progress) => Progress) => {
@@ -29,5 +31,5 @@ export function useProgress() {
       return n;
     });
   }, []);
-  return { p, update };
+  return { p, update, ready };
 }
