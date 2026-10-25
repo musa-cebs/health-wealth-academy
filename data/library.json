@@ -2,36 +2,233 @@
  {
   "id": 1,
   "type": "Product sheet",
-  "title": "SLD (Slide)",
+  "title": "GTS (Get Strength) · R860",
   "tags": [
-   "joints",
-   "standard"
+   "standard",
+   "as needed",
+   "strength,",
+   "stamina"
   ],
-  "body": "Supports joint comfort, flexibility and the skeletal system. Turmeric and ginger ease stiffness; licorice calms muscle tension. Standard tier R860. Dissolve one lozenge in the mouth. Full benefit builds over 3 to 6 months."
+  "body": "Supports strength, stamina and vitality; supports resilience to stress and overall wellbeing. Key ingredients: green tea, pineapple, magnolia vine, apple, gooseberry (amla), water hyssop, Siberian ginseng, ashwagandha. Dissolve one lozenge in the mouth as needed. Full benefit builds over 3 to 6 months of consistent use. Best for: People who want support for energy and endurance during physical or mental exertion. Draft wording, pending compliance approval."
  },
  {
   "id": 2,
   "type": "Product sheet",
-  "title": "RLX (Relax)",
+  "title": "PFT (Perfect) · R1620",
   "tags": [
-   "sleep",
-   "stress",
-   "standard"
+   "elite special",
+   "as needed",
+   "normal",
+   "appetite"
   ],
-  "body": "Supports calm, restful sleep and stress management. Chamomile and passionflower calm the nervous system; banana's magnesium supports muscle relaxation. Standard tier R860."
+  "body": "Supports a normal appetite and metabolism, as part of a balanced diet and exercise programme. Key ingredients: psyllium husk, flax seed, barley seed, chromium, ginger, turmeric, brown algae, B vitamins, garcinia, horseradish tree. Dissolve one lozenge in the mouth as needed. Full benefit builds over 3 to 6 months of consistent use. Best for: People managing their weight with diet and exercise. Draft wording, pending compliance approval."
  },
  {
   "id": 3,
   "type": "Product sheet",
-  "title": "NRM (Normal)",
+  "title": "HPY (Happy) · R1850",
   "tags": [
-   "blood sugar",
-   "standard"
+   "elite",
+   "as needed",
+   "wellbeing,",
+   "relaxation"
   ],
-  "body": "Supports the body's natural blood-sugar metabolism within a healthy range. Never a replacement for prescribed medication; doctor first. Standard tier R860."
+  "body": "Supports wellbeing, relaxation and the body's response to everyday stress. Key ingredients: ashwagandha, ginkgo biloba, banana, sea buckthorn, passionflower, chamomile, licorice, pear, avocado, hemp seed, turmeric, devil's claw, ginger. Dissolve one lozenge in the mouth as needed. Full benefit builds over 3 to 6 months of consistent use. Best for: People who want mood and relaxation support during stressful periods. Draft wording, pending compliance approval."
  },
  {
   "id": 4,
+  "type": "Product sheet",
+  "title": "BTY (Beauty) · R1850",
+  "tags": [
+   "elite",
+   "daily",
+   "vitality",
+   "antioxidant"
+  ],
+  "body": "Supports the vitality of skin, scalp and hair, plus antioxidant protection. Key ingredients: green tea, pomegranate, turmeric, licorice, lemon, chamomile, meadowsweet, milk thistle, artichoke, dandelion, aloe vera, Siberian ginseng, ashwagandha, water hyssop, magnolia vine, ashberry. Dissolve one lozenge in the mouth daily. Full benefit builds over 3 to 6 months of consistent use. Best for: People who want to support skin and hair health. Draft wording, pending compliance approval."
+ },
+ {
+  "id": 5,
+  "type": "Product sheet",
+  "title": "BRN (Brainy) · R1850",
+  "tags": [
+   "elite",
+   "as needed",
+   "mental",
+   "clarity,"
+  ],
+  "body": "Supports mental clarity, focus and cognitive function. Key ingredients: ginkgo biloba, water hyssop (bacopa), green tea, coffee, Panax and Siberian ginseng, ashwagandha, magnolia vine, turmeric, bilberry, asparagus, apple, ginger. Dissolve one lozenge in the mouth as needed. Full benefit builds over 3 to 6 months of consistent use. Best for: People who want support for focus and mental performance. Draft wording, pending compliance approval."
+ },
+ {
+  "id": 6,
+  "type": "Product sheet",
+  "title": "HRT (At Heart) · R1350",
+  "tags": [
+   "premium",
+   "daily",
+   "normal",
+   "circulation"
+  ],
+  "body": "Supports normal circulation and cardiovascular function, alongside a heart-healthy lifestyle, never a substitute for diet, exercise or prescribed treatment. Key ingredients: pomegranate, grape, raspberry, wild strawberry, hawthorn, white mistletoe. Dissolve one lozenge in the mouth daily. Full benefit builds over 3 to 6 months of consistent use. Best for: People who want to maintain heart health. Draft wording, pending compliance approval."
+ },
+ {
+  "id": 7,
+  "type": "Product sheet",
+  "title": "SLD (Slide) · R860",
+  "tags": [
+   "standard",
+   "as needed",
+   "comfort",
+   "flexibility"
+  ],
+  "body": "Supports comfort in the body, flexibility and ease of movement. Key ingredients: turmeric, ginger, licorice, green tea, grapple plant, pear, wild strawberry. Dissolve one lozenge in the mouth as needed. Full benefit builds over 3 to 6 months of consistent use. Best for: People who want joint support and an active lifestyle. Draft wording, pending compliance approval."
+ },
+ {
+  "id": 8,
+  "type": "Product sheet",
+  "title": "PWR APRICOT (Power for Women (Apricot)) · R860",
+  "tags": [
+   "standard",
+   "daily",
+   "woman's",
+   "energy,"
+  ],
+  "body": "Supports a woman's energy, mood and nutritional wellbeing. Key ingredients: ashwagandha, ginkgo biloba, asparagus, ginger, apricot. Dissolve one lozenge in the mouth daily. Full benefit builds over 3 to 6 months of consistent use. Best for: Women who want energy, hormonal-balance and mood support. Draft wording, pending compliance approval."
+ },
+ {
+  "id": 9,
+  "type": "Product sheet",
+  "title": "PWR LEMON (Power for Men (Lemon)) · R860",
+  "tags": [
+   "standard",
+   "daily",
+   "energy",
+   "vitality,"
+  ],
+  "body": "Supports a man's energy and vitality, and urinary and prostate health. Key ingredients: ginger, fig, ginseng, ashwagandha, pomegranate, lemon. Dissolve one lozenge in the mouth daily. Full benefit builds over 3 to 6 months of consistent use. Best for: Men who want to maintain an active lifestyle. Draft wording, pending compliance approval."
+ },
+ {
+  "id": 10,
+  "type": "Product sheet",
+  "title": "STP (Stop) · R860",
+  "tags": [
+   "standard",
+   "as needed",
+   "body's",
+   "natural"
+  ],
+  "body": "Supports the body's natural recovery after exertion and relief from occasional physical discomfort. Key ingredients: turmeric, cherry, raspberry, cayenne pepper, ginger, ashwagandha, licorice, grapple plant. Dissolve one lozenge in the mouth as needed. Full benefit builds over 3 to 6 months of consistent use. Best for: People recovering after exercise or physical strain. Draft wording, pending compliance approval."
+ },
+ {
+  "id": 11,
+  "type": "Product sheet",
+  "title": "RLX (Relax) · R860",
+  "tags": [
+   "standard",
+   "as needed",
+   "relaxation,",
+   "restful"
+  ],
+  "body": "Supports relaxation, calm and restful sleep. Key ingredients: chamomile, passionflower, lettuce, banana, ashwagandha, Siberian ginseng. Dissolve one lozenge in the mouth as needed. Full benefit builds over 3 to 6 months of consistent use. Best for: People who want calm during stress or before bedtime. Draft wording, pending compliance approval."
+ },
+ {
+  "id": 12,
+  "type": "Product sheet",
+  "title": "MLS (Multi-Spectrum) · R1350",
+  "tags": [
+   "premium",
+   "daily",
+   "digestion,",
+   "health"
+  ],
+  "body": "Supports digestion, gut health and general wellbeing. Key ingredients: cinnamon, blackcurrant, mandarin, oro blanco, echinacea, turmeric, ginger, papaya, dandelion, artichoke, licorice, chamomile, pumpkin seed, cranberry, grapefruit, fenugreek, thyme, clove, coriander. Dissolve one lozenge in the mouth daily. Full benefit builds over 3 to 6 months of consistent use. Best for: People who want to maintain digestive health. Draft wording, pending compliance approval."
+ },
+ {
+  "id": 13,
+  "type": "Product sheet",
+  "title": "NRM (Norm) · R860",
+  "tags": [
+   "standard",
+   "daily",
+   "normal",
+   "blood-sugar"
+  ],
+  "body": "Supports normal blood-sugar metabolism within a healthy range; never a replacement for prescribed medication. Key ingredients: fenugreek, garcinia, Siberian ginseng, balsam pear (bitter melon), gumar (gymnema), apple, lychee. Dissolve one lozenge in the mouth daily. Full benefit builds over 3 to 6 months of consistent use. Best for: People who want to maintain healthy blood-sugar levels and metabolism. Draft wording, pending compliance approval."
+ },
+ {
+  "id": 14,
+  "type": "Product sheet",
+  "title": "GRW (Grow) · R860",
+  "tags": [
+   "standard",
+   "daily",
+   "immune",
+   "system,"
+  ],
+  "body": "Supports the immune system, and healthy hair, skin and nails. Key ingredients: astragalus, echinacea, reishi mushroom, olive, aloe vera, pomegranate, blackcurrant, bilberry, cranberry, ashberry, ashwagandha, husk tomato, balsam pear. Dissolve one lozenge in the mouth daily. Full benefit builds over 3 to 6 months of consistent use. Best for: People who want to support immunity and overall vitality. Draft wording, pending compliance approval."
+ },
+ {
+  "id": 15,
+  "type": "Product sheet",
+  "title": "ALT (Alternate) · R1350",
+  "tags": [
+   "premium",
+   "daily",
+   "normal",
+   "breathing"
+  ],
+  "body": "Supports normal breathing and the body's natural defences against environmental irritants. Key ingredients: ginger, eucalyptus, licorice root, scutellaria (Baikal skullcap), astragalus, green tea, grape, blackcurrant, mangosteen, ashberry. Dissolve one lozenge in the mouth daily. Full benefit builds over 3 to 6 months of consistent use. Best for: People who want respiratory support, especially when irritants are around. Draft wording, pending compliance approval."
+ },
+ {
+  "id": 16,
+  "type": "Product sheet",
+  "title": "HPR (Hepar) · R1350",
+  "tags": [
+   "premium",
+   "daily",
+   "function,",
+   "digestion"
+  ],
+  "body": "Supports liver function, digestion and the body's natural cleansing processes. Key ingredients: milk thistle, artichoke, turmeric, dandelion, avocado, raisins, peach. Dissolve one lozenge in the mouth daily. Full benefit builds over 3 to 6 months of consistent use. Best for: People who want to support liver and digestive health. Draft wording, pending compliance approval."
+ },
+ {
+  "id": 17,
+  "type": "Product sheet",
+  "title": "AIR (Air) · R1850",
+  "tags": [
+   "elite",
+   "daily",
+   "respiratory",
+   "function"
+  ],
+  "body": "Supports respiratory function and the immune system. Key ingredients: African white aloe, Indian gooseberry (amla), rosehip, maca peruviana, lemon, goji berries, blackcurrant, vitamin C, vitamin D, zinc citrate, cranberry. Dissolve one lozenge in the mouth daily. Full benefit builds over 3 to 6 months of consistent use. Best for: People who want respiratory and immune support. Draft wording, pending compliance approval."
+ },
+ {
+  "id": 18,
+  "type": "Product sheet",
+  "title": "ICE (Ice) · R1350",
+  "tags": [
+   "premium",
+   "as needed",
+   "digestive",
+   "comfort,"
+  ],
+  "body": "Supports digestive comfort, regularity and occasional stomach discomfort. Key ingredients: carrot, aloe vera, sea buckthorn, chamomile, meadowsweet, licorice. Dissolve one lozenge in the mouth as needed. Full benefit builds over 3 to 6 months of consistent use. Best for: People who want to soothe occasional stomach discomfort. Draft wording, pending compliance approval."
+ },
+ {
+  "id": 19,
+  "type": "Product sheet",
+  "title": "LFT (Lifetime) · R1350",
+  "tags": [
+   "premium",
+   "as needed",
+   "cellular",
+   "health"
+  ],
+  "body": "Supports cellular health and antioxidant protection as part of healthy ageing. Key ingredients: rosemary leaf, spirulina, black pepper fruits, Japanese knotweed root (resveratrol), Siberian larch bark (dihydroquercetin), turmeric root, milk thistle seeds, red grapes, pomegranate fruit, ginger root. Dissolve one lozenge in the mouth as needed. Full benefit builds over 3 to 6 months of consistent use. Best for: People who want antioxidant and healthy-ageing support. Draft wording, pending compliance approval."
+ },
+ {
+  "id": 20,
   "type": "Script",
   "title": "Objection: 'Will I feel results right away?'",
   "tags": [
@@ -41,7 +238,7 @@
   "body": "Some people notice an early difference, especially with energy and focus products, but the full benefit builds over 3 to 6 months of consistent use, so don't judge it too early. Does that make sense?"
  },
  {
-  "id": 5,
+  "id": 21,
   "type": "Script",
   "title": "Objection: 'Can this replace my medication?'",
   "tags": [
@@ -51,7 +248,7 @@
   "body": "No. It is a complementary tool alongside a healthy lifestyle and any treatment your doctor prescribes. Please keep taking what your doctor has given you exactly as instructed."
  },
  {
-  "id": 6,
+  "id": 22,
   "type": "Script",
   "title": "Opening line: first conversation",
   "tags": [
@@ -61,7 +258,7 @@
   "body": "What would you like help with today? Tell me in your own words, and take your time."
  },
  {
-  "id": 7,
+  "id": 23,
   "type": "Testimonial (example format)",
   "title": "Customer story · pending consent",
   "tags": [
@@ -73,7 +270,7 @@
   "body": "Example format only. A real testimonial appears here with the person's consent record, product, need and language, and a compliance status before it can be used."
  },
  {
-  "id": 8,
+  "id": 24,
   "type": "Testimonial (example format)",
   "title": "Flagged by compliance check",
   "tags": [

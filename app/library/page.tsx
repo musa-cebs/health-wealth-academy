@@ -12,7 +12,7 @@ export default function Library() {
   return (
     <>
       <h2 style={{ marginTop: 16 }}>Resource library</h2>
-      <p className="muted">Search by need, product or situation. Everything here is approved wording.</p>
+      <p className="muted">Search by need, product or situation. Product sheets are draft wording pending compliance approval.</p>
       <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Try: joints, medication, sleep" aria-label="Search the library" />
       <div className="row" style={{ margin: "10px 0" }}>{types.map((t) => <button key={t} className={`btn ${type === t ? "" : "ghost"}`} style={{ padding: "6px 12px", fontSize: 14 }} onClick={() => setType(t)}>{t}</button>)}</div>
       <div className="grid">

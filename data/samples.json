@@ -49,6 +49,17 @@
    ],
    "a": 1,
    "w": "HRT is in the Premium tier."
+  },
+  {
+   "q": "Which of these products is taken 'as needed' rather than daily?",
+   "o": [
+    "NRM",
+    "MLS",
+    "RLX",
+    "GRW"
+   ],
+   "a": 2,
+   "w": "RLX is taken as needed, especially during stress or before bedtime. NRM, MLS and GRW are daily."
   }
  ],
  "2.4": [
@@ -114,6 +125,19 @@
    ],
    "a": 1,
    "w": "Honest, supportive, and ends with a question."
+  }
+ ],
+ "2.3": [
+  {
+   "q": "A customer asks how often to take HRT. What is the correct guidance?",
+   "o": [
+    "Whenever they feel like it",
+    "Dissolve one lozenge in the mouth daily",
+    "Four a day for the first week",
+    "Only before exercise"
+   ],
+   "a": 1,
+   "w": "HRT is a daily product. As-needed products include GTS, SLD, STP and RLX."
   }
  ]
 }

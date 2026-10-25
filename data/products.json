@@ -1,0 +1,192 @@
+[
+ {
+  "code": "GTS",
+  "name": "Get Strength",
+  "tier": "Standard",
+  "price": 860,
+  "usage": "as needed",
+  "ingredients": "green tea, pineapple, magnolia vine, apple, gooseberry (amla), water hyssop, Siberian ginseng, ashwagandha",
+  "supports": "strength, stamina and vitality; supports resilience to stress and overall wellbeing",
+  "best_for": "People who want support for energy and endurance during physical or mental exertion"
+ },
+ {
+  "code": "PFT",
+  "name": "Perfect",
+  "tier": "Elite Special",
+  "price": 1620,
+  "usage": "as needed",
+  "ingredients": "psyllium husk, flax seed, barley seed, chromium, ginger, turmeric, brown algae, B vitamins, garcinia, horseradish tree",
+  "supports": "a normal appetite and metabolism, as part of a balanced diet and exercise programme",
+  "best_for": "People managing their weight with diet and exercise"
+ },
+ {
+  "code": "HPY",
+  "name": "Happy",
+  "tier": "Elite",
+  "price": 1850,
+  "usage": "as needed",
+  "ingredients": "ashwagandha, ginkgo biloba, banana, sea buckthorn, passionflower, chamomile, licorice, pear, avocado, hemp seed, turmeric, devil's claw, ginger",
+  "supports": "wellbeing, relaxation and the body's response to everyday stress",
+  "best_for": "People who want mood and relaxation support during stressful periods"
+ },
+ {
+  "code": "BTY",
+  "name": "Beauty",
+  "tier": "Elite",
+  "price": 1850,
+  "usage": "daily",
+  "ingredients": "green tea, pomegranate, turmeric, licorice, lemon, chamomile, meadowsweet, milk thistle, artichoke, dandelion, aloe vera, Siberian ginseng, ashwagandha, water hyssop, magnolia vine, ashberry",
+  "supports": "the vitality of skin, scalp and hair, plus antioxidant protection",
+  "best_for": "People who want to support skin and hair health"
+ },
+ {
+  "code": "BRN",
+  "name": "Brainy",
+  "tier": "Elite",
+  "price": 1850,
+  "usage": "as needed",
+  "ingredients": "ginkgo biloba, water hyssop (bacopa), green tea, coffee, Panax and Siberian ginseng, ashwagandha, magnolia vine, turmeric, bilberry, asparagus, apple, ginger",
+  "supports": "mental clarity, focus and cognitive function",
+  "best_for": "People who want support for focus and mental performance"
+ },
+ {
+  "code": "HRT",
+  "name": "At Heart",
+  "tier": "Premium",
+  "price": 1350,
+  "usage": "daily",
+  "ingredients": "pomegranate, grape, raspberry, wild strawberry, hawthorn, white mistletoe",
+  "supports": "normal circulation and cardiovascular function, alongside a heart-healthy lifestyle, never a substitute for diet, exercise or prescribed treatment",
+  "best_for": "People who want to maintain heart health"
+ },
+ {
+  "code": "SLD",
+  "name": "Slide",
+  "tier": "Standard",
+  "price": 860,
+  "usage": "as needed",
+  "ingredients": "turmeric, ginger, licorice, green tea, grapple plant, pear, wild strawberry",
+  "supports": "comfort in the body, flexibility and ease of movement",
+  "best_for": "People who want joint support and an active lifestyle"
+ },
+ {
+  "code": "PWR_APRICOT",
+  "name": "Power for Women (Apricot)",
+  "tier": "Standard",
+  "price": 860,
+  "usage": "daily",
+  "ingredients": "ashwagandha, ginkgo biloba, asparagus, ginger, apricot",
+  "supports": "a woman's energy, mood and nutritional wellbeing",
+  "best_for": "Women who want energy, hormonal-balance and mood support"
+ },
+ {
+  "code": "PWR_LEMON",
+  "name": "Power for Men (Lemon)",
+  "tier": "Standard",
+  "price": 860,
+  "usage": "daily",
+  "ingredients": "ginger, fig, ginseng, ashwagandha, pomegranate, lemon",
+  "supports": "a man's energy and vitality, and urinary and prostate health",
+  "best_for": "Men who want to maintain an active lifestyle"
+ },
+ {
+  "code": "STP",
+  "name": "Stop",
+  "tier": "Standard",
+  "price": 860,
+  "usage": "as needed",
+  "ingredients": "turmeric, cherry, raspberry, cayenne pepper, ginger, ashwagandha, licorice, grapple plant",
+  "supports": "the body's natural recovery after exertion and relief from occasional physical discomfort",
+  "best_for": "People recovering after exercise or physical strain"
+ },
+ {
+  "code": "RLX",
+  "name": "Relax",
+  "tier": "Standard",
+  "price": 860,
+  "usage": "as needed",
+  "ingredients": "chamomile, passionflower, lettuce, banana, ashwagandha, Siberian ginseng",
+  "supports": "relaxation, calm and restful sleep",
+  "best_for": "People who want calm during stress or before bedtime"
+ },
+ {
+  "code": "MLS",
+  "name": "Multi-Spectrum",
+  "tier": "Premium",
+  "price": 1350,
+  "usage": "daily",
+  "ingredients": "cinnamon, blackcurrant, mandarin, oro blanco, echinacea, turmeric, ginger, papaya, dandelion, artichoke, licorice, chamomile, pumpkin seed, cranberry, grapefruit, fenugreek, thyme, clove, coriander",
+  "supports": "digestion, gut health and general wellbeing",
+  "best_for": "People who want to maintain digestive health"
+ },
+ {
+  "code": "NRM",
+  "name": "Norm",
+  "tier": "Standard",
+  "price": 860,
+  "usage": "daily",
+  "ingredients": "fenugreek, garcinia, Siberian ginseng, balsam pear (bitter melon), gumar (gymnema), apple, lychee",
+  "supports": "normal blood-sugar metabolism within a healthy range; never a replacement for prescribed medication",
+  "best_for": "People who want to maintain healthy blood-sugar levels and metabolism"
+ },
+ {
+  "code": "GRW",
+  "name": "Grow",
+  "tier": "Standard",
+  "price": 860,
+  "usage": "daily",
+  "ingredients": "astragalus, echinacea, reishi mushroom, olive, aloe vera, pomegranate, blackcurrant, bilberry, cranberry, ashberry, ashwagandha, husk tomato, balsam pear",
+  "supports": "the immune system, and healthy hair, skin and nails",
+  "best_for": "People who want to support immunity and overall vitality"
+ },
+ {
+  "code": "ALT",
+  "name": "Alternate",
+  "tier": "Premium",
+  "price": 1350,
+  "usage": "daily",
+  "ingredients": "ginger, eucalyptus, licorice root, scutellaria (Baikal skullcap), astragalus, green tea, grape, blackcurrant, mangosteen, ashberry",
+  "supports": "normal breathing and the body's natural defences against environmental irritants",
+  "best_for": "People who want respiratory support, especially when irritants are around"
+ },
+ {
+  "code": "HPR",
+  "name": "Hepar",
+  "tier": "Premium",
+  "price": 1350,
+  "usage": "daily",
+  "ingredients": "milk thistle, artichoke, turmeric, dandelion, avocado, raisins, peach",
+  "supports": "liver function, digestion and the body's natural cleansing processes",
+  "best_for": "People who want to support liver and digestive health"
+ },
+ {
+  "code": "AIR",
+  "name": "Air",
+  "tier": "Elite",
+  "price": 1850,
+  "usage": "daily",
+  "ingredients": "African white aloe, Indian gooseberry (amla), rosehip, maca peruviana, lemon, goji berries, blackcurrant, vitamin C, vitamin D, zinc citrate, cranberry",
+  "supports": "respiratory function and the immune system",
+  "best_for": "People who want respiratory and immune support"
+ },
+ {
+  "code": "ICE",
+  "name": "Ice",
+  "tier": "Premium",
+  "price": 1350,
+  "usage": "as needed",
+  "ingredients": "carrot, aloe vera, sea buckthorn, chamomile, meadowsweet, licorice",
+  "supports": "digestive comfort, regularity and occasional stomach discomfort",
+  "best_for": "People who want to soothe occasional stomach discomfort"
+ },
+ {
+  "code": "LFT",
+  "name": "Lifetime",
+  "tier": "Premium",
+  "price": 1350,
+  "usage": "as needed",
+  "ingredients": "rosemary leaf, spirulina, black pepper fruits, Japanese knotweed root (resveratrol), Siberian larch bark (dihydroquercetin), turmeric root, milk thistle seeds, red grapes, pomegranate fruit, ginger root",
+  "supports": "cellular health and antioxidant protection as part of healthy ageing",
+  "best_for": "People who want antioxidant and healthy-ageing support"
+ }
+]

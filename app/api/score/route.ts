@@ -24,6 +24,12 @@ ${RUBRIC_TEXT}
 RED FLAGS (any one means the attempt fails automatically; list the exact quote)
 ${REDFLAG_TEXT}
 
+CALIBRATION
+- A warm reinforcing line such as "I think you're going to feel the difference" is our approved Reinforce wording and is acceptable. Penalise only explicit guarantees or timeframes (for example "guaranteed", "in a week", "will cure").
+- A conversation that works well through every step with no red flags should score between 80 and 95. Scores under 60 are for missed steps or poor care.
+- Reward a doctor referral when symptoms are long-standing or serious; do not heavily penalise a conditional referral.
+- A short or unfinished conversation is marked only on the steps reached, and the summary should say which steps were not reached.
+
 APPROVED FACTS
 ${FACTS}
 

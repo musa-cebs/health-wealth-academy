@@ -1,6 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { NextRequest, NextResponse } from "next/server";
 import { WEEKS, LIBRARY, FRAMEWORK } from "./content";
+import products from "@/data/products.json";
 
 export const MODEL = process.env.ANTHROPIC_MODEL || "claude-sonnet-5-5";
 let client: Anthropic | null = null;
@@ -22,11 +23,19 @@ export function guard(req: NextRequest): NextResponse | null {
   return null;
 }
 
-/** Facts shared with the customer assistant (Sweety). Keep in sync with the Make system prompt. */
-export const FACTS = `PRODUCTS AND PRICES: Standard R860: PWR_APRICOT, PWR_LEMON, GTS, SLD, RLX, NRM, STP, GRW. Premium R1350: MLS, ALT, HRT, ICE, HPR, LFT. Elite R1850: BTY, BRN, HPY, AIR. Elite Special R1620: PFT.
+const PRODUCT_TEXT = products
+  .map((p) => `${p.code} (${p.name}), ${p.tier} R${p.price}, take ${p.usage}. Ingredients: ${p.ingredients}. Supports: ${p.supports}.`)
+  .join("\n");
+const DAILY = products.filter((p) => p.usage === "daily").map((p) => p.code).join(", ");
+const AS_NEEDED = products.filter((p) => p.usage !== "daily").map((p) => p.code).join(", ");
+
+/** Facts shared with the customer assistant (Sweety). Keep in sync with the Make system prompt. Draft wording pending compliance approval. */
+export const FACTS = `PRODUCTS (code, name, tier and price, usage, ingredients, what it supports):
+${PRODUCT_TEXT}
+Tiers: Standard R860, Premium R1350, Elite R1850, Elite Special R1620.
 DELIVERY: always charged. R109.20 for Johannesburg, Pretoria, Cape Town, Durban, Gqeberha, Bloemfontein; R119.70 elsewhere. Collection from offices in Johannesburg, Durban, Empangeni, Pietermaritzburg (weekdays 9-5, Saturday 9-1).
-USAGE: dissolve one lozenge in the mouth. More than recommended does not work faster. Full benefit builds over 3 to 6 months of consistent use.
-EVIDENCE: no large-scale clinical trials on the finished products; several plant ingredients have their own published research. Never say studies prove the product works.
+USAGE: dissolve one lozenge in the mouth. Take daily: ${DAILY}. Take as needed: ${AS_NEEDED}. More than recommended does not work faster. Full benefit builds over 3 to 6 months of consistent use.
+EVIDENCE: no large-scale clinical trials on the finished products; several plant ingredients have their own published research. Never say studies prove the product works. Do not state regulatory approval or registration unless wording has been approved.
 SAFETY: use 'supports, maintains, helps', never 'cures, treats, prevents'. Never diagnose. Always ask about chronic or prescription medication. Never suggest stopping or replacing medication. Suggest a doctor when symptoms sound serious.
 CLOSER (care-first): Clarify, Label, Overview (what they tried + medication), Sell the vacation (short bridge, honest), Explain away concerns, Reinforce (one genuine line, then ask delivery or collection).
 CULTURE: Health & Wealth is not a hit-and-run but a health journey. We love and care for people, including after-sales care beyond products.`;
