@@ -24,7 +24,7 @@ Without an API key the app still runs; the coach, roleplay and scoring show a cl
 ## Single sign-on from Vendor AI
 Set `SSO_SECRET` (a long random string, shared with Vendor AI). Vendor AI's "Training" menu item sends the distributor to
 `https://<academy-url>/api/sso?token=<JWT>&next=/` where the JWT is HS256-signed with the same secret and has claims:
-`sub` (member ID), `name`, `upline` (optional), `role` (`distributor` or `leader`), `exp` (at most 10 minutes ahead).
+`iss` = `vendorai`, `aud` = `academy`, `sub` (member ID), `name`, `upline` (optional), `role` (`distributor` or `leader`), `exp` (at most 10 minutes ahead; Vendor AI uses 2 minutes). Vendor AI's side is in `musa-cebs/nextjs-boilerplate`, branch `claude/academy-sso`.
 
 Node example for Vendor AI:
 

@@ -21,7 +21,7 @@ export function readSession(cookie: string | undefined): Session | null {
   try { const s = JSON.parse(Buffer.from(payload, "base64url").toString()) as Session; return s.exp > Date.now() / 1000 ? s : null; } catch { return null; }
 }
 
-/** Verifies the short-lived HS256 token that Vendor AI issues when a distributor clicks "Training". Claims: sub (member id), name, upline?, role?, exp (max 10 minutes ahead). */
+/** Verifies the short-lived HS256 token that Vendor AI issues when a distributor clicks "Training". Claims: iss=vendorai, aud=academy, sub (member id), name, upline?, role?, exp (max 10 minutes ahead). */
 export function verifySsoToken(token: string): Omit<Session, "exp"> | null {
   const secret = process.env.SSO_SECRET; if (!secret) return null;
   const [h, p, sig] = token.split(".");
@@ -31,6 +31,7 @@ export function verifySsoToken(token: string): Omit<Session, "exp"> | null {
     if (!safeEq(Buffer.from(sig, "base64url"), mac(`${h}.${p}`, secret))) return null;
     const c = JSON.parse(Buffer.from(p, "base64url").toString());
     const now = Date.now() / 1000;
+    if (c.iss !== "vendorai" || c.aud !== "academy") return null; // only tokens Vendor AI issued for the Academy
     if (!c.sub || typeof c.exp !== "number" || c.exp < now || c.exp > now + 600) return null;
     return { sub: String(c.sub), name: String(c.name ?? ""), upline: c.upline ? String(c.upline) : undefined, role: c.role === "leader" ? "leader" : "distributor" };
   } catch { return null; }
