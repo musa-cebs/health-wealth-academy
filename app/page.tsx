@@ -22,7 +22,7 @@ export default function Home() {
       {/* ---------- Hero ---------- */}
       <section className="lp-bleed lp-hero">
         <div className="lp-in lp-center">
-          <p className="lp-eyebrow">Wealth Journey · Distributor Training System</p>
+          <p className="lp-eyebrow">Health &amp; Wealth Academy</p>
           <h1 className="lp-h1">Where health becomes a journey, and a future.</h1>
           <p className="lp-lede">Learn the products, the conversations and the care that make Health &amp; Wealth different. Train on your phone, at your pace, and grow with people who believe in you.</p>
           <IntroVideo />

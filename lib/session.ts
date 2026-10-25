@@ -31,7 +31,7 @@ export function verifySsoToken(token: string): Omit<Session, "exp"> | null {
     if (!safeEq(Buffer.from(sig, "base64url"), mac(`${h}.${p}`, secret))) return null;
     const c = JSON.parse(Buffer.from(p, "base64url").toString());
     const now = Date.now() / 1000;
-    if (c.iss !== "vendorai" || c.aud !== "academy") return null; // only tokens Vendor AI issued for Wealth Journey
+    if (c.iss !== "vendorai" || c.aud !== "academy") return null; // only tokens Vendor AI issued for the Academy
     if (!c.sub || typeof c.exp !== "number" || c.exp < now || c.exp > now + 600) return null;
     return { sub: String(c.sub), name: String(c.name ?? ""), upline: c.upline ? String(c.upline) : undefined, role: c.role === "leader" ? "leader" : "distributor" };
   } catch { return null; }

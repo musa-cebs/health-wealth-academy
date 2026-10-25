@@ -1,4 +1,4 @@
-# Wealth Journey Distributor Training System
+# Health & Wealth Academy
 
 Distributor Training System: Next.js (App Router, TypeScript), Claude via the Anthropic SDK.
 

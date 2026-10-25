@@ -1,4 +1,4 @@
--- Wealth Journey schema (Postgres). Paste into the Neon SQL editor and run once.
+-- Health & Wealth Academy schema (Postgres). Paste into the Neon SQL editor and run once.
 create table if not exists members (
   member_id   text primary key,
   name        text not null default '',
