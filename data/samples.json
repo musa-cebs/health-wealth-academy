@@ -106,12 +106,12 @@
    "q": "A customer in Polokwane orders one box for delivery. Which delivery fee applies?",
    "o": [
     "R0",
-    "R109.20",
-    "R119.70",
-    "R150"
+    "R100",
+    "R155",
+    "R200"
    ],
    "a": 2,
-   "w": "Polokwane is not one of the six main cities, so R119.70 applies."
+   "w": "Every delivery is a flat R155, whatever the city. Only collection from an office is R0."
   }
  ],
  "7.4": [

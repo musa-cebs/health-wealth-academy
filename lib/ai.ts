@@ -33,7 +33,7 @@ const AS_NEEDED = products.filter((p) => p.usage !== "daily").map((p) => p.code)
 export const FACTS = `PRODUCTS (code, name, tier and price, usage, ingredients, what it supports):
 ${PRODUCT_TEXT}
 Tiers: Standard R860, Premium R1350, Elite R1850, Elite Special R1620.
-DELIVERY: always charged. R109.20 for Johannesburg, Pretoria, Cape Town, Durban, Gqeberha, Bloemfontein; R119.70 elsewhere. Collection from offices in Johannesburg, Durban, Empangeni, Pietermaritzburg (weekdays 9-5, Saturday 9-1).
+DELIVERY: a flat R155 for every delivery, whatever the city. Collection (R0) from offices in Johannesburg, Durban, Empangeni, Pietermaritzburg (weekdays 9-5, Saturday 9-1).
 USAGE: dissolve one lozenge in the mouth. Take daily: ${DAILY}. Take as needed: ${AS_NEEDED}. More than recommended does not work faster. Full benefit builds over 3 to 6 months of consistent use.
 EVIDENCE: no large-scale clinical trials on the finished products; several plant ingredients have their own published research. Never say studies prove the product works. Do not state regulatory approval or registration unless wording has been approved.
 SAFETY: use 'supports, maintains, helps', never 'cures, treats, prevents'. Never diagnose. Always ask about chronic or prescription medication. Never suggest stopping or replacing medication. Suggest a doctor when symptoms sound serious.
