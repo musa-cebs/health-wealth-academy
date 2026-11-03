@@ -8,7 +8,7 @@ export const tipFor = (day: number): Tip => all[(((day - 1) % all.length) + all.
 export const nextDay = (day: number) => (day % all.length) + 1;
 
 export const tipText = (t: Tip) => `*Day ${t.day} · ${t.theme}*\n*${t.title}*\n\n${t.tip}`;
-export const sayItText = (t: Tip) => `*Send this:*\n${t.say_it}`;
+export const sayItText = (t: Tip) => `*Tell your customer:*\n${t.say_it}`;
 /** What the coach is told when the distributor taps Practise on a tip. */
 export const practiseSeed = (t: Tip) =>
   t.challenge
