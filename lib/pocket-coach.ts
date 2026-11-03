@@ -83,6 +83,8 @@ export async function handleIncoming(m: Incoming) {
   if (!(await firstSeen(m.id))) { console.log("wa msg duplicate, ignored", { from: who }); return; }
   await markRead(m.id);
 
+  const text = (m.text ?? "").trim();
+  const upper = text.toUpperCase();
   let u = await getUser(m.from);
   let member: Member | null = u ? { id: u.member_id, name: u.name, upline: u.upline } : null;
   if (!u) {
@@ -93,13 +95,14 @@ export async function handleIncoming(m: Incoming) {
       return;
     }
     u = await saveUser({ phone: m.from, member_id: member.id, name: member.name, upline: member.upline ?? "" });
-    await sendText(m.from, WELCOME(member.name));
-    await sendButtons(m.from, TIPS_OFFER, [{ id: "tips_yes", title: "Yes, daily tips" }, { id: "tips_no", title: "Not now" }]);
-    return;
+    // Greet first-timers who just say hello; anyone who already asks or taps something gets answered straight away.
+    if (m.kind === "text" && ["", "HI", "HELLO", "HEY", "MENU", "?", "HELP", "START"].includes(upper)) {
+      await sendText(m.from, WELCOME(member.name));
+      await sendButtons(m.from, TIPS_OFFER, [{ id: "tips_yes", title: "Yes, daily tips" }, { id: "tips_no", title: "Not now" }]);
+      return;
+    }
   }
   const streak = await touch(u);
-  const text = (m.text ?? "").trim();
-  const upper = text.toUpperCase();
 
   if (m.kind === "button") {
     const id = m.actionId ?? "";
