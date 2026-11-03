@@ -6,7 +6,9 @@ import { firstSeen, getUser, history, remember, saveUser, setTipDay, setTips, to
 import { nextDay, practiseSeed, sayItText, tipFor, tipText } from "@/lib/tips";
 
 const WELCOME = (name: string) =>
-  `Hi ${name}! I'm your *Pocket Coach* 💚 Ask me anything mid-conversation: a customer's situation, a tough objection, or paste a message to check it before you send. I reply in seconds.\n\nOur team may review chats to improve this service. Type STOP any time to switch off tips.\n\nWould you like a short daily tip each morning?`;
+  `Hi ${name}! I'm your *Pocket Coach* 💚 from Health Sweets Academy. Ask me anything mid-conversation: a customer's situation, a tough objection, or paste a message to check it before you send. I reply in seconds.\n\nOur team may review chats to improve this service. Type STOP any time to switch off daily tips.\n\nDo you have a specific question you would like to ask?`;
+
+const TIPS_OFFER = "One more thing: would you like a short daily tip each morning?";
 
 const MENU_ROWS = [
   { id: "m_customer", title: "Help with a customer", description: "Describe their situation" },
@@ -87,7 +89,8 @@ export async function handleIncoming(m: Incoming) {
       return;
     }
     u = await saveUser({ phone: m.from, member_id: member.id, name: member.name, upline: member.upline ?? "" });
-    await sendButtons(m.from, WELCOME(member.name), [{ id: "tips_yes", title: "Yes, daily tips" }, { id: "tips_no", title: "Not now" }]);
+    await sendText(m.from, WELCOME(member.name));
+    await sendButtons(m.from, TIPS_OFFER, [{ id: "tips_yes", title: "Yes, daily tips" }, { id: "tips_no", title: "Not now" }]);
     return;
   }
   const streak = await touch(u);
