@@ -52,6 +52,9 @@ async function post(body: object) {
   else console.log("wa sent", { status: r.status });
 }
 
+export const sendImage = (to: string, link: string, caption: string) =>
+  post({ to, type: "image", image: { link, caption: caption.slice(0, 1024) } });
+
 export const sendText = (to: string, body: string) => post({ to, type: "text", text: { body: body.slice(0, 4000) } });
 
 /** Up to three tap buttons; titles are cut to WhatsApp's 20-character limit. */

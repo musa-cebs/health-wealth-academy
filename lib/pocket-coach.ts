@@ -1,7 +1,8 @@
 import { anthropic, MODEL } from "@/lib/ai";
 import { coachSystem, type Member } from "@/lib/pocket-coach-prompt";
 import { verifyMember } from "@/lib/members";
-import { fetchMedia, markRead, sendButtons, sendList, sendText, type Incoming } from "@/lib/wa";
+import { fetchMedia, markRead, sendButtons, sendImage, sendList, sendText, type Incoming } from "@/lib/wa";
+import { extractCards, imageUrl } from "@/lib/product-cards";
 import { firstSeen, getUser, history, remember, saveUser, setTipDay, setTips, touch, type WaUser } from "@/lib/wa-store";
 import { nextDay, practiseSeed, sayItText, tipFor, tipText } from "@/lib/tips";
 
@@ -65,7 +66,10 @@ async function ask(u: WaUser, member: { id: string; name: string; upline?: strin
     const handoff = /HANDOFF_REQUEST:true/.test(reply);
     reply = reply.replace(/^HANDOFF_REQUEST:true\s*$/gm, "").trim();
     await remember(u.phone, "user", remembered);
-    if (reply) { await remember(u.phone, "assistant", reply); await sendText(u.phone, reply); }
+    const { text, cards } = extractCards(reply);
+    if (text) await sendText(u.phone, text);
+    for (const c of cards) await sendImage(u.phone, imageUrl(c.code), c.caption);
+    if (text || cards.length) await remember(u.phone, "assistant", [text, cards.length ? `[product cards sent: ${cards.map((c) => c.code).join(", ")}]` : ""].filter(Boolean).join("\n"));
     if (handoff) await sendText(u.phone, "I've flagged this so a person can follow up. In the meantime, you can message your upline directly.");
   } catch (e) {
     console.error("coach error", e instanceof Error ? e.message : e);
