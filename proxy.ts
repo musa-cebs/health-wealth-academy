@@ -6,6 +6,8 @@ export function proxy(req: NextRequest) {
   if (!authEnabled()) return NextResponse.next();
   const { pathname } = req.nextUrl;
   if (pathname === "/login" || pathname === "/api/sso") return NextResponse.next();
+  // WhatsApp webhook and cron carry their own signature / bearer checks instead of a browser session.
+  if (pathname === "/api/wa" || pathname === "/api/wa/daily") return NextResponse.next();
   if (readSession(req.cookies.get(COOKIE)?.value)) return NextResponse.next();
   if (pathname.startsWith("/api/")) return NextResponse.json({ error: "Please sign in from Vendor AI." }, { status: 401 });
   return NextResponse.redirect(new URL("/login", req.url));

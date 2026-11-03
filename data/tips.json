@@ -1,0 +1,357 @@
+[
+ {
+  "day": 1,
+  "weekday": "Mon",
+  "theme": "Customer care",
+  "title": "Listen for the second sentence",
+  "tip": "The first thing a customer tells you is rarely the whole story. The real worry usually comes after a pause. After they describe the problem, ask one more gentle question and then stay quiet for a moment. People who feel heard come back.",
+  "say_it": "That sounds really tiring. How is it affecting your day-to-day?",
+  "challenge": null,
+  "review_flags": []
+ },
+ {
+  "day": 2,
+  "weekday": "Tue",
+  "theme": "Know the symptom",
+  "title": "The after-meal energy dip",
+  "tip": "Many people feel sleepy or flat after a big, starchy meal. It helps to ask what they usually eat and when the dip hits. If it comes with a lot of thirst or frequent bathroom trips, the customer should have their sugar checked by a doctor or clinic. NRM supports the body's natural blood-sugar metabolism, alongside a balanced diet.",
+  "say_it": "Lots of people get that afternoon dip. How long has it been happening? And if you are also very thirsty or up at night a lot, it is worth a quick check-up with your doctor too.",
+  "challenge": null,
+  "review_flags": [
+   "Confirm wording on thirst and urination with the compliance reviewer."
+  ]
+ },
+ {
+  "day": 3,
+  "weekday": "Wed",
+  "theme": "Objection of the day",
+  "title": "\"It is too expensive\"",
+  "tip": "Price usually means 'I am not sure it is worth it for me'. Do not argue. Acknowledge it, ask whether it is the budget or the value, then bring it down to the daily cost and the journey. Never pressure.",
+  "say_it": "I hear you, and thank you for being open about it. Is it more the budget right now, or you are not sure it will be worth it for you? Spread over the month it comes to roughly R29 a day, and we can start small.",
+  "challenge": {
+   "customer_says": "I cannot afford more expenses right now.",
+   "pointers": [
+    "Acknowledge first, before any numbers",
+    "Ask: budget or value?",
+    "Offer a small start, never a discount you cannot honour"
+   ]
+  },
+  "review_flags": [
+   "Confirm one box covers about a month at one a day before using the 'R29 a day' line (R860 / 30)."
+  ]
+ },
+ {
+  "day": 4,
+  "weekday": "Thu",
+  "theme": "Product spotlight",
+  "title": "NRM (Normal): the blood-sugar balance product",
+  "tip": "NRM is built around fenugreek, gymnema and bitter melon, plant ingredients traditionally used for sugar cravings and a healthy insulin response. It supports the body's natural blood-sugar metabolism and never replaces medication. If your customer is on insulin or sugar medication, they must tell their doctor or pharmacist before adding it and keep an eye on their readings.",
+  "say_it": "NRM supports your body's own sugar balance. It does not replace your medication, so please let your doctor or pharmacist know you are adding it.",
+  "challenge": null,
+  "review_flags": [
+   "Amber safety line for insulin and glucose-lowering medication is mandatory."
+  ]
+ },
+ {
+  "day": 5,
+  "weekday": "Fri",
+  "theme": "Story time",
+  "title": "Share a story, not a promise",
+  "tip": "A testimony is one person's experience, never proof. Ask permission, use their own words about daily life ('I sleep better'), never 'it cured me', and always add the disclaimer.",
+  "say_it": "This is one person's own experience. Results differ from person to person. These are food supplements that support the normal functioning of the body. They are not intended to diagnose, treat, cure or prevent any disease and do not replace medical advice or treatment.",
+  "challenge": null,
+  "review_flags": []
+ },
+ {
+  "day": 6,
+  "weekday": "Sat",
+  "theme": "Follow-up nudge",
+  "title": "The day-after-delivery message",
+  "tip": "The best time to message is the day after the order arrives. It is care, not a sales push. Ask if it arrived safely and whether they have any questions about how to take it.",
+  "say_it": "Hi [name], I hope your order arrived safely! How are you getting on? Any questions about how to take it, just ask. I am here for you.",
+  "challenge": null,
+  "review_flags": []
+ },
+ {
+  "day": 7,
+  "weekday": "Mon",
+  "theme": "Customer care",
+  "title": "Remember one personal detail",
+  "tip": "Write down one thing about each customer that is not about health: a grandchild's name, a trip, a job. Mention it next time. Customers stay loyal to people who remember them.",
+  "say_it": "How did your daughter's graduation go? I was thinking about you.",
+  "challenge": null,
+  "review_flags": []
+ },
+ {
+  "day": 8,
+  "weekday": "Tue",
+  "theme": "Know the symptom",
+  "title": "Why sleep goes wrong",
+  "tip": "Stress, late screens, caffeine in the afternoon and an unsettled evening routine are common reasons for poor sleep. Ask about their evenings. If sleep problems are long-standing, or come with loud snoring or pauses in breathing, they should see a doctor. RLX with chamomile and passionflower supports calm and restful sleep.",
+  "say_it": "What does your evening look like before bed? A calmer routine plus the right support can help a lot. If it has been going on for months, a doctor visit is a good idea too.",
+  "challenge": null,
+  "review_flags": [
+   "Sleep-apnoea referral line: confirm with reviewer."
+  ]
+ },
+ {
+  "day": 9,
+  "weekday": "Wed",
+  "theme": "Objection of the day",
+  "title": "\"Let me think about it\"",
+  "tip": "Usually there is a question they have not asked. Do not chase. Make it safe to say what it is, then agree a time to check in.",
+  "say_it": "Of course, take your time. Is there one thing you would like to be sure about before you decide? I would rather you are comfortable.",
+  "challenge": {
+   "customer_says": "Let me think about it and come back to you.",
+   "pointers": [
+    "Agree to the pause, do not push",
+    "Ask for the one unanswered question",
+    "Set a kind check-in time"
+   ]
+  },
+  "review_flags": []
+ },
+ {
+  "day": 10,
+  "weekday": "Thu",
+  "theme": "Product spotlight",
+  "title": "SLD (Slide): joint comfort",
+  "tip": "SLD combines turmeric and ginger for stiffness, licorice for muscle tension and green tea for recovery. It supports joint comfort, flexibility and the skeletal system. Keep it to joint comfort only. Do not use it for nerve problems or other conditions it is not listed for.",
+  "say_it": "SLD supports joint comfort and flexibility, with turmeric and ginger. How are your joints feeling in the mornings?",
+  "challenge": null,
+  "review_flags": [
+   "Do not stretch SLD beyond joint comfort (see compliance note on nerve symptoms)."
+  ]
+ },
+ {
+  "day": 11,
+  "weekday": "Fri",
+  "theme": "Story time",
+  "title": "The before-and-after trap",
+  "tip": "'Before and after' stories can sound like a cure claim. Share the routine instead: what they take, how long, and how they feel in daily life, in their own words. No promises.",
+  "say_it": "Mrs M has been taking this for four months and tells me her mornings feel easier. Everyone is different, so results vary.",
+  "challenge": null,
+  "review_flags": []
+ },
+ {
+  "day": 12,
+  "weekday": "Sat",
+  "theme": "Follow-up nudge",
+  "title": "The one-week check-in",
+  "tip": "One week in, ask how they are finding it and whether they are taking it every day. Consistency matters more than quantity.",
+  "say_it": "Hi [name], how is your first week going? Are you managing to take it every day? Remember it builds over a few months, so no rush.",
+  "challenge": null,
+  "review_flags": []
+ },
+ {
+  "day": 13,
+  "weekday": "Mon",
+  "theme": "Customer care",
+  "title": "Under-promise, over-care",
+  "tip": "Never promise fast results. Say the truth: the full benefit builds over three to six months of consistent use. Customers who were told this stay; customers who were promised miracles leave.",
+  "say_it": "I will be honest with you, this is a journey. Most people notice the real difference over three to six months, so let us look after you the whole way.",
+  "challenge": null,
+  "review_flags": []
+ },
+ {
+  "day": 14,
+  "weekday": "Tue",
+  "theme": "Know the symptom",
+  "title": "Morning stiffness",
+  "tip": "Stiffness in the morning is common and often eases with gentle movement. If a joint is hot, red, swollen or there is fever, the customer should see a doctor. STP supports recovery after exertion, and SLD supports joint comfort.",
+  "say_it": "Gentle movement in the morning can help. If any joint is swollen, red or feels hot, please get it checked by a doctor first.",
+  "challenge": null,
+  "review_flags": [
+   "Referral triggers: confirm with reviewer."
+  ]
+ },
+ {
+  "day": 15,
+  "weekday": "Wed",
+  "theme": "Objection of the day",
+  "title": "\"I have tried supplements before\"",
+  "tip": "Be curious, not defensive. Ask what they took and how long, because many people stop too early. Then explain how this is different without knocking what they tried.",
+  "say_it": "Thanks for telling me. What did you try, and for how long? Lots of people stop before three months. This one is a lozenge that dissolves, so there is nothing to swallow.",
+  "challenge": {
+   "customer_says": "I tried supplements before and felt nothing.",
+   "pointers": [
+    "Ask what and how long",
+    "Explain 3 to 6 months honestly",
+    "Never criticise the other product"
+   ]
+  },
+  "review_flags": []
+ },
+ {
+  "day": 16,
+  "weekday": "Thu",
+  "theme": "Product spotlight",
+  "title": "GTS (Get Strength): stamina and vitality",
+  "tip": "GTS combines Siberian ginseng and ashwagandha for stress resilience and stamina, green tea for alertness and amla for immune support. It contains green tea, so ask if the customer is sensitive to caffeine.",
+  "say_it": "GTS supports your strength and stamina. Are you sensitive to caffeine? It has green tea in it.",
+  "challenge": null,
+  "review_flags": [
+   "Caffeine question: confirm with reviewer."
+  ]
+ },
+ {
+  "day": 17,
+  "weekday": "Fri",
+  "theme": "Story time",
+  "title": "Always ask permission",
+  "tip": "Before sharing a customer's story, ask. No names, photos or screenshots without a clear yes. Their privacy is part of caring for them, and the law (POPIA) expects it.",
+  "say_it": "May I share your experience, without your name, to help other people? Only if you are comfortable.",
+  "challenge": null,
+  "review_flags": []
+ },
+ {
+  "day": 18,
+  "weekday": "Sat",
+  "theme": "Follow-up nudge",
+  "title": "When a customer goes quiet",
+  "tip": "Quiet usually means busy, not unhappy. Do not chase. Send a warm, no-pressure message that has nothing to do with buying.",
+  "say_it": "Hi [name], just thinking of you. How are you doing? No rush at all, I am here when you need me.",
+  "challenge": null,
+  "review_flags": []
+ },
+ {
+  "day": 19,
+  "weekday": "Mon",
+  "theme": "Customer care",
+  "title": "Reply fast, or say when",
+  "tip": "A fast reply builds trust. If you cannot reply properly, send a quick holding message with a time.",
+  "say_it": "Thank you for your message! I am tied up right now. I will come back to you properly this evening.",
+  "challenge": null,
+  "review_flags": []
+ },
+ {
+  "day": 20,
+  "weekday": "Tue",
+  "theme": "Know the symptom",
+  "title": "Heartburn, bloating and digestion",
+  "tip": "Eating slowly, smaller portions and drinking enough water help many people. If heartburn is frequent, or there is black stool, vomiting blood, trouble swallowing or unexplained weight loss, they must see a doctor. ICE supports digestive comfort and MLS supports digestion and gut health.",
+  "say_it": "Does it happen after certain foods? If it is often, or you have noticed weight loss or black stools, please see a doctor first.",
+  "challenge": null,
+  "review_flags": [
+   "Red-flag list: confirm with reviewer."
+  ]
+ },
+ {
+  "day": 21,
+  "weekday": "Wed",
+  "theme": "Objection of the day",
+  "title": "\"My doctor said no\"",
+  "tip": "Never argue with a doctor. Welcome the conversation: offer the ingredient list, and let the doctor decide. Respecting that builds more trust than winning the point.",
+  "say_it": "That is wise, please do check. I can send you the ingredient list to show them. Your doctor knows your health best.",
+  "challenge": {
+   "customer_says": "My doctor told me not to take supplements.",
+   "pointers": [
+    "Agree with checking, never argue",
+    "Offer the ingredient list",
+    "Never suggest ignoring the doctor"
+   ]
+  },
+  "review_flags": []
+ },
+ {
+  "day": 22,
+  "weekday": "Thu",
+  "theme": "Product spotlight",
+  "title": "MLS and HPR: a natural pair",
+  "tip": "MLS supports digestion and gut health. HPR supports liver and pancreas function. They are often a good pair. Suggest a second product only when what the customer told you genuinely needs it, never just to raise the order.",
+  "say_it": "From what you told me, these two work well together. Would you like me to explain how?",
+  "challenge": null,
+  "review_flags": [
+   "Check wording on liver support."
+  ]
+ },
+ {
+  "day": 23,
+  "weekday": "Fri",
+  "theme": "Story time",
+  "title": "Your own story",
+  "tip": "Why did you start? Share it honestly. Real stories earn trust. Never mention earnings or promise income, and keep any health claims within the disclaimer.",
+  "say_it": "I started because [honest reason]. What I love most is helping people feel looked after.",
+  "challenge": null,
+  "review_flags": []
+ },
+ {
+  "day": 24,
+  "weekday": "Sat",
+  "theme": "Follow-up nudge",
+  "title": "The one-month message",
+  "tip": "One month is a natural moment for a warm check-in and, only if they are happy, a gentle mention that they will need more. It is care first.",
+  "say_it": "Hi [name], it has been about a month! How are you feeling? If you would like to continue, I can help you sort your next box.",
+  "challenge": null,
+  "review_flags": []
+ },
+ {
+  "day": 25,
+  "weekday": "Mon",
+  "theme": "Customer care",
+  "title": "I am not a doctor, and that is okay",
+  "tip": "Say it plainly: 'I am not a doctor, but I care.' Customers trust honesty. Whenever something sounds serious, point them to a doctor.",
+  "say_it": "I am not a doctor, so I cannot diagnose. What I can do is support you with the right products and listen. For this, please see your doctor.",
+  "challenge": null,
+  "review_flags": []
+ },
+ {
+  "day": 26,
+  "weekday": "Tue",
+  "theme": "Know the symptom",
+  "title": "Stress and low mood",
+  "tip": "Long stress affects sleep, energy and mood. Encourage the customer to talk to someone they trust. If they feel hopeless for weeks, or mention harming themselves, they need urgent professional help, not a product. HPY and RLX support mood balance and calm.",
+  "say_it": "That sounds like a lot to carry. Is there someone you can talk to? If it feels heavy for weeks, please speak to a doctor or counsellor.",
+  "challenge": null,
+  "review_flags": [
+   "Self-harm wording and SA helpline details need reviewer sign-off."
+  ]
+ },
+ {
+  "day": 27,
+  "weekday": "Wed",
+  "theme": "Objection of the day",
+  "title": "\"It is not working yet\"",
+  "tip": "Be honest. Ask whether they take it every day. Remind them the benefit builds over three to six months. If they feel worse, or have any new symptom, suggest a doctor visit.",
+  "say_it": "Thank you for telling me. Are you taking it every day? It builds slowly over three to six months. If you feel worse or notice anything new, please see your doctor.",
+  "challenge": {
+   "customer_says": "I have taken it for two weeks and feel nothing.",
+   "pointers": [
+    "Ask about daily consistency",
+    "Be honest about the timeline",
+    "If worse, point to a doctor"
+   ]
+  },
+  "review_flags": []
+ },
+ {
+  "day": 28,
+  "weekday": "Thu",
+  "theme": "Product spotlight",
+  "title": "Recommending a second product honestly",
+  "tip": "Add a second or third product only when the customer's own words point to it. Never because it costs more. Name why in one line, tied to what they said.",
+  "say_it": "You mentioned bad sleep as well. RLX supports calm and restful sleep. Would that be useful to you?",
+  "challenge": null,
+  "review_flags": []
+ },
+ {
+  "day": 29,
+  "weekday": "Fri",
+  "theme": "Story time",
+  "title": "The three rules of testimonies",
+  "tip": "1) Ask permission. 2) Own words, daily life, never 'cured'. 3) Always add the disclaimer. Stick to these and your stories stay safe and powerful.",
+  "say_it": "This is one person's experience. Results differ from person to person. These are food supplements, not a cure.",
+  "challenge": null,
+  "review_flags": []
+ },
+ {
+  "day": 30,
+  "weekday": "Sat",
+  "theme": "Follow-up nudge",
+  "title": "The three-month milestone",
+  "tip": "Three months is worth celebrating. Ask how they feel, what has changed, and what they want next. The journey goes on. This is where hit-and-run ends and a health journey begins.",
+  "say_it": "Three months already! How are you feeling compared to when you started? I am proud of you. What would you like to focus on next?",
+  "challenge": null,
+  "review_flags": []
+ }
+]

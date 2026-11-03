@@ -56,3 +56,11 @@ Import this folder as a project and set `ANTHROPIC_API_KEY` (and optionally `ANT
 ## Security
 
 The API key in the Make scenario's Module 4 is stored in plain text. Rotate it, and use a separate key for this app.
+
+## Pocket Coach (WhatsApp)
+A private WhatsApp coach for registered distributors: ask about a customer or objection, paste a message to check it, get follow-up wording, and receive an optional daily tip. It is not an assessment tool; certification stays on the web Academy.
+
+- Webhook: `/api/wa` (Meta verification + messages, signature-checked). Daily nudge: `/api/wa/daily` (Vercel Cron, 05:00 UTC = 07:00 SA).
+- Brain: `lib/pocket-coach.ts`; prompt: `lib/pocket-coach-prompt.ts` (keep product facts in sync with Sweety); tips: `data/tips.json` (30-day draft, needs compliance sign-off).
+- State: `wa_users`, `wa_msgs`, `wa_history` in `schema.sql` (needs `DATABASE_URL`; without it state is in memory only).
+- Setup: new WhatsApp number in Meta Cloud API, set the `WA_*` variables from `.env.example`, point the webhook at `/api/wa`, and get the `pocket_coach_daily` template approved.

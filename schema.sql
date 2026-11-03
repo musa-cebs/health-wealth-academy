@@ -28,3 +28,25 @@ create table if not exists roleplay_attempts (
   created_at  timestamptz not null default now()
 );
 create index if not exists roleplay_member_idx on roleplay_attempts (member_id, created_at desc);
+
+-- Pocket Coach (WhatsApp)
+create table if not exists wa_users (
+  phone text primary key,
+  member_id text not null,
+  name text not null,
+  upline text not null default '',
+  tips_on boolean not null default false,
+  tip_day int not null default 0,
+  streak int not null default 0,
+  last_active date,
+  created_at timestamptz not null default now()
+);
+create table if not exists wa_msgs (msg_id text primary key, created_at timestamptz not null default now());
+create table if not exists wa_history (
+  id bigserial primary key,
+  phone text not null,
+  role text not null,
+  content text not null,
+  created_at timestamptz not null default now()
+);
+create index if not exists wa_history_phone_idx on wa_history (phone, id desc);
