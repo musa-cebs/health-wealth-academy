@@ -2,7 +2,7 @@ import { anthropic, MODEL } from "@/lib/ai";
 import { coachSystem, type Member } from "@/lib/pocket-coach-prompt";
 import { verifyMember } from "@/lib/members";
 import { fetchMedia, markRead, sendButtons, sendImage, sendList, sendText, type Incoming } from "@/lib/wa";
-import { extractCards, imageUrl } from "@/lib/product-cards";
+import { extractCards, imageUrl, splitParts, trimToComplete } from "@/lib/product-cards";
 import { firstSeen, getUser, history, remember, saveUser, setTipDay, setTips, touch, type WaUser } from "@/lib/wa-store";
 import { nextDay, practiseSeed, sayItText, tipFor, tipText } from "@/lib/tips";
 
@@ -63,15 +63,17 @@ async function ask(u: WaUser, member: { id: string; name: string; upline?: strin
   if (lastT?.role === "user") turns.push({ role: "assistant", content: "(no reply was sent)" });
   turns.push({ role: "user", content });
   try {
-    const r = await ai.messages.create({ model: MODEL, max_tokens: 900, system: coachSystem(member), messages: turns as never });
+    const r = await ai.messages.create({ model: MODEL, max_tokens: 2000, system: coachSystem(member), messages: turns as never });
     let reply = r.content.map((b) => (b.type === "text" ? b.text : "")).join("").trim();
+    if (r.stop_reason === "max_tokens") { console.warn("coach reply hit the length limit; trimmed"); reply = trimToComplete(reply); }
     const handoff = /HANDOFF_REQUEST:true/.test(reply);
     reply = reply.replace(/^HANDOFF_REQUEST:true\s*$/gm, "").trim();
     await remember(u.phone, "user", remembered);
-    const { text, cards } = extractCards(reply);
-    if (text) await sendText(u.phone, text);
+    const { text, cards, after } = extractCards(reply);
+    for (const part of splitParts(text)) await sendText(u.phone, part);
     for (const c of cards) await sendImage(u.phone, imageUrl(c.code), c.caption);
-    if (text || cards.length) await remember(u.phone, "assistant", [text, cards.length ? `[product cards sent: ${cards.map((c) => c.code).join(", ")}]` : ""].filter(Boolean).join("\n"));
+    for (const part of splitParts(after)) await sendText(u.phone, part);
+    if (text || cards.length || after) await remember(u.phone, "assistant", [text, cards.length ? `[product cards sent: ${cards.map((c) => c.code).join(", ")}]` : "", after].filter(Boolean).join("\n"));
     if (handoff) await sendText(u.phone, "I've flagged this so a person can follow up. In the meantime, you can message your upline directly.");
   } catch (e) {
     console.error("coach error", e instanceof Error ? e.message : e);
