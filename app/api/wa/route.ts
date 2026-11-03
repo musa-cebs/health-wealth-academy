@@ -1,6 +1,7 @@
 import { after, NextRequest, NextResponse } from "next/server";
 import { parseIncoming, validSignature } from "@/lib/wa";
-import { handleIncoming } from "@/lib/pocket-coach";
+import { handleIncoming, TECH_ERROR } from "@/lib/pocket-coach";
+import { sendText } from "@/lib/wa";
 
 export const maxDuration = 60;
 
@@ -28,7 +29,10 @@ export async function POST(req: NextRequest) {
   console.log("wa webhook", { messages: messages.length, statuses: value?.statuses?.length ?? 0, to: String(value?.metadata?.display_phone_number ?? "").slice(-4) });
   after(async () => {
     for (const m of messages) {
-      try { await handleIncoming(m); } catch (e) { console.error("wa handler", e instanceof Error ? e.message : e); }
+      try { await handleIncoming(m); } catch (e) {
+        console.error("wa handler", e instanceof Error ? e.message : e);
+        try { await sendText(m.from, TECH_ERROR); } catch { /* nothing more we can do */ }
+      }
     }
   });
   return NextResponse.json({ ok: true });

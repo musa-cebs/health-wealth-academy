@@ -9,6 +9,8 @@ import { nextDay, practiseSeed, sayItText, tipFor, tipText } from "@/lib/tips";
 const WELCOME = (name: string) =>
   `Hi ${name}! I'm your *Pocket Coach* 💚 from Health Sweets Academy. Ask me anything mid-conversation: a customer's situation, a tough objection, or paste a message to check it before you send. I reply in seconds.\n\nOur team may review chats to improve this service. Type STOP any time to switch off daily tips.\n\nDo you have a specific question you would like to ask?`;
 
+export const TECH_ERROR = "⚠️ Technical error. The Pocket Coach hit a problem on our side, not yours. Please try again in a minute. If it keeps happening, let your upline know.";
+
 const TIPS_OFFER = "One more thing: would you like a short daily tip each morning?";
 
 const MENU_ROWS = [
@@ -48,7 +50,7 @@ type Block = { type: "text"; text: string } | { type: "image"; source: { type: "
 
 async function ask(u: WaUser, member: { id: string; name: string; upline?: string }, content: Block[], remembered: string) {
   const ai = anthropic();
-  if (!ai) { await sendText(u.phone, "I'm offline for a moment. Please try again shortly."); return; }
+  if (!ai) { await sendText(u.phone, TECH_ERROR); return; }
   const past = await history(u.phone);
   const turns: { role: "user" | "assistant"; content: string | Block[] }[] = [];
   for (const t of past) {
@@ -73,7 +75,7 @@ async function ask(u: WaUser, member: { id: string; name: string; upline?: strin
     if (handoff) await sendText(u.phone, "I've flagged this so a person can follow up. In the meantime, you can message your upline directly.");
   } catch (e) {
     console.error("coach error", e instanceof Error ? e.message : e);
-    await sendText(u.phone, "Sorry, I couldn't answer just now. Please send that again in a moment.");
+    await sendText(u.phone, TECH_ERROR);
   }
 }
 
@@ -88,12 +90,15 @@ export async function handleIncoming(m: Incoming) {
   let u = await getUser(m.from);
   let member: Member | null = u ? { id: u.member_id, name: u.name, upline: u.upline } : null;
   if (!u) {
-    member = await verifyMember(m.from);
-    console.log("wa new sender", { from: who, verified: !!member });
-    if (!member) {
-      await sendText(m.from, "The Pocket Coach is for registered Health & Wealth distributors. Please ask your upline to get you set up, then message me again.");
+    const access = await verifyMember(m.from);
+    console.log("wa new sender", { from: who, verified: access.ok, reason: access.ok ? undefined : access.reason });
+    if (!access.ok) {
+      await sendText(m.from, access.reason === "error"
+        ? TECH_ERROR
+        : "The Pocket Coach is for registered Health & Wealth distributors. Please ask your upline to get you set up, then message me again.");
       return;
     }
+    member = access.member;
     u = await saveUser({ phone: m.from, member_id: member.id, name: member.name, upline: member.upline ?? "" });
     // Greet first-timers who just say hello; anyone who already asks or taps something gets answered straight away.
     if (m.kind === "text" && ["", "HI", "HELLO", "HEY", "MENU", "?", "HELP", "START"].includes(upper)) {
