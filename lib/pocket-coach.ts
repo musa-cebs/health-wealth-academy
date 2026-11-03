@@ -114,7 +114,7 @@ export async function handleIncoming(m: Incoming) {
       await sendList(u.phone, `What do you need${streak > 1 ? `? 🔥 ${streak} days in a row` : "?"}`, "Open menu", MENU_ROWS);
       return;
     }
-    if (upper === "TIP") { await sendNextTip(u); return; }
+    if (upper === "TIP" || upper === "SHOW ME") { await sendNextTip(u); return; }
     if (!text) return;
     await ask(u, member!, [{ type: "text", text }], text);
     return;

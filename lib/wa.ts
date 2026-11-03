@@ -73,10 +73,16 @@ export const sendList = (to: string, body: string, button: string, rows: { id: s
   });
 
 /** Approved template, used to open the 24-hour window (the daily tip nudge). */
-export const sendTemplate = (to: string, name: string, params: string[]) =>
+export const sendTemplate = (to: string, name: string, params: string[], quickReplyPayload?: string) =>
   post({
     to, type: "template",
-    template: { name, language: { code: "en" }, components: [{ type: "body", parameters: params.map((text) => ({ type: "text", text })) }] },
+    template: {
+      name, language: { code: "en" },
+      components: [
+        { type: "body", parameters: params.map((text) => ({ type: "text", text })) },
+        ...(quickReplyPayload ? [{ type: "button", sub_type: "quick_reply", index: "0", parameters: [{ type: "payload", payload: quickReplyPayload }] }] : []),
+      ],
+    },
   });
 
 export const markRead = (messageId: string) => post({ status: "read", message_id: messageId });

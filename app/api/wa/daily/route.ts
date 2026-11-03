@@ -11,6 +11,6 @@ export async function GET(req: NextRequest) {
   const template = process.env.WA_DAILY_TEMPLATE || "pocket_coach_daily";
   const subs = await tipSubscribers();
   let sent = 0;
-  for (const u of subs) { await sendTemplate(u.phone, template, [u.name]); sent++; }
+  for (const u of subs) { await sendTemplate(u.phone, template, [u.name], "tip_today"); sent++; }
   return NextResponse.json({ sent });
 }
