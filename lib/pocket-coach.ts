@@ -91,7 +91,7 @@ export async function handleIncoming(m: Incoming) {
     member = await verifyMember(m.from);
     console.log("wa new sender", { from: who, verified: !!member });
     if (!member) {
-      await sendText(m.from, "This coach is for registered Health & Wealth distributors. Please ask your upline to get you set up, then message me again.");
+      await sendText(m.from, "The Pocket Coach is for registered Health & Wealth distributors. Please ask your upline to get you set up, then message me again.");
       return;
     }
     u = await saveUser({ phone: m.from, member_id: member.id, name: member.name, upline: member.upline ?? "" });
