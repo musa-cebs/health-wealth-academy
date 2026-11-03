@@ -49,6 +49,7 @@ async function post(body: object) {
     body: JSON.stringify({ messaging_product: "whatsapp", ...body }),
   });
   if (!r.ok) console.error("WhatsApp send failed", r.status, (await r.text()).slice(0, 300));
+  else console.log("wa sent", { status: r.status });
 }
 
 export const sendText = (to: string, body: string) => post({ to, type: "text", text: { body: body.slice(0, 4000) } });

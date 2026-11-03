@@ -72,13 +72,16 @@ async function ask(u: WaUser, member: { id: string; name: string; upline?: strin
 }
 
 export async function handleIncoming(m: Incoming) {
-  if (!(await firstSeen(m.id))) return;
+  const who = "…" + m.from.slice(-4);
+  console.log("wa msg", { kind: m.kind, from: who });
+  if (!(await firstSeen(m.id))) { console.log("wa msg duplicate, ignored", { from: who }); return; }
   await markRead(m.id);
 
   let u = await getUser(m.from);
   let member: Member | null = u ? { id: u.member_id, name: u.name, upline: u.upline } : null;
   if (!u) {
     member = await verifyMember(m.from);
+    console.log("wa new sender", { from: who, verified: !!member });
     if (!member) {
       await sendText(m.from, "This coach is for registered Health & Wealth distributors. Please ask your upline to get you set up, then message me again.");
       return;

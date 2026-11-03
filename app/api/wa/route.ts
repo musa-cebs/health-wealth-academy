@@ -16,10 +16,16 @@ export async function GET(req: NextRequest) {
 /** Acknowledge immediately, then do the coaching work after the response is sent. */
 export async function POST(req: NextRequest) {
   const raw = await req.text();
-  if (!validSignature(raw, req.headers.get("x-hub-signature-256"))) return new NextResponse("Invalid signature", { status: 401 });
+  const sig = req.headers.get("x-hub-signature-256");
+  if (!validSignature(raw, sig)) {
+    console.warn("wa webhook rejected: bad signature", { hasHeader: !!sig, hasSecret: !!process.env.WA_APP_SECRET, bytes: raw.length });
+    return new NextResponse("Invalid signature", { status: 401 });
+  }
   let payload: unknown;
   try { payload = JSON.parse(raw); } catch { return new NextResponse("Bad request", { status: 400 }); }
   const messages = parseIncoming(payload);
+  const value = (payload as any)?.entry?.[0]?.changes?.[0]?.value;
+  console.log("wa webhook", { messages: messages.length, statuses: value?.statuses?.length ?? 0, to: String(value?.metadata?.display_phone_number ?? "").slice(-4) });
   after(async () => {
     for (const m of messages) {
       try { await handleIncoming(m); } catch (e) { console.error("wa handler", e instanceof Error ? e.message : e); }
