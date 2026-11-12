@@ -16,10 +16,10 @@ export async function verifyMember(phone: string): Promise<Access> {
   if (!url || !secret) return { ok: false, reason: "not_member" };
   try {
     const r = await fetch(`${url}?phone=${encodeURIComponent(phone)}`, { headers: { Authorization: `Bearer ${secret}` }, cache: "no-store" });
-    if (r.status === 404) return { ok: false, reason: "not_member" };
+    // A missing route (404), a wrong secret (401) or a server error all mean we could not check: that is a technical error, not "not registered".
     if (!r.ok) { console.error("member lookup failed", r.status); return { ok: false, reason: "error" }; }
-    const m = (await r.json()) as { member_id?: string; name?: string; upline?: string; active?: boolean };
-    if (!m.member_id || m.active === false) return { ok: false, reason: "not_member" };
+    const m = (await r.json()) as { found?: boolean; member_id?: string; name?: string; upline?: string };
+    if (!m.found || !m.member_id) return { ok: false, reason: "not_member" };
     return { ok: true, member: { id: m.member_id, name: m.name || "there", upline: m.upline } };
   } catch (e) {
     console.error("member lookup error", e instanceof Error ? e.message : e);
