@@ -64,3 +64,7 @@ A private WhatsApp coach for registered distributors: ask about a customer or ob
 - Brain: `lib/pocket-coach.ts`; prompt: `lib/pocket-coach-prompt.ts` (keep product facts in sync with Sweety); tips: `data/tips.json` (30-day draft, needs compliance sign-off).
 - State: `wa_users`, `wa_msgs`, `wa_history` in `schema.sql` (needs `DATABASE_URL`; without it state is in memory only).
 - Setup: new WhatsApp number in Meta Cloud API, set the `WA_*` variables from `.env.example`, point the webhook at `/api/wa`, and get the `pocket_coach_daily` template approved.
+
+### Pocket Coach training layer
+Every hard customer answer teaches as well as answers (why it works, the questions to ask and their purpose, one thing to try). Distributors can type `TEACH ME` (lessons: mindset, conversations, selling, follow-up, business and team, APLGO and compliance, ten diagnostic playbooks), `DRILL` (practice scenarios with feedback), `QUICK` and `FULL` (short answers or full coaching), and get a next-morning check-in on the customer they asked about.
+- Content: `data/training.json` (needs clinical and compliance review before wide release). Logic: `lib/training.ts`, state in `lib/wa-store.ts`, prompt in `lib/pocket-coach-prompt.ts`.

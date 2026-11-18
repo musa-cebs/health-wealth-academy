@@ -4,7 +4,14 @@ const SCHEMA = `
 create table if not exists wa_users (phone text primary key, member_id text not null, name text not null, upline text not null default '', tips_on boolean not null default false, tip_day int not null default 0, streak int not null default 0, last_active date, created_at timestamptz not null default now());
 create table if not exists wa_msgs (msg_id text primary key, created_at timestamptz not null default now());
 create table if not exists wa_history (id bigserial primary key, phone text not null, role text not null, content text not null, created_at timestamptz not null default now());
-create index if not exists wa_history_phone_idx on wa_history (phone, id desc);`;
+create index if not exists wa_history_phone_idx on wa_history (phone, id desc);
+alter table wa_users add column if not exists mode text not null default 'coach';
+alter table wa_users add column if not exists lesson_id text;
+alter table wa_users add column if not exists drill_id text;
+alter table wa_users add column if not exists drill_idx int not null default 0;
+alter table wa_users add column if not exists last_scenario text;
+alter table wa_users add column if not exists scenario_at timestamptz;
+alter table wa_users add column if not exists checkin_at timestamptz;`;
 let ready: Promise<unknown> | null = null;
 /** Database handle with the Pocket Coach tables created on first use (no manual SQL step needed). */
 async function conn() {
@@ -14,7 +21,11 @@ async function conn() {
   return sql;
 }
 
-export type WaUser = { phone: string; member_id: string; name: string; upline: string; tips_on: boolean; tip_day: number; streak: number; last_active: string | null };
+export type WaUser = {
+  phone: string; member_id: string; name: string; upline: string; tips_on: boolean; tip_day: number; streak: number; last_active: string | null;
+  mode: string; lesson_id: string | null; drill_id: string | null; drill_idx: number; last_scenario: string | null; scenario_at: string | null; checkin_at: string | null;
+};
+const COLS = `phone, member_id, name, upline, tips_on, tip_day, streak, last_active::text, mode, lesson_id, drill_id, drill_idx, last_scenario, scenario_at::text, checkin_at::text`;
 type Turn = { role: "user" | "assistant"; content: string };
 
 const today = () => new Date().toISOString().slice(0, 10);
@@ -34,13 +45,13 @@ export async function firstSeen(msgId: string): Promise<boolean> {
 export async function getUser(phone: string): Promise<WaUser | null> {
   const sql = await conn();
   if (!sql) return mem.users.get(phone) ?? null;
-  const r = await sql`select phone, member_id, name, upline, tips_on, tip_day, streak, last_active::text from wa_users where phone = ${phone}`;
-  return (r[0] as WaUser) ?? null;
+  const r = await sql.unsafe(`select ${COLS} from wa_users where phone = $1`, [phone]);
+  return ((r[0] as unknown) as WaUser) ?? null;
 }
 
 export async function saveUser(u: Pick<WaUser, "phone" | "member_id" | "name" | "upline">): Promise<WaUser> {
   const sql = await conn();
-  if (!sql) { const n: WaUser = { tips_on: false, tip_day: 0, streak: 0, last_active: null, ...u }; mem.users.set(u.phone, n); return n; }
+  if (!sql) { const n: WaUser = { tips_on: false, tip_day: 0, streak: 0, last_active: null, mode: "coach", lesson_id: null, drill_id: null, drill_idx: 0, last_scenario: null, scenario_at: null, checkin_at: null, ...u }; mem.users.set(u.phone, n); return n; }
   await sql`insert into wa_users (phone, member_id, name, upline) values (${u.phone}, ${u.member_id}, ${u.name}, ${u.upline})
             on conflict (phone) do update set member_id = excluded.member_id, name = excluded.name, upline = excluded.upline`;
   return (await getUser(u.phone))!;
@@ -85,5 +96,54 @@ export async function remember(phone: string, role: Turn["role"], content: strin
 export async function tipSubscribers(): Promise<WaUser[]> {
   const sql = await conn();
   if (!sql) return [...mem.users.values()].filter((u) => u.tips_on);
-  return (await sql`select phone, member_id, name, upline, tips_on, tip_day, streak, last_active::text from wa_users where tips_on = true`) as unknown as WaUser[];
+  return (await sql.unsafe(`select ${COLS} from wa_users where tips_on = true`)) as unknown as WaUser[];
+}
+
+// ---- Training layer state -------------------------------------------------
+
+export async function setMode(phone: string, mode: "coach" | "quick") {
+  const sql = await conn();
+  if (!sql) { const u = mem.users.get(phone); if (u) u.mode = mode; return; }
+  await sql`update wa_users set mode = ${mode} where phone = ${phone}`;
+}
+
+/** Starts or ends a lesson or a drill (only one is active at a time). */
+export async function setActivity(phone: string, a: { lesson?: string | null; drill?: string | null }) {
+  const lesson = a.lesson ?? null, drill = a.drill ?? null;
+  const sql = await conn();
+  if (!sql) { const u = mem.users.get(phone); if (u) { u.lesson_id = lesson; u.drill_id = drill; } return; }
+  await sql`update wa_users set lesson_id = ${lesson}, drill_id = ${drill} where phone = ${phone}`;
+}
+
+export async function bumpDrill(phone: string) {
+  const sql = await conn();
+  if (!sql) { const u = mem.users.get(phone); if (u) u.drill_idx += 1; return; }
+  await sql`update wa_users set drill_idx = drill_idx + 1 where phone = ${phone}`;
+}
+
+/** Remembers the customer situation the distributor last asked about, for the next-morning check-in. */
+export async function saveScenario(phone: string, text: string) {
+  const snippet = text.replace(/\s+/g, " ").trim().slice(0, 160);
+  const sql = await conn();
+  if (!sql) { const u = mem.users.get(phone); if (u) { u.last_scenario = snippet; u.scenario_at = new Date().toISOString(); } return; }
+  await sql`update wa_users set last_scenario = ${snippet}, scenario_at = now() where phone = ${phone}`;
+}
+
+/** Distributors asked about a customer between 2 and 22 hours ago (WhatsApp's 24-hour window is still open) and not yet checked in on. */
+export async function pendingCheckins(): Promise<WaUser[]> {
+  const sql = await conn();
+  const due = (u: WaUser) => {
+    if (!u.tips_on || !u.last_scenario || !u.scenario_at) return false;
+    const age = Date.now() - new Date(u.scenario_at).getTime();
+    return age >= 2 * 3600_000 && age <= 22 * 3600_000 && (!u.checkin_at || new Date(u.checkin_at) < new Date(u.scenario_at));
+  };
+  if (!sql) return [...mem.users.values()].filter(due);
+  const r = (await sql.unsafe(`select ${COLS} from wa_users where tips_on = true and last_scenario is not null and scenario_at between now() - interval '22 hours' and now() - interval '2 hours' and (checkin_at is null or checkin_at < scenario_at)`)) as unknown as WaUser[];
+  return r;
+}
+
+export async function markCheckin(phone: string) {
+  const sql = await conn();
+  if (!sql) { const u = mem.users.get(phone); if (u) u.checkin_at = new Date().toISOString(); return; }
+  await sql`update wa_users set checkin_at = now() where phone = ${phone}`;
 }

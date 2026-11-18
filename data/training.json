@@ -1,0 +1,1198 @@
+{
+ "tracks": [
+  {
+   "id": "mindset",
+   "name": "Mindset & attitude",
+   "short": "Mindset & attitude",
+   "desc": "Service, rejection, consistency"
+  },
+  {
+   "id": "conversation",
+   "name": "Conversations & questions",
+   "short": "Conversations",
+   "desc": "Start chats, ask, listen"
+  },
+  {
+   "id": "selling",
+   "name": "Recommending & closing",
+   "short": "Selling",
+   "desc": "Recommend, objections, invite the order"
+  },
+  {
+   "id": "followup",
+   "name": "Follow-up & loyalty",
+   "short": "Follow-up",
+   "desc": "Care after the sale, repeat orders"
+  },
+  {
+   "id": "business",
+   "name": "Your business & team",
+   "short": "Business & team",
+   "desc": "Team building, coaching, ethics"
+  },
+  {
+   "id": "product",
+   "name": "APLGO & compliance",
+   "short": "APLGO & compliance",
+   "desc": "Products, wording, safety"
+  },
+  {
+   "id": "diagnosis",
+   "name": "Product diagnosis playbooks",
+   "short": "Diagnosis playbooks",
+   "desc": "Which questions find the right product"
+  }
+ ],
+ "modules": [
+  {
+   "id": "mi1",
+   "track": "mindset",
+   "title": "Service first: a health journey, not a hit-and-run",
+   "short": "Service first",
+   "keywords": [
+    "mindset",
+    "attitude",
+    "service",
+    "journey",
+    "care",
+    "hit and run",
+    "caring"
+   ],
+   "summary": "People buy from someone who cares about them. Your job is to help, not to push.",
+   "steps": [
+    "Your goal in every chat is to understand the person. The sale is the result of helping well.",
+    "Think in months, not days. A customer who feels cared for stays, refers friends and comes back.",
+    "Before you send a message ask: would I be happy if my own mother received this?"
+   ],
+   "script": "I'm not here to sell you something. I'd like to understand what is going on, then see how we can support you.",
+   "practice": "A new customer says: 'I just want the cheapest thing.' How do you show care and still guide them?"
+  },
+  {
+   "id": "mi2",
+   "track": "mindset",
+   "title": "Handling rejection without losing heart",
+   "short": "Handling rejection",
+   "keywords": [
+    "rejection",
+    "ignored",
+    "discouraged",
+    "afraid",
+    "scared",
+    "shy",
+    "confidence"
+   ],
+   "summary": "A no is almost always about timing, budget or trust, rarely about you.",
+   "steps": [
+    "Treat a no as information, not a verdict. Ask what you learned.",
+    "Set a goal for conversations, not yeses. More conversations always means more yeses over time.",
+    "Leave the door open with kindness, then follow up later."
+   ],
+   "script": "No problem at all. If anything changes I'm here. May I check in with you in a few weeks?",
+   "practice": "A friend replies 'not interested' to your message. Write one kind sentence that keeps the door open."
+  },
+  {
+   "id": "mi3",
+   "track": "mindset",
+   "title": "Your daily routine: consistency beats intensity",
+   "short": "Daily routine",
+   "keywords": [
+    "daily",
+    "routine",
+    "consistency",
+    "habit",
+    "discipline",
+    "dmo",
+    "method of operation",
+    "motivation"
+   ],
+   "summary": "A few simple actions done every day will outperform bursts of hard work.",
+   "steps": [
+    "Choose three daily actions you do even on bad days, for example: 5 conversations, 3 follow-ups, 1 lesson.",
+    "Do them at a fixed time and track them in one line: 'Today: 5 chats, 3 follow-ups.'",
+    "Review weekly: what worked, what to change."
+   ],
+   "script": "Today I will start 5 conversations, follow up with 3 people, and learn one new skill.",
+   "practice": "Write your three non-negotiable daily actions and the time you will do each one."
+  },
+  {
+   "id": "mi4",
+   "track": "mindset",
+   "title": "Be a product of the product, honestly",
+   "short": "Use what you share",
+   "keywords": [
+    "use the product",
+    "personal experience",
+    "own story",
+    "belief",
+    "experience",
+    "results",
+    "testimony of my own"
+   ],
+   "summary": "Customers trust people who use what they recommend, as long as the story is honest.",
+   "steps": [
+    "Use the products yourself so you can speak from your own routine.",
+    "Share your routine in your own words ('I take it every morning'). Never promise results.",
+    "Everyone's body is different. Say so."
+   ],
+   "script": "I take it every morning as part of my routine. Everyone is different, so let me explain how it is meant to support you.",
+   "practice": "Describe your own product routine in two sentences without any promise or cure claim."
+  },
+  {
+   "id": "co1",
+   "track": "conversation",
+   "title": "Starting conversations without being pushy",
+   "short": "Starting conversations",
+   "keywords": [
+    "start conversation",
+    "approach",
+    "prospecting",
+    "prospect",
+    "inviting",
+    "message first",
+    "cold",
+    "warm list",
+    "friends",
+    "who to talk to"
+   ],
+   "summary": "Begin with the person, not the product.",
+   "steps": [
+    "Open with something real about them, not a pitch.",
+    "Ask permission: 'Can I ask you something about your health?'",
+    "Offer help: 'I help people with X. Is that something that matters to you?' If not, leave kindly."
+   ],
+   "script": "Hi [name], I thought of you because you mentioned your knees. How are they doing these days?",
+   "practice": "Write a first message to an old friend who has mentioned being tired all the time."
+  },
+  {
+   "id": "co2",
+   "track": "conversation",
+   "title": "The diagnostic conversation: finding the real problem",
+   "short": "The right questions",
+   "keywords": [
+    "questions",
+    "diagnose",
+    "diagnostic",
+    "discovery",
+    "clarify",
+    "find out",
+    "which product",
+    "what to ask"
+   ],
+   "summary": "The right product comes from the right questions. Recommend last, not first.",
+   "steps": [
+    "Ask open first: 'Tell me what has been going on, in your own words.'",
+    "Go one level deeper: how long, how strong, what it stops them doing.",
+    "Ask what they have tried, and what medication they take.",
+    "Only then recommend, and explain why it fits what THEY said."
+   ],
+   "script": "How long has this been going on? And what does it stop you from doing?",
+   "practice": "A customer says: 'I have no energy.' List the next three questions you would ask and why."
+  },
+  {
+   "id": "co3",
+   "track": "conversation",
+   "title": "Listen and label: make people feel heard",
+   "short": "Listen and label",
+   "keywords": [
+    "listen",
+    "label",
+    "empathy",
+    "understood",
+    "closer",
+    "active listening"
+   ],
+   "summary": "People trust you when you can say their problem back to them in one sentence.",
+   "steps": [
+    "After they explain, say it back in one sentence: 'So you have had X for Y and it affects Z.'",
+    "Pause and let them confirm or add. Do not rush to fix.",
+    "Only then move to what they have tried and what they take."
+   ],
+   "script": "So for about three months you have had stiff mornings and it is slowing your whole day. Did I get that right?",
+   "practice": "Customer: 'I am exhausted, the sugar cravings are killing me and my feet burn.' Label it back in one sentence."
+  },
+  {
+   "id": "se1",
+   "track": "selling",
+   "title": "Recommending: sell the outcome, explain the why",
+   "short": "Recommending",
+   "keywords": [
+    "recommend",
+    "pitch",
+    "present",
+    "presentation",
+    "sell",
+    "benefits",
+    "outcome"
+   ],
+   "summary": "Lead with the result they want, then give one clear reason the product fits.",
+   "steps": [
+    "Start with their goal in their words: 'so you can get through the afternoon without crashing'.",
+    "Give one reason it fits (one ingredient or how it works), not a long list.",
+    "Be honest about the journey: benefits build over 3 to 6 months of daily use.",
+    "Finish with an easy next step."
+   ],
+   "script": "From what you told me, the goal is steady energy through the day. This one is built around ingredients that support that, and most people give it a few months. Would you like me to get it started for you?",
+   "practice": "Customer wants better sleep and takes no medication. Write your two-sentence recommendation (no cure claims)."
+  },
+  {
+   "id": "se2",
+   "track": "selling",
+   "title": "Handling objections with care",
+   "short": "Handling objections",
+   "keywords": [
+    "objection",
+    "expensive",
+    "price",
+    "cost",
+    "think about it",
+    "doctor",
+    "tried before",
+    "scam",
+    "pyramid",
+    "not working",
+    "cannot afford",
+    "spouse",
+    "husband",
+    "wife"
+   ],
+   "summary": "Acknowledge first, find the real concern, answer honestly, offer a small next step.",
+   "steps": [
+    "Acknowledge: 'That is fair.' Never argue.",
+    "Find the real concern: 'Is it the budget, or are you not sure it will work for you?'",
+    "Answer in one or two honest sentences.",
+    "Offer a small next step. Never pressure."
+   ],
+   "script": "Price: 'I hear you. Is it more the budget or whether it will be worth it for you? Spread over the month it is a few rand a day, and we can start small.' Think about it: 'Of course. Is there one thing you would like to be sure about?' Doctor: 'Please do check. I can send you the ingredient list to show them.' Tried before: 'What did you try and for how long? Many people stop before three months.'",
+   "practice": "Customer: 'My husband says these things are a waste of money.' Write your reply."
+  },
+  {
+   "id": "se3",
+   "track": "selling",
+   "title": "Inviting the order with confidence and care",
+   "short": "Inviting the order",
+   "keywords": [
+    "close",
+    "closing",
+    "ask for the sale",
+    "order",
+    "hesitate",
+    "commit",
+    "closer",
+    "reinforce",
+    "decide"
+   ],
+   "summary": "Once you have listened, explained and eased concerns, invite the order naturally.",
+   "steps": [
+    "Be sure you have clarified, labelled and answered their concerns first (the CLOSER steps).",
+    "Invite naturally: 'Shall I get this ready for you?'",
+    "One decision at a time: first yes or no, then how many.",
+    "Reinforce the decision: 'Great choice. I am here for you the whole way.'"
+   ],
+   "script": "Shall I get this ready for you? How many boxes would you like to start with?",
+   "practice": "The customer says: 'It sounds good.' and goes quiet. What do you say next?"
+  },
+  {
+   "id": "fu1",
+   "track": "followup",
+   "title": "Follow-up that cares: day 1, week 1, month 1, month 3",
+   "short": "Caring follow-up",
+   "keywords": [
+    "follow up",
+    "followup",
+    "after sale",
+    "check in",
+    "after care",
+    "delivery",
+    "week one"
+   ],
+   "summary": "Follow-up is care, not chasing. The goal is the customer's journey.",
+   "steps": [
+    "Day after delivery: did it arrive, any questions on how to take it?",
+    "One week: how is the first week, are you taking it daily?",
+    "One month: how do you feel, what has changed, would you like to continue?",
+    "Three months: celebrate the milestone and ask what they want to focus on next."
+   ],
+   "script": "Hi [name], how is your first week going? Are you managing to take it every day? Remember it builds over a few months, so no rush.",
+   "practice": "Write the one-week check-in for a customer who ordered for joint stiffness."
+  },
+  {
+   "id": "fu2",
+   "track": "followup",
+   "title": "Repeat customers and referrals",
+   "short": "Repeats and referrals",
+   "keywords": [
+    "repeat",
+    "reorder",
+    "referral",
+    "refer",
+    "loyal",
+    "retention",
+    "more customers"
+   ],
+   "summary": "Happy, well-cared-for customers reorder and bring friends, but only if you earn it.",
+   "steps": [
+    "Ask how they feel and what has changed in their day. Listen.",
+    "Remind them benefits build over 3 to 6 months of daily use.",
+    "When they are happy, ask who else they know who might want support. Never push."
+   ],
+   "script": "I am so glad you are noticing a difference. Do you know someone who has been struggling with the same thing?",
+   "practice": "A customer says they feel better after two months. How do you invite a referral without pressure?"
+  },
+  {
+   "id": "fu3",
+   "track": "followup",
+   "title": "When a customer goes quiet or stops",
+   "short": "Quiet customers",
+   "keywords": [
+    "quiet",
+    "stopped",
+    "gone silent",
+    "ghost",
+    "no reply",
+    "lost customer",
+    "ran out",
+    "not ordering"
+   ],
+   "summary": "Quiet usually means busy, not unhappy. Re-engage warmly with no selling.",
+   "steps": [
+    "Send a message that has nothing to do with buying.",
+    "Ask how they are, not whether they will reorder.",
+    "If they stopped, ask honestly why and listen. Offer help, not pressure."
+   ],
+   "script": "Hi [name], just thinking of you. How are you doing? No rush at all, I am here when you need me.",
+   "practice": "A customer has not replied for three weeks after their first order. Write your message."
+  },
+  {
+   "id": "bu1",
+   "track": "business",
+   "title": "Inviting people into the business ethically",
+   "short": "Inviting to the business",
+   "keywords": [
+    "recruit",
+    "recruiting",
+    "invite",
+    "opportunity",
+    "build team",
+    "sponsor",
+    "new distributor",
+    "prospect for business"
+   ],
+   "summary": "Invite people to a conversation about the opportunity, never into a promise.",
+   "steps": [
+    "Look for people who are curious, coachable and want to help others.",
+    "Share your honest journey and what the work really involves. Never promise or imply income.",
+    "Explain the support they will get and the first small steps.",
+    "Let them decide in their own time."
+   ],
+   "script": "I am building a small team that helps people with their health. Would you like me to share what I do and see if it could suit you?",
+   "practice": "A friend asks: 'How much money can I make?' How do you answer honestly?"
+  },
+  {
+   "id": "bu2",
+   "track": "business",
+   "title": "Duplication: teach what you do",
+   "short": "Duplication",
+   "keywords": [
+    "duplication",
+    "duplicate",
+    "new distributor",
+    "onboarding",
+    "first customer",
+    "getting started",
+    "train my team"
+   ],
+   "summary": "A business grows when new people can copy a simple, repeatable system.",
+   "steps": [
+    "Keep the system simple enough that a new person can repeat it in week one.",
+    "Help them get their first customer within seven days, with you alongside.",
+    "Show them how to use this coach so they learn while they work.",
+    "Celebrate small wins to build belief."
+   ],
+   "script": "This week your only goal is one real conversation. Let us plan it together and I will be on WhatsApp if you get stuck.",
+   "practice": "A new distributor says they are nervous. What is their first-week plan?"
+  },
+  {
+   "id": "bu3",
+   "track": "business",
+   "title": "Coaching your downline: ask, do not tell",
+   "short": "Coaching your team",
+   "keywords": [
+    "upline",
+    "coach",
+    "downline",
+    "team meeting",
+    "leader",
+    "leadership",
+    "mentor",
+    "weekly check-in"
+   ],
+   "summary": "Great uplines ask good questions so their team learns to solve things themselves.",
+   "steps": [
+    "Weekly check-in: wins, struggles, next action.",
+    "Ask first: 'What do you think you could try?' Then add your idea.",
+    "Role-play the hard moment together before they face it.",
+    "Praise effort and specific behaviour, not just results."
+   ],
+   "script": "What went well this week? What was hard? What is one thing you will try differently next week?",
+   "practice": "A team member says: 'People keep telling me it is too expensive.' What questions do you ask them?"
+  },
+  {
+   "id": "bu4",
+   "track": "business",
+   "title": "Honest income expectations and ethical business",
+   "short": "Ethics and income",
+   "keywords": [
+    "income",
+    "earn",
+    "earnings",
+    "commission",
+    "pyramid",
+    "ethical",
+    "legal",
+    "get rich",
+    "how much"
+   ],
+   "summary": "Retail comes first. Income comes from real customers and consistent work, never from hype.",
+   "steps": [
+    "Build on real customers who keep using the products.",
+    "Never show, promise or imply income, and follow company policy on what may be said.",
+    "Be upfront that results depend on effort, time and consistency.",
+    "If it sounds too good to be true, do not say it."
+   ],
+   "script": "I can't promise any income. What I can promise is to show you exactly what I do and support you while you try.",
+   "practice": "Someone says: 'Isn't this a pyramid scheme?' How do you respond calmly and honestly?"
+  },
+  {
+   "id": "pr1",
+   "track": "product",
+   "title": "APLGO in plain language: the technology",
+   "short": "The technology",
+   "keywords": [
+    "aplgo",
+    "technology",
+    "acumullit",
+    "lozenge",
+    "negative ion",
+    "negative ions",
+    "how it works",
+    "what is it",
+    "regulated",
+    "fda",
+    "sahpra",
+    "studies",
+    "proven"
+   ],
+   "summary": "Plant-extract lozenges made with a negative-ion-infused extraction process, explained simply and honestly.",
+   "steps": [
+    "Every product is a lozenge that dissolves, so there is nothing to swallow and it bypasses digestion.",
+    "The Acumullit SA extraction process uses negative ions to help preserve the active plant compounds.",
+    "Registered with regulatory bodies including the FDA and SAHPRA as dietary supplements.",
+    "Be honest about evidence: there are no large clinical trials on the finished products, but many of the individual plant ingredients have published research."
+   ],
+   "script": "They are plant-extract lozenges that dissolve in your mouth. They are registered as dietary supplements. There are no big trials on the finished products, but many of the ingredients have their own research.",
+   "practice": "A customer asks: 'Is this scientifically proven?' Write an honest answer in three sentences."
+  },
+  {
+   "id": "pr2",
+   "track": "product",
+   "title": "The product tiers and how to choose",
+   "short": "Tiers and choosing",
+   "keywords": [
+    "price",
+    "tiers",
+    "standard",
+    "premium",
+    "elite",
+    "how many boxes",
+    "dosage",
+    "how to take",
+    "how long",
+    "one a day",
+    "3 to 6 months"
+   ],
+   "summary": "Standard R860, Premium R1350, Elite R1850, Elite Special R1620. Choose by the customer's main need, never to raise the order.",
+   "steps": [
+    "Start from the customer's main need and recommend one to three products that fit it.",
+    "Daily use is one lozenge. Taking more does not work faster, and consistency matters more than quantity.",
+    "Benefits build over 3 to 6 months, so set that expectation before they order.",
+    "Suggest a second product only when what they told you genuinely points to it."
+   ],
+   "script": "Most people take one a day and give it three to six months. Taking more does not speed things up, so let us start with what matters most for you.",
+   "practice": "A customer with a small budget has two problems (sleep and joints). Which question do you ask, and how do you guide the order?"
+  },
+  {
+   "id": "pr3",
+   "track": "product",
+   "title": "Wording that protects you: support, never cure",
+   "short": "Compliant wording",
+   "keywords": [
+    "compliance",
+    "wording",
+    "cure",
+    "claim",
+    "claims",
+    "guarantee",
+    "legal",
+    "say",
+    "what not to say",
+    "medical claim",
+    "treat",
+    "heal"
+   ],
+   "summary": "Products support the body's normal functions. Never promise a cure, a treatment or a guarantee.",
+   "steps": [
+    "Use: supports, maintains, helps. Never: cure, treat, heal, reverse, prevent.",
+    "Never guarantee results. Say benefits build over time and differ from person to person.",
+    "Never tell anyone to stop or change medication. The products are not a replacement for medical care.",
+    "Never invent ingredients, studies or testimonials."
+   ],
+   "script": "This is designed to support your body. I can't promise a result, and it doesn't replace your doctor's advice.",
+   "practice": "Rewrite this safely: 'This will cure your diabetes and you can stop your tablets.'"
+  },
+  {
+   "id": "pr4",
+   "track": "product",
+   "title": "Testimonials the right way",
+   "short": "Testimonials",
+   "keywords": [
+    "testimonial",
+    "testimonials",
+    "story",
+    "review",
+    "before and after",
+    "share results",
+    "social media post",
+    "status"
+   ],
+   "summary": "A testimonial is one person's experience, never proof and never a promise.",
+   "steps": [
+    "Always ask permission. No names, photos or screenshots without a clear yes.",
+    "Use their own words about daily life ('my mornings feel easier'), never 'cured' or 'reversed'.",
+    "Always add the disclaimer: results differ from person to person, these are food supplements that support the normal functioning of the body and are not intended to diagnose, treat, cure or prevent any disease."
+   ],
+   "script": "This is one person's own experience. Results differ from person to person. These are food supplements, not a cure.",
+   "practice": "A customer sends: 'Your product fixed my sugar!' You want to share it. How do you rewrite it safely?"
+  },
+  {
+   "id": "pr5",
+   "track": "product",
+   "title": "Safety first: medication and when to send people to a doctor",
+   "short": "Safety and doctors",
+   "keywords": [
+    "safety",
+    "medication",
+    "insulin",
+    "tablets",
+    "pregnant",
+    "breastfeeding",
+    "doctor",
+    "red flag",
+    "urgent",
+    "emergency",
+    "blood thinners",
+    "warfarin",
+    "chronic"
+   ],
+   "summary": "Use the green, amber and red check on every customer.",
+   "steps": [
+    "Green: general wellness, no medication, no worrying symptoms. Go ahead with care.",
+    "Amber: takes prescription medication, is pregnant or breastfeeding, is a child, or has a chronic condition. Never imply the product replaces or adjusts treatment. Ask them to tell their doctor or pharmacist before adding anything. With insulin or sugar medication, also suggest they monitor their readings.",
+    "Red: severe, sudden, worsening or unexplained symptoms such as chest pain, shortness of breath, fainting, blood in stool or urine, sudden weight loss, signs of infection, or thoughts of self-harm. They see a doctor or clinic first. Products can only be support alongside the treatment."
+   ],
+   "script": "I care about how you are doing, so please see your doctor about this first. If you like, the product can be support alongside whatever they advise.",
+   "practice": "Customer: 'I get chest tightness and dizziness since this morning, what should I take?' What do you say?"
+  }
+ ],
+ "playbooks": [
+  {
+   "id": "sugar",
+   "track": "diagnosis",
+   "title": "Blood sugar and metabolism",
+   "short": "Blood sugar",
+   "keywords": [
+    "sugar",
+    "diabetes",
+    "diabetic",
+    "glucose",
+    "insulin",
+    "metformin",
+    "cravings",
+    "thirst",
+    "pre-diabetes",
+    "prediabetes",
+    "blood sugar",
+    "sugar levels"
+   ],
+   "products": "NRM (supports the body's natural blood-sugar metabolism), GTS if energy dips are the main complaint, PFT* if appetite and weight are part of it",
+   "questions": [
+    [
+     "Has a doctor spoken to them about their blood sugar, and what were the latest readings?",
+     "Separates general wellness from a diagnosed condition and tells you how careful to be."
+    ],
+    [
+     "Are they on insulin or sugar tablets such as Metformin?",
+     "This makes it an amber case: the product never replaces medication, they tell their doctor or pharmacist, and they keep an eye on their readings."
+    ],
+    [
+     "What are they noticing: crashes after meals, cravings, strong thirst, night-time urination, tingling or burning feet, slow-healing sores?",
+     "Maps the symptom picture. Tingling feet, sores that will not heal or heavy thirst mean a doctor visit first."
+    ],
+    [
+     "How long has it been going on and how strong is it day to day?",
+     "Long-standing or severe means support alongside medical care, not instead of it."
+    ],
+    [
+     "What have they already tried (diet changes, other supplements)?",
+     "Shows what has not worked so you do not repeat it."
+    ],
+    [
+     "What does a normal day of eating and moving look like?",
+     "Support works alongside food and movement, and this gives you honest advice to add."
+    ]
+   ],
+   "redFlags": "Very high or very low readings, fainting or confusion, a sore that will not heal, sudden vision changes, extreme thirst with weight loss: doctor or clinic first.",
+   "mistakes": [
+    "Saying a product can replace insulin or tablets.",
+    "Skipping the medication question."
+   ],
+   "drills": [
+    "A customer says: 'My mother has diabetes, she is on insulin and always tired. What can she take?'",
+    "A customer says: 'I crash every afternoon and crave sweets, but I have never been tested.'"
+   ]
+  },
+  {
+   "id": "weight",
+   "track": "diagnosis",
+   "title": "Weight and appetite",
+   "short": "Weight and appetite",
+   "keywords": [
+    "weight",
+    "lose weight",
+    "appetite",
+    "obese",
+    "overweight",
+    "belly",
+    "diet",
+    "slim",
+    "hungry",
+    "cravings",
+    "metabolism"
+   ],
+   "products": "PFT* (supports healthy appetite, metabolism and weight management alongside a balanced diet and exercise), NRM if sugar cravings drive the eating, GTS for energy",
+   "questions": [
+    [
+     "What is their goal in their own words, and why does it matter to them now?",
+     "A real reason keeps people going, and it shapes how you talk about the journey."
+    ],
+    [
+     "When do they struggle most: cravings, night eating, emotional eating, portion size?",
+     "Points to the right support and the right habit advice."
+    ],
+    [
+     "Do they take medication, or have diabetes, thyroid, heart or kidney issues?",
+     "Amber check: it decides how careful you must be and whether they speak to their doctor first."
+    ],
+    [
+     "Are they pregnant or breastfeeding?",
+     "Amber: they check with their doctor before anything new."
+    ],
+    [
+     "What have they tried before and what happened?",
+     "Avoids repeating what failed and builds honest expectations."
+    ],
+    [
+     "What does a normal day of eating and moving look like?",
+     "The product is support alongside diet and exercise, never a replacement."
+    ]
+   ],
+   "redFlags": "Sudden unexplained weight loss or gain, constant extreme thirst or hunger, swelling, breathlessness: doctor first.",
+   "mistakes": [
+    "Promising a number of kilograms or a timeline.",
+    "Suggesting it replaces diet and exercise."
+   ],
+   "drills": [
+    "A customer says: 'I want to lose 15 kilograms before December. What should I take?'",
+    "A customer says: 'I eat at night and cannot stop. Can your product fix that?'"
+   ]
+  },
+  {
+   "id": "joints",
+   "track": "diagnosis",
+   "title": "Joints, muscles and mobility",
+   "short": "Joints and muscles",
+   "keywords": [
+    "joint",
+    "joints",
+    "arthritis",
+    "knee",
+    "knees",
+    "back pain",
+    "stiff",
+    "stiffness",
+    "muscle",
+    "cramps",
+    "inflammation",
+    "mobility",
+    "sore",
+    "gout",
+    "sciatica",
+    "hip"
+   ],
+   "products": "SLD (supports joint comfort and flexibility), STP (supports recovery after exertion), GRW if immune or general support is also needed. Use SLD only for joint comfort, not for nerve problems.",
+   "questions": [
+    [
+     "Which joints or muscles, and is it one side or both?",
+     "Both sides and many joints is a different picture from one injured joint."
+    ],
+    [
+     "Is it worse in the morning, after activity, or at night?",
+     "Morning stiffness suggests SLD; pain after exertion suggests STP."
+    ],
+    [
+     "Any swelling, redness, heat or fever in the joint?",
+     "These are red flags: doctor first."
+    ],
+    [
+     "How long has it been going on and how much does it limit them?",
+     "Shows severity and what to ask about daily life."
+    ],
+    [
+     "Do they take pain tablets, anti-inflammatories or blood thinners?",
+     "Amber: they tell their doctor or pharmacist before adding anything."
+    ],
+    [
+     "What have they tried (rest, exercise, creams, supplements)?",
+     "Shows what has not worked."
+    ]
+   ],
+   "redFlags": "A hot, red or swollen joint, fever, a recent fall or injury, numbness or weakness in a leg, pain that wakes them at night: doctor first.",
+   "mistakes": [
+    "Using SLD for nerve pain or numbness.",
+    "Ignoring a swollen or hot joint."
+   ],
+   "drills": [
+    "A customer says: 'My knees are stiff every morning and it takes an hour to get moving.'",
+    "A customer says: 'I have back pain and my leg goes numb. What do I give her?'"
+   ]
+  },
+  {
+   "id": "heart",
+   "track": "diagnosis",
+   "title": "Heart and circulation",
+   "short": "Heart and circulation",
+   "keywords": [
+    "heart",
+    "blood pressure",
+    "hypertension",
+    "high blood pressure",
+    "bp",
+    "cholesterol",
+    "circulation",
+    "swollen feet",
+    "swollen legs",
+    "cold hands",
+    "veins",
+    "stroke",
+    "palpitations"
+   ],
+   "products": "HRT (supports the body's normal circulatory and regulatory processes, alongside diet and exercise), LFT for antioxidant and healthy-ageing support, GRW for general support",
+   "questions": [
+    [
+     "Has a doctor diagnosed high blood pressure, cholesterol or a heart condition, and what are the latest readings?",
+     "Tells you if this is general wellness or a managed condition."
+    ],
+    [
+     "Which medication do they take, especially blood pressure tablets or blood thinners?",
+     "Amber: the product never replaces or adjusts treatment, and they tell their doctor or pharmacist first."
+    ],
+    [
+     "What are they noticing: swollen feet, cold hands or feet, tiredness, dizziness, breathlessness?",
+     "Maps symptoms and picks out red flags."
+    ],
+    [
+     "Any chest pain, tightness, fainting or a racing heart?",
+     "These are red flags: urgent doctor or clinic first."
+    ],
+    [
+     "How active are they, and how do they eat and handle stress?",
+     "Support works with lifestyle, and this gives honest advice."
+    ],
+    [
+     "What have they tried so far?",
+     "Shows what has not worked."
+    ]
+   ],
+   "redFlags": "Chest pain or tightness, shortness of breath, fainting, sudden swelling of one leg, a racing heart, sudden weakness on one side: urgent medical help first. A sore on a swollen leg that will not heal: doctor first.",
+   "mistakes": [
+    "Suggesting they stop or lower blood pressure tablets.",
+    "Skipping the chest-pain question."
+   ],
+   "drills": [
+    "A customer says: 'My father's blood pressure is high and he gets dizzy. What can he take?'",
+    "A customer says: 'My feet are swollen and I have a sore that will not heal.'"
+   ]
+  },
+  {
+   "id": "digestion",
+   "track": "diagnosis",
+   "title": "Digestion, gut and liver",
+   "short": "Digestion and liver",
+   "keywords": [
+    "digestion",
+    "gut",
+    "stomach",
+    "bloating",
+    "bloated",
+    "constipation",
+    "heartburn",
+    "acid",
+    "reflux",
+    "ibs",
+    "liver",
+    "gas",
+    "indigestion",
+    "nausea",
+    "diarrhoea",
+    "diarrhea",
+    "detox"
+   ],
+   "products": "ICE (digestive comfort: occasional heartburn, overeating, constipation), MLS (digestion and gut health), HPR (liver and pancreas support, often paired with MLS)",
+   "questions": [
+    [
+     "What exactly is the problem: heartburn, bloating, constipation, loose stools, pain after eating?",
+     "Each points to a different product."
+    ],
+    [
+     "How often, for how long, and what triggers it?",
+     "Frequency and duration separate occasional from persistent."
+    ],
+    [
+     "Any blood in the stool, black stool, vomiting, trouble swallowing or unexplained weight loss?",
+     "These are red flags: doctor first."
+    ],
+    [
+     "Do they take medication such as acid tablets, painkillers or blood thinners?",
+     "Amber: they tell their doctor or pharmacist before adding anything."
+    ],
+    [
+     "How do they eat, drink and manage stress?",
+     "Habits matter, and this gives honest advice."
+    ],
+    [
+     "What have they tried so far?",
+     "Shows what has not worked."
+    ]
+   ],
+   "redFlags": "Blood in the stool, black stool, repeated vomiting, difficulty swallowing, unexplained weight loss, severe or constant pain, yellow skin or eyes: doctor first.",
+   "mistakes": [
+    "Calling the products a detox cure.",
+    "Ignoring persistent symptoms that need a doctor."
+   ],
+   "drills": [
+    "A customer says: 'I get heartburn almost every night and I am tired of antacids.'",
+    "A customer says: 'I am bloated and constipated all the time.'"
+   ]
+  },
+  {
+   "id": "immune",
+   "track": "diagnosis",
+   "title": "Immune and respiratory",
+   "short": "Immune and respiratory",
+   "keywords": [
+    "immune",
+    "immunity",
+    "cough",
+    "flu",
+    "cold",
+    "asthma",
+    "chest",
+    "respiratory",
+    "breathing",
+    "sinus",
+    "allergy",
+    "allergies",
+    "hayfever",
+    "nose",
+    "wheeze",
+    "phlegm",
+    "smoker"
+   ],
+   "products": "GRW (supports the immune system), ALT (supports breathing and respiratory comfort), AIR (supports immune and respiratory function)",
+   "questions": [
+    [
+     "What is going on: frequent colds, a lingering cough, blocked nose, allergies, wheezing?",
+     "Shows if the focus is immune support or breathing comfort."
+    ],
+    [
+     "How long has the cough or symptom lasted?",
+     "A cough lasting weeks needs a doctor, not just a product."
+    ],
+    [
+     "Any shortness of breath, chest pain, coughing blood, fever or night sweats?",
+     "These are red flags: doctor or clinic first."
+    ],
+    [
+     "Do they have asthma, TB history, or take medication (inhalers, steroids, immune medication)?",
+     "Amber: they tell their doctor or pharmacist first."
+    ],
+    [
+     "Do they smoke, or are they around smoke, dust or damp?",
+     "Honest context for what support can and cannot do."
+    ],
+    [
+     "What have they tried so far?",
+     "Shows what has not worked."
+    ]
+   ],
+   "redFlags": "Shortness of breath, chest pain, coughing blood, a cough lasting more than a few weeks, high fever, night sweats with weight loss: doctor or clinic first.",
+   "mistakes": [
+    "Treating a long cough as just a supplement problem.",
+    "Promising to fix asthma or any chest disease."
+   ],
+   "drills": [
+    "A customer says: 'I have had a cough for six weeks and I get breathless on stairs.'",
+    "A customer says: 'My kids catch every cold at school. What can I give them?'"
+   ]
+  },
+  {
+   "id": "sleep",
+   "track": "diagnosis",
+   "title": "Sleep, stress, mood and focus",
+   "short": "Sleep, stress and mood",
+   "keywords": [
+    "sleep",
+    "insomnia",
+    "stress",
+    "anxiety",
+    "anxious",
+    "mood",
+    "depressed",
+    "depression",
+    "calm",
+    "relax",
+    "focus",
+    "memory",
+    "brain",
+    "concentration",
+    "tired but cannot sleep",
+    "overwhelmed",
+    "burnout"
+   ],
+   "products": "RLX (supports calm and restful sleep and stress management), HPY (supports mood, relaxation and stress management), BRN (supports brain health, mental clarity and focus)",
+   "questions": [
+    [
+     "Is the trouble falling asleep, staying asleep, or waking tired?",
+     "Each points to a different cause and a different conversation."
+    ],
+    [
+     "What is going on in their life right now: work, money, family, health worries?",
+     "Stress is often the root, and it shows where you can help and where you must listen."
+    ],
+    [
+     "How much caffeine, alcohol and screen time do they have in the evening?",
+     "Honest, practical habits that matter as much as any product."
+    ],
+    [
+     "Do they take sleeping tablets, antidepressants or other medication?",
+     "Amber: they tell their doctor or pharmacist before adding anything."
+    ],
+    [
+     "How long has this lasted, and how is it affecting their days?",
+     "Weeks or months of poor sleep needs medical attention alongside support."
+    ],
+    [
+     "Do they feel hopeless, have thoughts of harming themselves, or loud snoring with pauses in breathing?",
+     "These are red flags: urgent professional help or a doctor first."
+    ]
+   ],
+   "redFlags": "Feeling hopeless for weeks, any thoughts of self-harm (urgent help now), loud snoring with pauses in breathing, severe confusion: doctor or professional help first.",
+   "mistakes": [
+    "Treating deep low mood as a supplement problem.",
+    "Ignoring the medication question."
+   ],
+   "drills": [
+    "A customer says: 'I have not slept properly for three months and I feel hopeless.'",
+    "A customer says: 'I cannot switch off at night, my mind just races.'"
+   ]
+  },
+  {
+   "id": "energy",
+   "track": "diagnosis",
+   "title": "Energy, stamina and men's vitality",
+   "short": "Energy and men's health",
+   "keywords": [
+    "energy",
+    "tired",
+    "fatigue",
+    "exhausted",
+    "stamina",
+    "vitality",
+    "strength",
+    "libido",
+    "erection",
+    "prostate",
+    "urinating at night",
+    "men",
+    "male",
+    "performance",
+    "low energy"
+   ],
+   "products": "GTS (supports strength, stamina and vitality; contains green tea so ask about caffeine), PWR_LEMON (supports men's energy, vitality and urinary and prostate health), NRM if sugar crashes are behind the tiredness",
+   "questions": [
+    [
+     "When are they tired: all day, after meals, afternoon, or on waking?",
+     "After-meal crashes point to blood sugar; all day points to a wider check."
+    ],
+    [
+     "How is their sleep, stress and food?",
+     "Often the real cause, and it gives honest advice."
+    ],
+    [
+     "Any night-time urination, weak stream, or pain when urinating?",
+     "Points to men's urinary and prostate support, and to a doctor if blood or pain is present."
+    ],
+    [
+     "Do they take medication, have diabetes, or are sensitive to caffeine?",
+     "Amber check, and GTS contains green tea."
+    ],
+    [
+     "How long has it lasted and how strong is it?",
+     "Months of unexplained exhaustion needs a doctor."
+    ],
+    [
+     "What have they tried?",
+     "Shows what has not worked."
+    ]
+   ],
+   "redFlags": "Blood in the urine, painful urination, unexplained weight loss, extreme fatigue for weeks with fever or night sweats, chest pain or breathlessness: doctor first.",
+   "mistakes": [
+    "Calling any supplement a performance guarantee.",
+    "Skipping the caffeine question for GTS."
+   ],
+   "drills": [
+    "A customer says: 'I am a man in my 50s, I get up three times a night and I have no energy.'",
+    "A customer says: 'I am exhausted by 3pm every day.'"
+   ]
+  },
+  {
+   "id": "women",
+   "track": "diagnosis",
+   "title": "Women's wellness and hormones",
+   "short": "Women's wellness",
+   "keywords": [
+    "women",
+    "woman",
+    "hormone",
+    "hormonal",
+    "menopause",
+    "period",
+    "periods",
+    "pms",
+    "hot flushes",
+    "hot flashes",
+    "fertility",
+    "pregnant",
+    "breastfeeding",
+    "cycle",
+    "mood swings",
+    "female"
+   ],
+   "products": "PWR_APRICOT (supports a woman's energy, hormonal balance and mood), GRW (supports immune function, hair, skin and nails and mood balance)",
+   "questions": [
+    [
+     "What are they noticing: hot flushes, irregular periods, mood swings, low energy?",
+     "Maps the picture and the right product."
+    ],
+    [
+     "Are they pregnant, trying to conceive, or breastfeeding?",
+     "Amber: they check with their doctor before anything new."
+    ],
+    [
+     "What life stage are they in (cycle, perimenopause, menopause)?",
+     "Shapes the conversation and expectations."
+    ],
+    [
+     "Do they take contraception, hormone therapy or other medication?",
+     "Amber: they tell their doctor or pharmacist first."
+    ],
+    [
+     "How long has it lasted and how is it affecting their days?",
+     "Shows severity and need for a doctor."
+    ],
+    [
+     "What have they tried so far?",
+     "Shows what has not worked."
+    ]
+   ],
+   "redFlags": "Very heavy bleeding, bleeding after menopause, severe pelvic pain, a breast lump, bleeding in pregnancy: doctor first.",
+   "mistakes": [
+    "Recommending anything without asking about pregnancy.",
+    "Promising hormone balance or a cure."
+   ],
+   "drills": [
+    "A customer says: 'I am 52, I have hot flushes at night and my mood is all over the place.'",
+    "A customer says: 'I am breastfeeding and exhausted. What can I take?'"
+   ]
+  },
+  {
+   "id": "skin",
+   "track": "diagnosis",
+   "title": "Skin, hair and healthy ageing",
+   "short": "Skin, hair and ageing",
+   "keywords": [
+    "skin",
+    "hair",
+    "nails",
+    "acne",
+    "wrinkles",
+    "ageing",
+    "aging",
+    "hair loss",
+    "dry skin",
+    "eczema",
+    "beauty",
+    "glow",
+    "scalp",
+    "antioxidant",
+    "anti-aging",
+    "anti-ageing"
+   ],
+   "products": "BTY (supports skin, scalp and hair vitality and cellular renewal), GRW (supports hair, skin and nails and the immune system), LFT (supports cellular health, healthy ageing and antioxidant protection)",
+   "questions": [
+    [
+     "What is the concern: dryness, breakouts, hair thinning, dull skin, ageing signs?",
+     "Each concern points to a different product and expectation."
+    ],
+    [
+     "How long has it been happening and did anything change (stress, diet, medication, a baby, a new product)?",
+     "Often points to the cause and to what a product can honestly do."
+    ],
+    [
+     "Is it sore, itchy, bleeding or changing shape or colour?",
+     "A changing mole, a sore that will not heal or a rash needs a doctor."
+    ],
+    [
+     "Do they take medication, are they pregnant or breastfeeding, or do they have a thyroid or iron issue?",
+     "Amber: they tell their doctor or pharmacist first."
+    ],
+    [
+     "What is their daily routine for food, water, sleep and skin care?",
+     "Support works alongside basics, and gives honest advice."
+    ],
+    [
+     "What have they tried already?",
+     "Shows what has not worked."
+    ]
+   ],
+   "redFlags": "A mole that changes, a sore that will not heal, sudden patchy hair loss, a spreading rash or signs of infection: doctor first.",
+   "mistakes": [
+    "Promising to reverse ageing or regrow hair.",
+    "Missing a worrying skin change."
+   ],
+   "drills": [
+    "A customer says: 'My hair is thinning since I had my baby.'",
+    "A customer says: 'I have a dark spot that has changed shape, can your product remove it?'"
+   ]
+  }
+ ]
+}

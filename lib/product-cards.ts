@@ -41,7 +41,7 @@ export function extractCards(reply: string): { text: string; cards: Card[]; afte
 }
 
 /** Splits a reply into separate WhatsApp messages at lines containing only ---. */
-export const splitParts = (t: string) => t.split(/\n\s*-{3,}\s*\n/).map((x) => x.trim()).filter(Boolean).slice(0, 4);
+export const splitParts = (t: string) => t.split(/\n\s*-{3,}\s*\n/).map((x) => x.trim()).filter(Boolean).slice(0, 6);
 
 /** If the model hit its length limit, cut back to the last complete sentence or line so nothing is sent half-finished. */
 export function trimToComplete(t: string): string {

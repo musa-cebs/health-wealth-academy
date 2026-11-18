@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { sendTemplate } from "@/lib/wa";
-import { tipSubscribers } from "@/lib/wa-store";
+import { sendButtons, sendTemplate } from "@/lib/wa";
+import { markCheckin, pendingCheckins, tipSubscribers } from "@/lib/wa-store";
 
 export const maxDuration = 60;
 
@@ -12,5 +12,14 @@ export async function GET(req: NextRequest) {
   const subs = await tipSubscribers();
   let sent = 0;
   for (const u of subs) { await sendTemplate(u.phone, template, [u.name], "tip_today"); sent++; }
-  return NextResponse.json({ sent });
+  // Morning check-in on the customer conversation each distributor asked about yesterday (only inside WhatsApp's 24-hour window).
+  let checkins = 0;
+  for (const u of await pendingCheckins()) {
+    await sendButtons(u.phone, `Good morning ${u.name}! Yesterday you asked me about: "${u.last_scenario}". How did it go with your customer?`, [
+      { id: "ci_good", title: "It went well" }, { id: "ci_hard", title: "It was hard" }, { id: "ci_wait", title: "Not yet" },
+    ]);
+    await markCheckin(u.phone);
+    checkins++;
+  }
+  return NextResponse.json({ sent, checkins });
 }
