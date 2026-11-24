@@ -11,7 +11,10 @@ alter table wa_users add column if not exists drill_id text;
 alter table wa_users add column if not exists drill_idx int not null default 0;
 alter table wa_users add column if not exists last_scenario text;
 alter table wa_users add column if not exists scenario_at timestamptz;
-alter table wa_users add column if not exists checkin_at timestamptz;`;
+alter table wa_users add column if not exists checkin_at timestamptz;
+alter table wa_users add column if not exists voice_reply boolean not null default true;
+alter table wa_users add column if not exists voice_day text;
+alter table wa_users add column if not exists voice_count int not null default 0;`;
 let ready: Promise<unknown> | null = null;
 /** Database handle with the Pocket Coach tables created on first use (no manual SQL step needed). */
 async function conn() {
@@ -24,8 +27,9 @@ async function conn() {
 export type WaUser = {
   phone: string; member_id: string; name: string; upline: string; tips_on: boolean; tip_day: number; streak: number; last_active: string | null;
   mode: string; lesson_id: string | null; drill_id: string | null; drill_idx: number; last_scenario: string | null; scenario_at: string | null; checkin_at: string | null;
+  voice_reply: boolean; voice_day: string | null; voice_count: number;
 };
-const COLS = `phone, member_id, name, upline, tips_on, tip_day, streak, last_active::text, mode, lesson_id, drill_id, drill_idx, last_scenario, scenario_at::text, checkin_at::text`;
+const COLS = `phone, member_id, name, upline, tips_on, tip_day, streak, last_active::text, mode, lesson_id, drill_id, drill_idx, last_scenario, scenario_at::text, checkin_at::text, voice_reply, voice_day, voice_count`;
 type Turn = { role: "user" | "assistant"; content: string };
 
 const today = () => new Date().toISOString().slice(0, 10);
@@ -51,7 +55,7 @@ export async function getUser(phone: string): Promise<WaUser | null> {
 
 export async function saveUser(u: Pick<WaUser, "phone" | "member_id" | "name" | "upline">): Promise<WaUser> {
   const sql = await conn();
-  if (!sql) { const n: WaUser = { tips_on: false, tip_day: 0, streak: 0, last_active: null, mode: "coach", lesson_id: null, drill_id: null, drill_idx: 0, last_scenario: null, scenario_at: null, checkin_at: null, ...u }; mem.users.set(u.phone, n); return n; }
+  if (!sql) { const n: WaUser = { tips_on: false, tip_day: 0, streak: 0, last_active: null, mode: "coach", lesson_id: null, drill_id: null, drill_idx: 0, last_scenario: null, scenario_at: null, checkin_at: null, voice_reply: true, voice_day: null, voice_count: 0, ...u }; mem.users.set(u.phone, n); return n; }
   await sql`insert into wa_users (phone, member_id, name, upline) values (${u.phone}, ${u.member_id}, ${u.name}, ${u.upline})
             on conflict (phone) do update set member_id = excluded.member_id, name = excluded.name, upline = excluded.upline`;
   return (await getUser(u.phone))!;
@@ -146,4 +150,25 @@ export async function markCheckin(phone: string) {
   const sql = await conn();
   if (!sql) { const u = mem.users.get(phone); if (u) u.checkin_at = new Date().toISOString(); return; }
   await sql`update wa_users set checkin_at = now() where phone = ${phone}`;
+}
+
+// ---- Voice -----------------------------------------------------------------
+
+export async function setVoiceReply(phone: string, on: boolean) {
+  const sql = await conn();
+  if (!sql) { const u = mem.users.get(phone); if (u) u.voice_reply = on; return; }
+  await sql`update wa_users set voice_reply = ${on} where phone = ${phone}`;
+}
+
+/** Counts one voice reply against today's allowance. Returns true while the distributor is within their daily limit. */
+export async function takeVoiceCredit(phone: string, limit: number): Promise<boolean> {
+  const day = today();
+  const sql = await conn();
+  if (!sql) {
+    const u = mem.users.get(phone); if (!u) return false;
+    u.voice_count = u.voice_day === day ? u.voice_count + 1 : 1; u.voice_day = day;
+    return u.voice_count <= limit;
+  }
+  const r = await sql`update wa_users set voice_count = case when voice_day = ${day} then voice_count + 1 else 1 end, voice_day = ${day} where phone = ${phone} returning voice_count`;
+  return Number(r[0]?.voice_count ?? limit + 1) <= limit;
 }

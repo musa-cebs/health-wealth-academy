@@ -68,3 +68,6 @@ A private WhatsApp coach for registered distributors: ask about a customer or ob
 ### Pocket Coach training layer
 Every hard customer answer teaches as well as answers (why it works, the questions to ask and their purpose, one thing to try). Distributors can type `TEACH ME` (lessons: mindset, conversations, selling, follow-up, business and team, APLGO and compliance, ten diagnostic playbooks), `DRILL` (practice scenarios with feedback), `QUICK` and `FULL` (short answers or full coaching), and get a next-morning check-in on the customer they asked about.
 - Content: `data/training.json` (needs clinical and compliance review before wide release). Logic: `lib/training.ts`, state in `lib/wa-store.ts`, prompt in `lib/pocket-coach-prompt.ts`.
+
+### Voice (Pocket Coach)
+Distributors can send a WhatsApp voice note; it is transcribed (Azure AI Speech, OGG/Opus, up to 60 seconds) and handled exactly like typed text, including commands. With voice replies on (default) a voice note gets a spoken answer too; `LISTEN` reads the last answer aloud; `VOICE ON/OFF` switches replies. Audio is never stored. Needs `SPEECH_KEY` and `SPEECH_REGION`; without them voice notes get a polite "type it for now". Optional: `SPEECH_LOCALES` (default `en-ZA`), `TTS_VOICE`, `VOICE_DAILY_LIMIT` (default 20).

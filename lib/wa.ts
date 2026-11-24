@@ -92,7 +92,8 @@ export const sendTemplate = (to: string, name: string, params: string[], quickRe
 export const markRead = (messageId: string) => post({ status: "read", message_id: messageId });
 
 /** Downloads an image the distributor sent (for screenshots of customer chats). */
-export async function fetchMedia(mediaId: string): Promise<{ mime: string; data: string } | null> {
+/** Downloads a media file the distributor sent (voice note or picture) without keeping it. */
+export async function fetchMediaBuffer(mediaId: string, maxBytes: number): Promise<{ mime: string; buf: Buffer } | null> {
   const { token } = cfg();
   if (!token) return null;
   const meta = await fetch(`${GRAPH}/${mediaId}`, { headers: { Authorization: `Bearer ${token}` } });
@@ -101,6 +102,27 @@ export async function fetchMedia(mediaId: string): Promise<{ mime: string; data:
   const file = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
   if (!file.ok) return null;
   const buf = Buffer.from(await file.arrayBuffer());
-  if (buf.length > 4_500_000) return null;
-  return { mime: mime_type, data: buf.toString("base64") };
+  return buf.length > maxBytes ? null : { mime: mime_type, buf };
+}
+
+/** Downloads an image the distributor sent (for screenshots of customer chats). */
+export async function fetchMedia(mediaId: string): Promise<{ mime: string; data: string } | null> {
+  const m = await fetchMediaBuffer(mediaId, 4_500_000);
+  return m ? { mime: m.mime, data: m.buf.toString("base64") } : null;
+}
+
+/** Uploads OGG/Opus audio and sends it as a WhatsApp voice note. Returns false if either step failed. */
+export async function sendVoice(to: string, ogg: Buffer): Promise<boolean> {
+  const { id, token } = cfg();
+  if (!id || !token) return false;
+  const form = new FormData();
+  form.append("messaging_product", "whatsapp");
+  form.append("type", "audio/ogg; codecs=opus");
+  form.append("file", new Blob([new Uint8Array(ogg)], { type: "audio/ogg; codecs=opus" }), "reply.ogg");
+  const up = await fetch(`${GRAPH}/${id}/media`, { method: "POST", headers: { Authorization: `Bearer ${token}` }, body: form });
+  if (!up.ok) { console.error("voice upload failed", up.status, (await up.text()).slice(0, 200)); return false; }
+  const { id: mediaId } = (await up.json()) as { id?: string };
+  if (!mediaId) return false;
+  await post({ to, type: "audio", audio: { id: mediaId, voice: true } });
+  return true;
 }

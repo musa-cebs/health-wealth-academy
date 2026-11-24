@@ -1,9 +1,10 @@
 import { anthropic, MODEL } from "@/lib/ai";
 import { coachSystem, type Member } from "@/lib/pocket-coach-prompt";
 import { verifyMember } from "@/lib/members";
-import { fetchMedia, markRead, sendButtons, sendImage, sendList, sendText, type Incoming } from "@/lib/wa";
+import { fetchMedia, fetchMediaBuffer, markRead, sendButtons, sendImage, sendList, sendText, sendVoice, type Incoming } from "@/lib/wa";
+import { dailyVoiceLimit, synthesize, transcribe, voiceConfigured } from "@/lib/voice";
 import { extractCards, imageUrl, splitParts, trimToComplete } from "@/lib/product-cards";
-import { bumpDrill, firstSeen, getUser, history, remember, saveScenario, saveUser, setActivity, setMode, setTipDay, setTips, touch, type WaUser } from "@/lib/wa-store";
+import { bumpDrill, firstSeen, getUser, history, remember, saveScenario, saveUser, setActivity, setMode, setTipDay, setTips, setVoiceReply, takeVoiceCredit, touch, type WaUser } from "@/lib/wa-store";
 import { allTracks, drillAt, drillCount, getLesson, itemsInTrack, isPlaybook, lessonId, searchLesson, trackById, trainingContext, type Item } from "@/lib/training";
 import { nextDay, practiseSeed, sayItText, tipFor, tipText } from "@/lib/tips";
 
@@ -23,6 +24,7 @@ const MENU_ROWS = [
   { id: "m_drill", title: "Drill me", description: "Practise a real scenario" },
   { id: "m_tip", title: "Today's tip", description: "A quick lesson" },
   { id: "m_practise", title: "Practise", description: "Role-play a customer" },
+  { id: "m_voice", title: "Voice help", description: "Speak to me, I can answer aloud" },
 ];
 const MENU_PROMPTS: Record<string, string> = {
   m_customer: "Tell me about your customer, the way you would tell a colleague: what they are experiencing, for how long, and any medication they take.",
@@ -30,6 +32,7 @@ const MENU_PROMPTS: Record<string, string> = {
   m_check: "Paste the message or post you want checked, and I'll tell you if it is safe to send.",
   m_follow: "Who is the follow-up for, and how long ago did they order? (for example: Mrs M, delivered yesterday)",
   m_practise: "Which situation should we practise? (for example: a customer who says it is too expensive)",
+  m_voice: "🎤 Send me a voice note and I'll answer. Type VOICE ON or VOICE OFF to choose whether I answer by voice too, and LISTEN to hear my last answer read aloud. Voice notes are turned into text and the audio is not kept.",
 };
 
 async function sendTip(u: WaUser, day: number) {
@@ -84,9 +87,23 @@ async function endActivity(u: WaUser) {
   u.lesson_id = null; u.drill_id = null;
 }
 
+const VOICE_PRIVACY = "Voice notes are turned into text and the audio is not kept.";
+const NO_VOICE = "Voice isn't switched on yet. For now, please type it out and I'll help right away. 💚";
+
+/** Sends a spoken version of `text` as a voice note, within the distributor's daily allowance. Never throws. */
+async function speak(u: WaUser, text: string, locale: string) {
+  try {
+    if (!voiceConfigured() || !text.trim()) return;
+    if (!(await takeVoiceCredit(u.phone, dailyVoiceLimit()))) { console.log("voice daily limit reached"); return; }
+    const ogg = await synthesize(text, locale);
+    if (ogg) await sendVoice(u.phone, ogg);
+  } catch (e) { console.error("speak error", e instanceof Error ? e.message : e); }
+}
+
 type Block = { type: "text"; text: string } | { type: "image"; source: { type: "base64"; media_type: "image/jpeg" | "image/png" | "image/webp" | "image/gif"; data: string } };
 
-async function ask(u: WaUser, member: { id: string; name: string; upline?: string }, content: Block[], remembered: string) {
+type AskOpts = { viaVoice?: boolean; locale?: string };
+async function ask(u: WaUser, member: { id: string; name: string; upline?: string }, content: Block[], remembered: string, opts: AskOpts = {}) {
   const ai = anthropic();
   if (!ai) { await sendText(u.phone, TECH_ERROR); return; }
   const past = await history(u.phone);
@@ -117,6 +134,7 @@ async function ask(u: WaUser, member: { id: string; name: string; upline?: strin
     for (const part of splitParts(after)) await sendText(u.phone, part);
     if (text || cards.length || after) await remember(u.phone, "assistant", [text, cards.length ? `[product cards sent: ${cards.map((c) => c.code).join(", ")}]` : "", after].filter(Boolean).join("\n"));
     if (cards.length && !u.lesson_id && !u.drill_id) await saveScenario(u.phone, remembered);
+    if (opts.viaVoice && u.voice_reply) await speak(u, splitParts(text)[0] ?? splitParts(after)[0] ?? "", opts.locale ?? "en-ZA");
     if (lessonDone) {
       await endActivity(u);
       await sendButtons(u.phone, "Nicely done. What next?", [{ id: "m_teach", title: "Another lesson" }, { id: "m_drill", title: "Drill me" }, { id: "act_done", title: "Done for now" }]);
@@ -190,11 +208,25 @@ export async function handleIncoming(m: Incoming) {
     return;
   }
 
-  if (m.kind === "text") {
+  const processText = async (text: string, viaVoice = false, locale = "en-ZA") => {
+    const upper = text.trim().toUpperCase();
     if (["STOP", "UNSUBSCRIBE"].includes(upper)) { await setTips(u.phone, false); await sendText(u.phone, "Done, no more daily tips. I'm still here whenever you need me. Type START to turn them back on."); return; }
     if (upper === "START") { await setTips(u.phone, true); await sendText(u.phone, "Daily tips are back on. 💚"); return; }
     if (["MENU", "?", "HELP", "HI", "HELLO"].includes(upper)) {
       await sendList(u.phone, `What do you need${streak > 1 ? `? 🔥 ${streak} days in a row` : "?"}`, "Open menu", MENU_ROWS);
+      return;
+    }
+    if (upper === "VOICE" || upper === "VOICE HELP") {
+      await sendText(u.phone, `🎤 *Voice*\nSend me a voice note and I will answer in text and, with voice replies on, in a voice note too. Type LISTEN to hear my last answer read aloud. ${VOICE_PRIVACY}\n\nVoice replies are ${u.voice_reply ? "ON" : "OFF"}. Type VOICE ON or VOICE OFF to change it.${voiceConfigured() ? "" : "\n\n(Voice is not switched on yet, so for now please type.)"}`);
+      return;
+    }
+    if (upper === "VOICE ON") { await setVoiceReply(u.phone, true); u.voice_reply = true; await sendText(u.phone, `🔊 Voice replies on: when you send me a voice note, I'll answer with a voice note too. ${VOICE_PRIVACY} Type VOICE OFF to turn it off.`); return; }
+    if (upper === "VOICE OFF") { await setVoiceReply(u.phone, false); u.voice_reply = false; await sendText(u.phone, "🔇 Voice replies off. I'll still understand your voice notes and answer in text. Type VOICE ON to turn them back on."); return; }
+    if (upper === "LISTEN") {
+      if (!voiceConfigured()) { await sendText(u.phone, NO_VOICE); return; }
+      const last = [...(await history(u.phone, 6))].reverse().find((t) => t.role === "assistant");
+      if (!last) { await sendText(u.phone, "There is nothing to read yet. Ask me something first. 💚"); return; }
+      await speak(u, last.content.replace(/\[product cards sent:[^\]]*\]/g, ""), locale);
       return;
     }
     if (upper === "TIP" || upper === "SHOW ME") { await sendNextTip(u); return; }
@@ -209,9 +241,10 @@ export async function handleIncoming(m: Incoming) {
       return;
     }
     if (!text) return;
-    await ask(u, member!, [{ type: "text", text }], text);
+    await ask(u, member!, [{ type: "text", text }], text, { viaVoice, locale });
     return;
-  }
+  };
+  if (m.kind === "text") { await processText(text); return; }
 
   if (m.kind === "image" && m.mediaId) {
     const img = await fetchMedia(m.mediaId);
@@ -221,5 +254,18 @@ export async function handleIncoming(m: Incoming) {
     return;
   }
 
-  if (m.kind === "audio") { await sendText(u.phone, "Voice notes are coming soon. For now, please type it out and I'll help right away. 💚"); return; }
+  if (m.kind === "audio") {
+    if (!voiceConfigured() || !m.mediaId) { await sendText(u.phone, NO_VOICE); return; }
+    const media = await fetchMediaBuffer(m.mediaId, 2_000_000);
+    if (!media) { await sendText(u.phone, "I couldn't open that voice note. Please try again, or type it out."); return; }
+    const t = await transcribe(media.buf);
+    if (!t.ok) {
+      await sendText(u.phone, t.reason === "too_long" ? "That voice note is too long for me to handle. Please keep it under a minute, or type it out."
+        : t.reason === "empty" ? "I couldn't make that out. Could you try again a little slower and closer to the phone, or type it out?" : TECH_ERROR);
+      return;
+    }
+    await sendText(u.phone, `🎤 I heard: “${t.text}”`);
+    await processText(t.text, true, t.locale);
+    return;
+  }
 }
