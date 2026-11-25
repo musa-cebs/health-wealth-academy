@@ -5,7 +5,7 @@ import { fetchMedia, fetchMediaBuffer, markRead, sendButtons, sendImage, sendLis
 import { dailyVoiceLimit, synthesize, transcribe, voiceConfigured } from "@/lib/voice";
 import { extractCards, imageUrl, splitParts, trimToComplete } from "@/lib/product-cards";
 import { bumpDrill, firstSeen, getUser, history, remember, saveScenario, saveUser, setActivity, setMode, setTipDay, setTips, setVoiceReply, takeVoiceCredit, touch, type WaUser } from "@/lib/wa-store";
-import { allTracks, drillAt, drillCount, getLesson, itemsInTrack, isPlaybook, lessonId, searchLesson, trackById, trainingContext, type Item } from "@/lib/training";
+import { allTracks, drillAt, drillCount, getLesson, itemsInTrack, isPlaybook, lessonId, playbooksFor, searchLesson, trackById, trainingContext, type Item } from "@/lib/training";
 import { nextDay, practiseSeed, sayItText, tipFor, tipText } from "@/lib/tips";
 
 const WELCOME = (name: string) =>
@@ -24,7 +24,7 @@ const MENU_ROWS = [
   { id: "m_drill", title: "Drill me", description: "Practise a real scenario" },
   { id: "m_tip", title: "Today's tip", description: "A quick lesson" },
   { id: "m_practise", title: "Practise", description: "Role-play a customer" },
-  { id: "m_voice", title: "Voice help", description: "Speak to me, I can answer aloud" },
+  { id: "m_settings", title: "Settings", description: "Daily tips, mode and voice" },
 ];
 const MENU_PROMPTS: Record<string, string> = {
   m_customer: "Tell me about your customer, the way you would tell a colleague: what they are experiencing, for how long, and any medication they take.",
@@ -32,7 +32,6 @@ const MENU_PROMPTS: Record<string, string> = {
   m_check: "Paste the message or post you want checked, and I'll tell you if it is safe to send.",
   m_follow: "Who is the follow-up for, and how long ago did they order? (for example: Mrs M, delivered yesterday)",
   m_practise: "Which situation should we practise? (for example: a customer who says it is too expensive)",
-  m_voice: "🎤 Send me a voice note and I'll answer. Type VOICE ON or VOICE OFF to choose whether I answer by voice too, and LISTEN to hear my last answer read aloud. Voice notes are turned into text and the audio is not kept.",
 };
 
 async function sendTip(u: WaUser, day: number) {
@@ -52,10 +51,48 @@ export async function sendNextTip(u: WaUser) {
   await sendTip(u, day);
 }
 
-const CLOSE_TRAINING = "Well done. Type TEACH ME for a lesson, DRILL for a practice scenario, or just ask me anything about a customer. 💚";
+type Btn = { id: string; title: string };
+
+async function showMenu(u: WaUser, streak = 0) {
+  await sendList(u.phone, `What do you need${streak > 1 ? `? 🔥 ${streak} days in a row` : "?"}`, "Open menu", MENU_ROWS);
+}
+
+/** Settings as a tap list. Each row shows the current state, and tapping it flips it. */
+async function showSettings(u: WaUser) {
+  await sendList(u.phone, "Settings: tap one to switch it.", "Choose a setting", [
+    { id: "set_tips", title: `Daily tips: ${u.tips_on ? "ON" : "OFF"}`, description: u.tips_on ? "Tap to switch off" : "Tap to switch on" },
+    { id: "set_mode", title: `Mode: ${u.mode === "quick" ? "Quick" : "Full coaching"}`, description: u.mode === "quick" ? "Tap for full coaching" : "Tap for short answers" },
+    { id: "set_voice", title: `Voice replies: ${u.voice_reply ? "ON" : "OFF"}`, description: u.voice_reply ? "Tap to switch off" : "Tap to switch on" },
+    { id: "m_voice", title: "How voice works", description: "Speak to me, I can answer aloud" },
+  ]);
+}
+
+/** A message with tap buttons. If the text is too long for a button body, the buttons follow it as their own message. */
+async function sendTextWithButtons(phone: string, text: string, buttons: Btn[]) {
+  if (text.length <= 1000) { await sendButtons(phone, text, buttons); return; }
+  await sendText(phone, text);
+  await sendButtons(phone, "What would you like to do next?", buttons);
+}
+
+async function afterTraining(u: WaUser) {
+  await sendButtons(u.phone, "Well done. What would you like to do next? You can also just ask me about a customer. 💚",
+    [{ id: "m_teach", title: "Teach me" }, { id: "m_drill", title: "Drill me" }, { id: "m_menu", title: "Open menu" }]);
+}
+
+async function setTipsAndConfirm(u: WaUser, on: boolean) {
+  await setTips(u.phone, on); u.tips_on = on;
+  if (on) await sendButtons(u.phone, "Lovely. Your tip arrives each morning, with a quick check-in on your customer chats. Ask me anything any time. 💚", [{ id: "m_menu", title: "Open menu" }]);
+  else await sendButtons(u.phone, "Done, no more daily tips or check-ins. I'm still here whenever you need me.", [{ id: "tips_yes", title: "Tips back on" }, { id: "m_menu", title: "Open menu" }]);
+}
+
+async function setModeAndConfirm(u: WaUser, mode: "coach" | "quick") {
+  await setMode(u.phone, mode); u.mode = mode;
+  if (mode === "quick") await sendButtons(u.phone, "⚡ Quick mode on: short answers, no teaching notes.", [{ id: "mode_full", title: "Full coaching" }]);
+  else await sendButtons(u.phone, "🎓 Full coaching is on: I'll explain the why and the questions behind every answer.", [{ id: "mode_quick", title: "Quick mode" }]);
+}
 
 async function showTracks(u: WaUser) {
-  await sendList(u.phone, "What would you like to learn? Pick a track, or type TEACH ME followed by a topic (for example: TEACH ME objections).", "Choose a track",
+  await sendList(u.phone, "What would you like to learn? Pick a track below, or just tell me a topic (for example: teach me objections).", "Choose a track",
     allTracks().map((t) => ({ id: `t:${t.id}`, title: t.short, description: t.desc })));
 }
 
@@ -77,8 +114,8 @@ async function startDrill(u: WaUser) {
   const d = drillAt(u.drill_idx);
   await setActivity(u.phone, { drill: d.id });
   u.drill_id = d.id; u.lesson_id = null;
-  const msg = `*Drill ${(((u.drill_idx % drillCount) + drillCount) % drillCount) + 1} of ${drillCount} · ${d.focus}*\n\n${d.scenario}\n\nWhat would you ask or say next? Reply by typing it out. Type DONE to stop.`;
-  await sendText(u.phone, msg);
+  const msg = `*Drill ${(((u.drill_idx % drillCount) + drillCount) % drillCount) + 1} of ${drillCount} · ${d.focus}*\n\n${d.scenario}\n\nWhat would you ask or say next? Reply by typing it out or sending a voice note.`;
+  await sendButtons(u.phone, msg, [{ id: "drill_skip", title: "Skip this one" }, { id: "act_done", title: "Stop drilling" }]);
   await remember(u.phone, "assistant", msg);
 }
 
@@ -98,6 +135,35 @@ async function speak(u: WaUser, text: string, locale: string) {
     const ogg = await synthesize(text, locale);
     if (ogg) await sendVoice(u.phone, ogg);
   } catch (e) { console.error("speak error", e instanceof Error ? e.message : e); }
+}
+
+async function setVoiceAndConfirm(u: WaUser, on: boolean) {
+  await setVoiceReply(u.phone, on); u.voice_reply = on;
+  if (on) await sendButtons(u.phone, `🔊 Voice replies on: when you send me a voice note, I'll answer with a voice note too. ${VOICE_PRIVACY}`, [{ id: "voice_off", title: "Voice off" }]);
+  else await sendButtons(u.phone, "🔇 Voice replies off. I'll still understand your voice notes and answer in text.", [{ id: "voice_on", title: "Voice on" }]);
+}
+
+async function voiceHelp(u: WaUser) {
+  await sendButtons(u.phone, `🎤 *Voice*\nSend me a voice note and I will answer in text and, with voice replies on, in a voice note too. ${VOICE_PRIVACY}\n\nVoice replies are ${u.voice_reply ? "ON" : "OFF"}.${voiceConfigured() ? "" : "\n\n(Voice is not switched on yet, so for now please type.)"}`,
+    [{ id: u.voice_reply ? "voice_off" : "voice_on", title: u.voice_reply ? "Voice off" : "Voice on" }, { id: "listen", title: "🔊 Listen" }]);
+}
+
+async function listenLast(u: WaUser, locale = "en-ZA") {
+  if (!voiceConfigured()) { await sendText(u.phone, NO_VOICE); return; }
+  const last = [...(await history(u.phone, 6))].reverse().find((t) => t.role === "assistant");
+  if (!last) { await sendText(u.phone, "There is nothing to read yet. Ask me something first. 💚"); return; }
+  await speak(u, last.content.replace(/\[product cards sent:[^\]]*\]/g, ""), locale);
+}
+
+/** Tap buttons to offer under a reply: teach, drill, listen, or stop a lesson. */
+function followUpButtons(u: WaUser, reply: string, done: boolean): Btn[] {
+  if (done || u.drill_id) return [];
+  if (u.lesson_id) return [{ id: "act_done", title: "Stop lesson" }];
+  const listen = voiceConfigured();
+  if (u.mode !== "quick" && /Coach's note|\*Try it:\*/i.test(reply)) {
+    return [{ id: "teach_this", title: "Teach me this" }, { id: "m_drill", title: "Drill me" }, listen ? { id: "listen", title: "🔊 Listen" } : { id: "mode_quick", title: "Quick mode" }];
+  }
+  return listen && reply.length > 600 ? [{ id: "listen", title: "🔊 Listen" }] : [];
 }
 
 type Block = { type: "text"; text: string } | { type: "image"; source: { type: "base64"; media_type: "image/jpeg" | "image/png" | "image/webp" | "image/gif"; data: string } };
@@ -129,9 +195,14 @@ async function ask(u: WaUser, member: { id: string; name: string; upline?: strin
     reply = reply.replace(/^(LESSON_DONE|DRILL_DONE)\s*$/gm, "").trim();
     await remember(u.phone, "user", remembered);
     const { text, cards, after } = extractCards(reply);
-    for (const part of splitParts(text)) await sendText(u.phone, part);
-    for (const c of cards) await sendImage(u.phone, imageUrl(c.code), c.caption);
-    for (const part of splitParts(after)) await sendText(u.phone, part);
+    const seq: ({ text: string } | { card: (typeof cards)[number] })[] = [...splitParts(text).map((t) => ({ text: t })), ...cards.map((card) => ({ card })), ...splitParts(after).map((t) => ({ text: t }))];
+    const buttons = followUpButtons(u, reply, lessonDone || drillDone);
+    for (let i = 0; i < seq.length; i++) {
+      const it = seq[i];
+      if ("card" in it) await sendImage(u.phone, imageUrl(it.card.code), it.card.caption);
+      else if (i === seq.length - 1 && buttons.length) await sendTextWithButtons(u.phone, it.text, buttons);
+      else await sendText(u.phone, it.text);
+    }
     if (text || cards.length || after) await remember(u.phone, "assistant", [text, cards.length ? `[product cards sent: ${cards.map((c) => c.code).join(", ")}]` : "", after].filter(Boolean).join("\n"));
     if (cards.length && !u.lesson_id && !u.drill_id) await saveScenario(u.phone, remembered);
     if (opts.viaVoice && u.voice_reply) await speak(u, splitParts(text)[0] ?? splitParts(after)[0] ?? "", opts.locale ?? "en-ZA");
@@ -180,14 +251,58 @@ export async function handleIncoming(m: Incoming) {
   }
   const streak = await touch(u);
 
+  const processText = async (text: string, viaVoice = false, locale = "en-ZA") => {
+    const upper = text.trim().toUpperCase();
+    if (["STOP", "UNSUBSCRIBE"].includes(upper)) { await setTipsAndConfirm(u, false); return; }
+    if (upper === "START") { await setTipsAndConfirm(u, true); return; }
+    if (["MENU", "?", "HELP", "HI", "HELLO"].includes(upper)) { await showMenu(u, streak); return; }
+    if (upper === "SETTINGS") { await showSettings(u); return; }
+    if (upper === "VOICE" || upper === "VOICE HELP") { await voiceHelp(u); return; }
+    if (upper === "VOICE ON") { await setVoiceAndConfirm(u, true); return; }
+    if (upper === "VOICE OFF") { await setVoiceAndConfirm(u, false); return; }
+    if (upper === "LISTEN") { await listenLast(u, locale); return; }
+    if (upper === "TIP" || upper === "SHOW ME") { await sendNextTip(u); return; }
+    if (upper === "QUICK") { await setModeAndConfirm(u, "quick"); return; }
+    if (upper === "FULL") { await setModeAndConfirm(u, "coach"); return; }
+    if (upper === "DRILL") { await startDrill(u); return; }
+    if (upper === "DONE" && (u.lesson_id || u.drill_id)) { await endActivity(u); await afterTraining(u); return; }
+    if (upper === "TEACH" || upper.startsWith("TEACH ME") || upper.startsWith("TEACH ")) {
+      const topic = text.replace(/^teach( me)?/i, "").replace(/^[\s:,-]+/, "").trim();
+      const item = topic ? searchLesson(topic) : null;
+      if (item) await startLesson(u, member!, item); else await showTracks(u);
+      return;
+    }
+    if (!text) return;
+    await ask(u, member!, [{ type: "text", text }], text, { viaVoice, locale });
+    return;
+  };
   if (m.kind === "button") {
     const id = m.actionId ?? "";
-    if (id === "tips_yes") { await setTips(u.phone, true); await sendText(u.phone, "Lovely. Your tip arrives each morning. Type MENU any time, or just ask me anything. 💚"); return; }
-    if (id === "tips_no") { await sendText(u.phone, "No problem. Type TIP whenever you want one, or just ask me anything."); return; }
+    if (id === "tips_yes") { await setTipsAndConfirm(u, true); return; }
+    if (id === "tips_no") { await sendButtons(u.phone, "No problem. Tap below whenever you want a tip, or just ask me anything.", [{ id: "tip_today", title: "Send me a tip" }, { id: "m_menu", title: "Open menu" }]); return; }
+    if (id === "m_menu") { await showMenu(u, streak); return; }
+    if (id === "m_settings") { await showSettings(u); return; }
+    if (id === "set_tips") { await setTipsAndConfirm(u, !u.tips_on); return; }
+    if (id === "set_mode") { await setModeAndConfirm(u, u.mode === "quick" ? "coach" : "quick"); return; }
+    if (id === "set_voice") { await setVoiceAndConfirm(u, !u.voice_reply); return; }
+    if (id === "mode_quick") { await setModeAndConfirm(u, "quick"); return; }
+    if (id === "mode_full") { await setModeAndConfirm(u, "coach"); return; }
+    if (id === "voice_on") { await setVoiceAndConfirm(u, true); return; }
+    if (id === "voice_off") { await setVoiceAndConfirm(u, false); return; }
+    if (id === "m_voice") { await voiceHelp(u); return; }
+    if (id === "listen") { await listenLast(u); return; }
+    if (id === "drill_skip") { await bumpDrill(u.phone); u.drill_idx += 1; await startDrill(u); return; }
+    if (id === "teach_this") {
+      const recent = (await history(u.phone, 8)).filter((t) => t.role === "user").map((t) => t.content);
+      const topic = u.last_scenario ?? recent[recent.length - 1] ?? "";
+      const item = playbooksFor([topic, ...recent.slice(-2)])[0] ?? searchLesson(topic);
+      if (item) await startLesson(u, member!, item); else await showTracks(u);
+      return;
+    }
     if (id === "tip_today" || id === "m_tip") { await sendNextTip(u); return; }
     if (id === "m_teach") { await showTracks(u); return; }
     if (id === "m_drill" || id === "drill_next") { await startDrill(u); return; }
-    if (id === "act_done") { await endActivity(u); await sendText(u.phone, CLOSE_TRAINING); return; }
+    if (id === "act_done") { await endActivity(u); await afterTraining(u); return; }
     if (id.startsWith("t:")) { await showTrack(u, id.slice(2)); return; }
     if (id.startsWith("l:")) { const item = getLesson(id.slice(2)); if (item) await startLesson(u, member!, item); else await showTracks(u); return; }
     if (id.startsWith("ci_")) {
@@ -205,45 +320,12 @@ export async function handleIncoming(m: Incoming) {
       return;
     }
     if (MENU_PROMPTS[id]) { await sendText(u.phone, MENU_PROMPTS[id]); return; }
+    // A tap whose id we do not recognise (an old button, say) is never dropped: its title is treated as if the person had typed it.
+    console.log("wa unknown tap id, using its title as text", { from: who, id: id.slice(0, 40) });
+    if (m.text?.trim()) await processText(m.text.trim());
     return;
   }
 
-  const processText = async (text: string, viaVoice = false, locale = "en-ZA") => {
-    const upper = text.trim().toUpperCase();
-    if (["STOP", "UNSUBSCRIBE"].includes(upper)) { await setTips(u.phone, false); await sendText(u.phone, "Done, no more daily tips. I'm still here whenever you need me. Type START to turn them back on."); return; }
-    if (upper === "START") { await setTips(u.phone, true); await sendText(u.phone, "Daily tips are back on. 💚"); return; }
-    if (["MENU", "?", "HELP", "HI", "HELLO"].includes(upper)) {
-      await sendList(u.phone, `What do you need${streak > 1 ? `? 🔥 ${streak} days in a row` : "?"}`, "Open menu", MENU_ROWS);
-      return;
-    }
-    if (upper === "VOICE" || upper === "VOICE HELP") {
-      await sendText(u.phone, `🎤 *Voice*\nSend me a voice note and I will answer in text and, with voice replies on, in a voice note too. Type LISTEN to hear my last answer read aloud. ${VOICE_PRIVACY}\n\nVoice replies are ${u.voice_reply ? "ON" : "OFF"}. Type VOICE ON or VOICE OFF to change it.${voiceConfigured() ? "" : "\n\n(Voice is not switched on yet, so for now please type.)"}`);
-      return;
-    }
-    if (upper === "VOICE ON") { await setVoiceReply(u.phone, true); u.voice_reply = true; await sendText(u.phone, `🔊 Voice replies on: when you send me a voice note, I'll answer with a voice note too. ${VOICE_PRIVACY} Type VOICE OFF to turn it off.`); return; }
-    if (upper === "VOICE OFF") { await setVoiceReply(u.phone, false); u.voice_reply = false; await sendText(u.phone, "🔇 Voice replies off. I'll still understand your voice notes and answer in text. Type VOICE ON to turn them back on."); return; }
-    if (upper === "LISTEN") {
-      if (!voiceConfigured()) { await sendText(u.phone, NO_VOICE); return; }
-      const last = [...(await history(u.phone, 6))].reverse().find((t) => t.role === "assistant");
-      if (!last) { await sendText(u.phone, "There is nothing to read yet. Ask me something first. 💚"); return; }
-      await speak(u, last.content.replace(/\[product cards sent:[^\]]*\]/g, ""), locale);
-      return;
-    }
-    if (upper === "TIP" || upper === "SHOW ME") { await sendNextTip(u); return; }
-    if (upper === "QUICK") { await setMode(u.phone, "quick"); await sendText(u.phone, "⚡ Quick mode on: short answers, no teaching notes. Type FULL to bring the coaching back."); return; }
-    if (upper === "FULL") { await setMode(u.phone, "coach"); await sendText(u.phone, "🎓 Full coaching is back on: I'll explain the why and the questions behind every answer. Type QUICK any time for short answers."); return; }
-    if (upper === "DRILL") { await startDrill(u); return; }
-    if (upper === "DONE" && (u.lesson_id || u.drill_id)) { await endActivity(u); await sendText(u.phone, CLOSE_TRAINING); return; }
-    if (upper === "TEACH" || upper.startsWith("TEACH ME") || upper.startsWith("TEACH ")) {
-      const topic = text.replace(/^teach( me)?/i, "").replace(/^[\s:,-]+/, "").trim();
-      const item = topic ? searchLesson(topic) : null;
-      if (item) await startLesson(u, member!, item); else await showTracks(u);
-      return;
-    }
-    if (!text) return;
-    await ask(u, member!, [{ type: "text", text }], text, { viaVoice, locale });
-    return;
-  };
   if (m.kind === "text") { await processText(text); return; }
 
   if (m.kind === "image" && m.mediaId) {

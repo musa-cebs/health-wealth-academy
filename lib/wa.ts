@@ -30,7 +30,9 @@ export function parseIncoming(payload: any): Incoming[] {
       if (m.type === "text") out.push({ ...base, kind: "text", text: m.text?.body ?? "" });
       else if (m.type === "interactive") {
         const r = m.interactive?.button_reply ?? m.interactive?.list_reply;
+        // A tap has no text.body: its id says what was chosen, and its title doubles as the typed-text fallback.
         if (r) out.push({ ...base, kind: "button", actionId: r.id, text: r.title });
+        else out.push({ ...base, kind: "other" });
       } else if (m.type === "button") out.push({ ...base, kind: "button", actionId: m.button?.payload, text: m.button?.text });
       else if (m.type === "image") out.push({ ...base, kind: "image", mediaId: m.image?.id, text: m.image?.caption });
       else if (m.type === "audio") out.push({ ...base, kind: "audio", mediaId: m.audio?.id });

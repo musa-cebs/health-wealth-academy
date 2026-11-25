@@ -71,3 +71,15 @@ Every hard customer answer teaches as well as answers (why it works, the questio
 
 ### Voice (Pocket Coach)
 Distributors can send a WhatsApp voice note; it is transcribed (Azure AI Speech, OGG/Opus, up to 60 seconds) and handled exactly like typed text, including commands. With voice replies on (default) a voice note gets a spoken answer too; `LISTEN` reads the last answer aloud; `VOICE ON/OFF` switches replies. Audio is never stored. Needs `SPEECH_KEY` and `SPEECH_REGION`; without them voice notes get a polite "type it for now". Optional: `SPEECH_LOCALES` (default `en-ZA`), `TTS_VOICE`, `VOICE_DAILY_LIMIT` (default 20).
+
+### Native interactive messages
+
+Fixed-choice steps in Pocket Coach use WhatsApp reply buttons (max 3) and list messages (max 10 rows) instead of typed words: the main menu, settings, tips yes/no, quick/full mode, voice on/off, training tracks and lessons, drill skip/next, check-in follow-ups and next-step prompts. Open-ended questions stay as free text.
+
+- A tap arrives with no `text.body`, only `interactive.button_reply` or `interactive.list_reply`. `lib/wa.ts` turns it into `{kind: "button", actionId, text: title}`.
+- `handleIncoming` matches on the **id**, never the title. An unknown id (for example a button from an old message) falls back to treating its title as typed text, so nothing is dropped.
+- `sendButtons` and `sendList` clamp to WhatsApp limits (button title 20, body 1024, row title 24, description 72).
+- Typed commands (MENU, STOP, DRILL, VOICE and so on) still work.
+- Catalog messages are not used: product cards are images and there is no Meta catalogue.
+
+To test without a phone, POST an HMAC-signed (`X-Hub-Signature-256`, app secret) webhook body with `interactive.button_reply` and no `text.body` to `/api/wa`.

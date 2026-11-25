@@ -73,7 +73,7 @@ function describe(i: Item): string {
 export function trainingContext(o: { mode: string; lessonId?: string | null; drillId?: string | null; recentTexts: string[] }): string {
   const parts: string[] = ["", "ACTIVE CONTEXT FOR THIS REPLY (set by the system, not by the user):"];
   parts.push(o.mode === "quick"
-    ? "MODE: QUICK. The distributor wants short answers. Skip the *Coach's note* and the purposes in brackets, keep it brief, and mention they can type FULL to switch the teaching notes back on."
+    ? "MODE: QUICK. The distributor wants short answers. Skip the *Coach's note* and the purposes in brackets, keep it brief, and mention they can switch the teaching notes back on from the menu (Settings)."
     : "MODE: COACH. Use the full teaching layer described above.");
   const lesson = getLesson(o.lessonId);
   const drill = getDrill(o.drillId);
